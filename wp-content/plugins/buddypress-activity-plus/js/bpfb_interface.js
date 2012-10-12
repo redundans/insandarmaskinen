@@ -88,6 +88,34 @@ var BpfbLinkHandler = function () {
 	    return pattern.exec(str);
 	  }
 	}
+
+	var typingTimer;
+	var doneTypingInterval = 700;
+	var old_url = '';
+
+	function delayExecute( val )
+	{
+	    clearTimeout(typingTimer);
+	        typingTimer = setTimeout(
+	        function(){
+	        	somethingExecuted( val );
+	        }, doneTypingInterval
+	    );
+
+	    return true;
+	}
+
+	function somethingExecuted( val )
+	{			
+		var urlRegex = /(^|\s)\b((?:(?:https?|ftp):(?:\/{1,3})|www\.)(?:[^"<>\)\s]|\(([^\s()<>]+|(\([^\s()<>]+\)))\))+)(?=\s|$)/gi;
+		var out = val.match( urlRegex );
+  		if ( out && out != old_url ) {
+			createLinkPreview(out[0]);
+			old_url = out[0];
+			$('.bpfb_preview_container').show();
+			console.log(out);
+  		}
+	}
 	
 	var createMarkup = function () {
 		
@@ -100,14 +128,7 @@ var BpfbLinkHandler = function () {
 		});
 
 		$('form#whats-new-form textarea').keyup( function() {
-		var urlRegex = /(^|\s)\b((?:(?:https?|ftp):(?:\/{1,3})|www\.)(?:[^"<>\)\s]|\(([^\s()<>]+|(\([^\s()<>]+\)))\))+)(?=\s|$)/gi;
-		var out = $(this).val().match( urlRegex );
-  		if ( out ) {
-			createLinkPreview(out[0]);
-				$('.bpfb_preview_container').show();
-			console.log(out);
-  		} else {
-  		}
+			delayExecute( $(this).val() );
 		});
 
 	};
@@ -132,7 +153,7 @@ var BpfbLinkHandler = function () {
 					'<div class="bpfb_link_preview_title">' + data.title + '</div>' +
 					'<input type="hidden" name="bpfb_link_title" value="' + data.title + '" />' +
 					'<div class="bpfb_link_preview_url">' + data.url + '</div>' +
-					'<input type="hidden" name="bpfb_link_url" value="' + data.url + '" />' +
+					'<input type="hidden" name="bpfb_link_url" id="bpfb_link_url" value="' + data.url + '" />' +
 					'<div class="bpfb_link_preview_body">' + data.text + '</div>' +
 					'<input type="hidden" name="bpfb_link_body" value="' + data.text + '" />' +
 					'<div class="bpfb_thumbnail_chooser">' +
