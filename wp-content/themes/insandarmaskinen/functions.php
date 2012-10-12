@@ -131,3 +131,33 @@ if( ! function_exists( 'read_letter_screen_show' ) ) {
 }
 
 register_nav_menu( 'user', 'User menu' );
+
+add_action('category_add_form_fields', 'category_metabox_add', 10, 1);
+add_action('category_edit_form_fields', 'category_metabox_edit', 10, 1);    
+ 
+function category_metabox_add($tag) { ?>
+    <div class="form-field">
+        <label for="email"><?php _e('Email') ?></label>
+        <input name="email" id="email" type="text" value="" size="40" aria-required="true" />
+    </div>
+<?php }     
+ 
+function category_metabox_edit($tag) { ?>
+    <tr class="form-field">
+        <th scope="row" valign="top">
+            <label for="email"><?php _e('Email'); ?></label>
+        </th>
+        <td>
+            <input name="email" id="email" type="text" value="<?php echo get_term_meta($tag->term_id, 'email', true); ?>" size="40" aria-required="true" />
+        </td>
+    </tr>
+<?php }
+
+add_action('created_category', 'save_category_metadata', 10, 1);    
+add_action('edited_category', 'save_category_metadata', 10, 1);
+ 
+function save_category_metadata($term_id)
+{
+    if (isset($_POST['email'])) 
+        update_term_meta( $term_id, 'email', $_POST['email']);                  
+}
