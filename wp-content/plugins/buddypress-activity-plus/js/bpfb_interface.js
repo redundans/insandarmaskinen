@@ -81,7 +81,7 @@ var BpfbLinkHandler = function () {
 	$container = $(".bpfb_controls_container");
 
 	function ValidURL(str) {
-	  var pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i");
+	  var pattern = new RegExp("\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))", "i");
 	  if(!pattern.test(str)) {
 	    return false;
 	  } else {
@@ -100,11 +100,12 @@ var BpfbLinkHandler = function () {
 		});
 
 		$('form#whats-new-form textarea').keyup( function() {
-		var result = ValidURL($(this).val());
-  		if ( result ) {
-			createLinkPreview(result[0]);
+		var urlRegex = /(^|\s)\b((?:(?:https?|ftp):(?:\/{1,3})|www\.)(?:[^"<>\)\s]|\(([^\s()<>]+|(\([^\s()<>]+\)))\))+)(?=\s|$)/gi;
+		var out = $(this).val().match( urlRegex );
+  		if ( out ) {
+			createLinkPreview(out[0]);
 				$('.bpfb_preview_container').show();
-			console.log('match');
+			console.log(out);
   		} else {
   		}
 		});
@@ -118,7 +119,8 @@ var BpfbLinkHandler = function () {
 		}
 		var imgs = '';
 		$.each(data.images, function(idx, img) {
-			var url = img.match(/^http/) ? img : data.url + '/' + img;
+			var url = img;
+			console.log(url);
 			imgs += '<img class="bpfb_link_preview_image" src="' + url + '" />';
 		});
 		var html = '<div class="row">' +

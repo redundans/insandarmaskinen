@@ -159,6 +159,7 @@ class BpfbBinder {
 	 */
 	function ajax_preview_link () {
 		$url = $_POST['data'];
+		error_log($url);
 		$scheme = parse_url($url, PHP_URL_SCHEME);
 		if (!$scheme || !preg_match('/^https?$/', $scheme)) {
 			$url = "http://{$url}";
@@ -169,7 +170,7 @@ class BpfbBinder {
 		$images = array();
 		$title = $warning;
 		$text = $warning;
-
+		error_log($url);
 		$page = $this->get_page_contents($url);
 		require_once(BPFB_PLUGIN_BASE_DIR . '/lib/external/simple_html_dom.php');
 		$html = str_get_html($page);
@@ -178,8 +179,14 @@ class BpfbBinder {
 		if ($str) {
 			$image_els = $html->find('img');
 			foreach ($image_els as $el) {
-				if ($el->width > 100 && $el->height > 1) // Disregard spacers
-					$images[] = $el->src;
+				$img_path = parse_url($el->src);
+				$host = parse_url($url);
+				$img = $el->src;
+				if( $img_path['host'] == '')
+					$img = $host['scheme'] . '://' . $host['host'] . $el->src;
+				if( preg_match('/^.*\.(jpg|jpeg|png)$/i', $img) >= 1 ){
+					$images[] = $img;
+				}
 			}
 			$og_image = $html->find('meta[property=og:image]', 0);
 			if ($og_image) array_unshift($images, $og_image->content);
