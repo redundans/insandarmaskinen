@@ -132,8 +132,8 @@ if( ! function_exists( 'read_letter_screen_show' ) ) {
 
 register_nav_menu( 'user', 'User menu' );
 
-add_action('term_add_form_fields', 'category_metabox_add', 10, 1);
-add_action('term_edit_form_fields', 'category_metabox_edit', 10, 1);    
+add_action('paper_add_form_fields', 'category_metabox_add', 10, 1);
+add_action('category_edit_form_fields', 'category_metabox_edit', 10, 1);    
  
 function category_metabox_add($tag) { ?>
     <div class="form-field">
