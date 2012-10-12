@@ -1,0 +1,3270 @@
+# Translation of bbPress in Swedish
+# This file is distributed under the same license as the bbPress package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2011-09-22 20:24+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: bbPress sv_SE\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Mattias Tengblad <mst@eyesx.com>\n"
+"Language-Team: WordPress Sverige <info@wp-support.se>\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: bbp-includes/bbp-extend-buddypress.php:559
+msgid "%1$s replied to the topic %2$s in the forum %3$s"
+msgstr "%1$s svarade på tråden %2$s i forumet %3$s"
+
+#: bbp-includes/bbp-extend-buddypress.php:466
+msgid "%1$s started the topic %2$s in the forum %3$s"
+msgstr "%1$s skapade tråden %2$s i forumet %3$s"
+
+#: bbp-includes/bbp-core-widgets.php:96
+msgid "Remember Me"
+msgstr "Kom ihåg mig"
+
+msgid "bbPress is forum software with a twist from the creators of WordPress."
+msgstr "bbPress är en forum-mjukvara med en tvist från skaparna av WordPress."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:41
+msgid "Create New Topic in &ldquo;%s&rdquo;"
+msgstr "Skapa ny tråd i &ldquo;%s&rdquo;"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:39
+msgid "Now Editing &ldquo;%s&rdquo;"
+msgstr "Redigerar &ldquo;%s&rdquo;"
+
+#: bbp-includes/bbp-extend-buddypress.php:231
+msgid "New reply created"
+msgstr "Nytt svar postat"
+
+msgid "http://bbpress.org"
+msgstr "http://bbpress.org"
+
+msgid "bbPress"
+msgstr "bbPress"
+
+#: bbp-includes/bbp-extend-buddypress.php:228
+msgid "New topic created"
+msgstr "Ny tråd skapad"
+
+#: bbp-includes/bbp-common-functions.php:1043
+msgid ""
+"%1$s wrote:\n"
+"\n"
+"%2$s\n"
+"\n"
+"Post Link: %3$s\n"
+"\n"
+"You are recieving this email because you subscribed to it. Login and visit the topic to unsubscribe from these emails."
+msgstr ""
+"%1$s skrev:\n"
+"\n"
+"%2$s\n"
+"\n"
+"Direktlänk till inlägg: %3$s\n"
+"\n"
+"Du får detta meddelande eftersom du prenumererar på tråden. Du kan logga in och besöka tråden för att avsluta prenumerationen."
+
+#: bbp-includes/bbp-reply-functions.php:208
+msgid "<strong>ERROR</strong>: Your reply cannot be created at this time."
+msgstr "<strong>FEL</strong>: Ditt svar kan för tillfället inte sparas."
+
+#: bbp-includes/bbp-reply-functions.php:456
+msgid "<strong>ERROR</strong>: Your reply cannot be edited at this time."
+msgstr "<strong>FEL</strong>: Ditt svar kan för tillfället inte redigeras."
+
+#: bbp-includes/bbp-topic-functions.php:234
+msgid "<strong>ERROR</strong>: Your topic cannot be created at this time."
+msgstr "<strong>FEL</strong>: Din tråd kan för tillfället inte skapas."
+
+#: bbp-includes/bbp-topic-functions.php:527
+msgid "<strong>ERROR</strong>: Your topic cannot be edited at this time."
+msgstr "<strong>FEL</strong>: Din tråd kan för tillfället inte redigeras."
+
+msgid "The bbPress Community"
+msgstr "The bbPress Community"
+
+#: bbp-includes/bbp-core-widgets.php:456
+msgid "Parent Forum ID:"
+msgstr "ID för huvudforum:"
+
+#: bbp-includes/bbp-reply-functions.php:257
+#: bbp-includes/bbp-reply-functions.php:495
+msgid "<strong>ERROR</strong>: There was a problem adding the tags to the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att lägga till taggar i tråden."
+
+#: bbp-includes/bbp-core-widgets.php:187
+msgid "Register URI:"
+msgstr "URI för registrering:"
+
+#: bbp-includes/bbp-core-widgets.php:192
+msgid "Lost Password URI:"
+msgstr "URI för återställning av lösenord:"
+
+#: bbp-includes/bbp-core-widgets.php:462
+msgid "\"0\" to show only root - \"any\" to show all"
+msgstr "\"0\" för att visa endast root - \"alla\" för att visa alla"
+
+#: bbp-admin/bbp-metaboxes.php:216
+msgid "Theme is using <strong>default bbPress</strong> styling."
+msgstr "Temat använder <strong>bbPress standardstil</strong>."
+
+#: bbp-admin/bbp-settings.php:637
+msgid "Possible %1$s conflict: <strong>%2$s</strong>"
+msgstr "Möjlig konflikt med %1$s: <strong>%2$s</strong>"
+
+#: bbp-admin/bbp-metaboxes.php:214
+msgid "Theme is using <strong>custom bbPress</strong> styling."
+msgstr "Temat använder <strong>anpassad bbPress</strong>-stil."
+
+#: bbp-admin/bbp-metaboxes.php:123
+msgid "Users &amp; Moderation"
+msgstr "Användare &amp; Moderering"
+
+#: bbp-admin/bbp-admin.php:209
+msgid "Allow Revisions"
+msgstr "Tillåt loggning"
+
+#: bbp-admin/bbp-admin.php:226
+msgid "Allow Global Access"
+msgstr "Tillåt global tillgång"
+
+#: bbp-admin/bbp-settings.php:103
+msgid "Allow topic and reply revision logging"
+msgstr "Tillåt loggning av trådar och svar"
+
+#: bbp-admin/bbp-settings.php:135
+msgid "Allow all users of your multisite installation to create topics and replies"
+msgstr "Tillåt alla användare av multisite-installationen att skapa trådar och svar"
+
+#: bbp-admin/bbp-settings.php:312
+msgid "Prefix your forum area with the Forum Base slug (Recommended)"
+msgstr "Sätt prefix till forumbaspermalänk för din forumsektion (rekommenderas)"
+
+#: bbp-admin/bbp-settings.php:618
+msgid "%s page"
+msgstr "%s sida"
+
+#: bbp-admin/importers/bbpress.php:350
+msgid "bbPress Standalone Importer"
+msgstr "Importör för fristående bbPress"
+
+#: bbp-admin/importers/bbpress.php:363
+msgid "Try Again"
+msgstr "Försök igen"
+
+#: bbp-admin/importers/bbpress.php:447
+msgid "It looks like you attempted to convert your bbPress standalone previously and got interrupted."
+msgstr "Det verkar som du tidigare försökte konvertera din fristående bbPress-installation och blev avbruten."
+
+#: bbp-admin/importers/bbpress.php:450
+msgid "Cancel &amp; start a new import"
+msgstr "Avbryt &amp; starta en ny import"
+
+#: bbp-admin/importers/bbpress.php:451
+msgid "Continue previous import"
+msgstr "Fortsätt på tidigare import"
+
+#: bbp-admin/importers/bbpress.php:459
+msgid "Existing bbPress standalone installation found. See configuration section for details."
+msgstr "Befintlig fristående bbPress-installation hittades. Se konfigurationsdelen för mer information."
+
+#: bbp-admin/importers/bbpress.php:466
+msgid "This importer allows you to convert your bbPress Standalone into the bbPress Plugin."
+msgstr "Denna importör möjliggör konvertering av din fristående bbPress-installation till bbPress-tillägg."
+
+#: bbp-admin/importers/bbpress.php:468
+msgid "Instructions"
+msgstr "Instruktioner"
+
+#: bbp-admin/importers/bbpress.php:470
+msgid "Create a <a href=\"%s\">backup</a> of your database and files. If the import process is interrupted for any reason, restore from that backup and re-run the import."
+msgstr "Ta en <a href=\"%s\">backup</a> av din databas och filer. Om importen avbryts av någon anledning, återställ från denna backup och kör importringen igen."
+
+#: bbp-admin/importers/bbpress.php:471
+msgid "Seriously... Go back everything up, and don't come back until that's done. If things go awry, it's possible this importer will not be able to complete and your forums will be lost in limbo forever. This is serious business. No, we're not kidding."
+msgstr "Allvarligt ... Gå och ta backup av allt, kom inte tillbaka förrän det är gjort. Om något går snett så finns möjligheten att denna import inte kommer att kunna slutföras och ditt forum kommer att gå förlorat i limbo för evigt. Detta är allvarliga saker. Nej, vi skämtar inte."
+
+#: bbp-admin/importers/bbpress.php:472
+msgid "To reduce memory overhead and avoid possible conflicts please:"
+msgstr "För att minska minnesanvändning och för att undvika eventuella konflikter vänligen:"
+
+#: bbp-admin/importers/bbpress.php:475
+msgid "Disable all plugins (except bbPress) on both your WordPress and bbPress standalone installations."
+msgstr "Inaktivera alla tillägg (förutom bbPress) i både WordPress och bbPress."
+
+#: bbp-admin/importers/bbpress.php:478
+msgid "Switch to a default WordPress theme."
+msgstr "Byt till ett standardtema för WordPress."
+
+#: bbp-admin/importers/bbpress.php:482
+msgid "Notes on compatibility:"
+msgstr "Anmärkningar för kompatibilitet:"
+
+#: bbp-admin/importers/bbpress.php:485
+msgid "If you are using the alpha version of bbPress 1.1, subscriptions will be ported automatically."
+msgstr "Om du använder alfa-versionen av bbPress 1.1 så kommer prenumerationer att föras över automatiskt."
+
+#: bbp-admin/importers/bbpress.php:488
+msgid "If you have the <a href=\"%s\">Subscribe to Topic</a> plugin active, then this script will migrate user subscriptions from that plugin."
+msgstr "Om du har tillägget <a href=\"%s\">Subscribe to Topic</a> aktiveratså kommer detta skript att migrera användarnas prenumerationer från det tillägget."
+
+#: bbp-admin/importers/bbpress.php:491
+msgid "If you are importing an existing BuddyPress Forums installation, we should have found your previous configuration file."
+msgstr "Om du importerar en befintlig installation av BuddyPress Forums så borde vi ha hittat den tidigare konfigurationsfilen."
+
+#: bbp-admin/importers/bbpress.php:495
+msgid "This converter can be a drag on large forums with lots of existing topics and replies. If possible, do this import in a safe place (like a local installation.)"
+msgstr "Denna konverterare kan vara problematisk i stora forum med många befintliga trådar och svar. Om möjligt, gör denna importering på ett säkert ställe (som en lokal installation.)"
+
+#: bbp-admin/importers/bbpress.php:498
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: bbp-admin/importers/bbpress.php:499
+msgid "Enter the full path to your bbPress configuration file i.e. <code>bb-config.php</code>:"
+msgstr "Ange fullständig sökväg till din bbPress konfigurationsfil <code>bb-config.php</code>:"
+
+#: bbp-admin/importers/bbpress.php:503
+msgid "bbPress Standalone Path:"
+msgstr "Sökväg till bbPress-installation:"
+
+#: bbp-admin/importers/bbpress.php:510
+msgid "Proceed"
+msgstr "Fortsätt"
+
+#: bbp-admin/importers/bbpress.php:556
+msgid "Please enter the path to your bbPress configuration file - <code>bb-config.php</code>."
+msgstr "Ange sökvägen till din bbPress konfigurationsfil - <code>bb-config.php</code>."
+
+#: bbp-admin/importers/bbpress.php:557
+#: bbp-admin/importers/bbpress.php:575
+msgid "Go Back"
+msgstr "Gå tillbaka"
+
+#: bbp-admin/importers/bbpress.php:574
+msgid "bbPress configuration file <code>bb-config.php</code> doesn't exist in the path specified! Please check the path and try again."
+msgstr "bbPress konfigurationsfil <code>bb-config.php</code> finns inte under den angivna sökvägen! Kontrollera sökvägen och försök igen."
+
+#: bbp-admin/importers/bbpress.php:608
+msgid "Configuration Options"
+msgstr "Alternativ för konfiguration"
+
+#: bbp-admin/importers/bbpress.php:614
+msgid "<strong>Auto-detected</strong>: Your WordPress and bbPress user tables are integrated. Proceed to <label for=\"step_board\">importing forums, topics and posts</label>."
+msgstr "<strong>Upptäck automatisk</strong>: Dina WordPress och bbPress användartabeller är integrerade. Gå vidare till <label for=\"step_board\">importera forum, trådar och inlägg</label>."
+
+#: bbp-admin/importers/bbpress.php:621
+msgid "Your WordPress blog is <strong>new</strong> and you don't have the fear of losing WordPress users:"
+msgstr "Din installation av WordPress är <strong>ny</strong> och du har inte rädsla för att förlora WordPress-användare:"
+
+#: bbp-admin/importers/bbpress.php:622
+msgid "Go to migrating users section."
+msgstr "Gå till sektionen för att migrera användare."
+
+#: bbp-admin/importers/bbpress.php:623
+msgid "<strong>Note</strong>: The WordPress %1$s and %2$s tables will be renamed (not deleted) so that you can restore them if something goes wrong."
+msgstr "<strong>Notera</strong>: WordPress %1$s och %2$s tabellerna kommer att ges nya namn, men inte raderas så att du kan återställa dem om något går fel."
+
+#: bbp-admin/importers/bbpress.php:624
+msgid "Please ensure there are no tables named %1$s and %2$s to avoid renaming conflicts."
+msgstr "Vänligen kontrollera så att det inte finns några tabeller med namnen %1$s och %2$s för att slippa konflikter."
+
+#: bbp-admin/importers/bbpress.php:625
+msgid "Also, your WordPress and bbPress installs must be in the same database."
+msgstr "Dessutom måste dina installationer av WordPress och bbPress vara i samma databas."
+
+#: bbp-admin/importers/bbpress.php:629
+msgid "You're done with user migration or have the user tables <strong>integrated</strong>:"
+msgstr "Du är klar med migrationen av användare eller har användartabellerna <strong>integrerade</strong>:"
+
+#: bbp-admin/importers/bbpress.php:630
+msgid "Proceed to importing forums, topics and posts section."
+msgstr "Fortsätt till sektionen importera forum, trådar och inlägg."
+
+#: bbp-admin/importers/bbpress.php:634
+msgid "You have a well <strong>established</strong> WordPress user base, the user tables are not integrated and you can't lose your users:"
+msgstr "Du har en väl <strong>etablerad</strong> användarbas för WordPress, användartabellerna är inte integrerade och du kan inte förlora dina användare:"
+
+#: bbp-admin/importers/bbpress.php:635
+msgid "This is currently not yet supported, and will likely not be in the future also as it is highly complex to merge two user sets (which might even conflict)."
+msgstr "Detta stöds för närvarande inte och kommer sannolikt inte göras så i framtiden heller eftersom det är mycket komplicerat att slå samman två användaruppsättningar (som kanske till och med skapar konflikter)."
+
+#: bbp-admin/importers/bbpress.php:636
+msgid "Patches are always <a href=\"%s\" title=\"The last revision containing the custom user migration code\">welcome</a>. :)"
+msgstr "Åtgärder är alltid <a href=\"%s\" title=\"Den senaste versionen innehåller koden för den anpassade användarmigreringen\">välkomna</a>. :)"
+
+#: bbp-admin/importers/bbpress.php:644
+msgid "Migrate Users"
+msgstr "Migrera användare"
+
+#: bbp-admin/importers/bbpress.php:647
+msgid "Import Forums, Topics & Posts"
+msgstr "Importera forum, trådar och inlägg"
+
+#: bbp-admin/importers/bbpress.php:651
+msgid "Start!"
+msgstr "Starta!"
+
+#: bbp-admin/importers/bbpress.php:687
+msgid "Importing Users"
+msgstr "Importerar användare"
+
+#: bbp-admin/importers/bbpress.php:688
+msgid "We&#8217;re in the process of migrating your users..."
+msgstr "Vi är i färd med att migrera dina användare..."
+
+#: bbp-admin/importers/bbpress.php:698
+msgid "Renamed the <code>%1$s</code> and <code>%2$s</code> tables to <code>%3$s</code> and <code>%4$s</code> respectively."
+msgstr "Döpte om <code>%1$s</code> och <code>%2$s</code> tabellerna till <code>%3$s</code> respektive <code>%4$s</code>."
+
+#: bbp-admin/importers/bbpress.php:700
+msgid "There was a problem dropping the <code>%1$s</code> and <code>%2$s</code> tables. Please check and re-run the script or rename or drop the tables yourself."
+msgstr "Det uppstod ett problem med att radera tabellerna <code>%1$s</code> och <code>%2$s</code>. Kontrollera och kör sedan skriptet igen eller försök att döpa om/radera tabellerna manuellt."
+
+#: bbp-admin/importers/bbpress.php:716
+msgid "Created the <code>%s</code> table and copied the users from bbPress."
+msgstr "Skapade <code>%s</code> tabell och kopierade användare från bbPress."
+
+#: bbp-admin/importers/bbpress.php:718
+#: bbp-admin/importers/bbpress.php:735
+msgid "There was a problem duplicating the table <code>%1$s</code> to <code>%2$s</code>. Please check and re-run the script or duplicate the table yourself."
+msgstr "Det uppstod ett problem med att duplicera tabellen <code>%1$s</code> till <code>%2$s</code>. Kontrollera och kör skriptet igen eller kopiera tabellen själv."
+
+#: bbp-admin/importers/bbpress.php:733
+msgid "Created the <code>%s</code> table and copied the user information from bbPress."
+msgstr "Skapade tabellen <code>%s</code> och kopierade användarinformationen från bbPress."
+
+#: bbp-admin/importers/bbpress.php:808
+msgid "There was a problem in getting an administrator of the blog. Now, please go to your blog, set a user as administrator, login as that user and directly go to importing forums, topics and replies section. Note that old logins won't work, you would have to edit your database (you can still try logging in as the bbPress keymaster)."
+msgstr "Det uppstod ett problem med att hämta en administratör av bloggen. Gå till din blogg, ange en användare som administratör, logga in som den användaren och gå direkt till avsnittet importera forum, trådar och svar. Observera att gamla inloggningar inte kommer att fungera, du måste redigera din databas (du kan fortfarande försöka logga in som bbPress-forumledare)."
+
+#: bbp-admin/importers/bbpress.php:831
+msgid "User roles have been successfully mapped based. The bbPress keymaster is WordPress administrator, bbPress administrator and moderators are moderators and rest all WordPress roles are %1$s. Now, you can only login into your WordPress blog by the bbPress credentials. For the time being, you have been logged in as the first available administrator (Username: %2$s, User ID: %3$s)."
+msgstr "Användarroller har framgångsrikt kartlagts. bbPress-forumledare är WordPress administratör, bbPress-administratör och moderatorer är moderatorer och övriga WordPress roller är %1$s. Nu kan du logga in i din WordPress-blogg med bbPress inloggningsuppgifter. För närvarande har du blivit inloggad som första tillgängliga administratör (Användarnamn: %2$s, användar-ID: %3$s)."
+
+#: bbp-admin/importers/bbpress.php:836
+msgid "Your users have all been imported, but wait &#8211; there&#8217;s more! Now we need to import your forums, topics and posts!"
+msgstr "Alla dina användare har importerats, men vänta &#8211; det finns mer att göra! Nu måste vi importera dina forum, trådar och inlägg!"
+
+#: bbp-admin/importers/bbpress.php:839
+msgid "Import forums, topics and posts &raquo;"
+msgstr "Importera forum, trådar och inlägg &raquo;"
+
+#: bbp-admin/importers/bbpress.php:867
+msgid "Importing Forums, Topics And Posts"
+msgstr "Importerar forum, trådar och inlägg"
+
+#: bbp-admin/importers/bbpress.php:868
+msgid "We&#8217;re importing your bbPress standalone forums, topics and replies..."
+msgstr "Vi importerar dina fristående bbPress forum, inlägg och svar..."
+
+#: bbp-admin/importers/bbpress.php:879
+msgid "Total number of forums: %s"
+msgstr "Totalt antal forum: %s"
+
+#: bbp-admin/importers/bbpress.php:885
+msgid "Processing forum #%1$s (<a href=\"%2$s\">%3$s</a>)"
+msgstr "Bearbetar forumet #%1$s (<a href=\"%2$s\">%3$s</a>)"
+
+#: bbp-admin/importers/bbpress.php:905
+msgid "Added the forum as forum #<a href=\"%1$s\">%2$s</a>"
+msgstr "Lade till forumet som forum #<a href=\"%1$s\">%2$s</a>"
+
+#: bbp-admin/importers/bbpress.php:907
+msgid "There was a problem in adding the forum."
+msgstr "Det uppstod ett problem med att lägga till forumet."
+
+#: bbp-admin/importers/bbpress.php:928
+msgid "The forum is a category and has no topics."
+msgstr "Forumet är en kategori och har inga trådar."
+
+#: bbp-admin/importers/bbpress.php:933
+msgid "The forum is a category but has topics, so it has been set as closed on the new board."
+msgstr "Forumet är en kategori, men har trådar, så det har ställts in som stängt i det nya forumet."
+
+#: bbp-admin/importers/bbpress.php:940
+msgid "Total number of topics in the forum: %s"
+msgstr "Totalt antal trådar i forumet: %s"
+
+#: bbp-admin/importers/bbpress.php:1002
+#: bbp-includes/bbp-common-template.php:1093
+#: bbp-includes/bbp-common-template.php:1110
+#: bbp-includes/bbp-topic-functions.php:1149
+#: bbp-includes/bbp-topic-functions.php:1469
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:27
+msgid "Reply To: %s"
+msgstr "Svar till: %s"
+
+#: bbp-admin/importers/bbpress.php:1080
+msgid "Added topic #%1$s (<a href=\"%2$s\">%3$s</a>) as topic #<a href=\"%4$s\">%5$s</a> with %6$s replies."
+msgstr "Lade till tråd #%1$s (<a href=\"%2$s\">%3$s</a>) som tråd #<a href=\"%4$s\">%5$s</a> med %6$s svar."
+
+#: bbp-admin/importers/bbpress.php:1082
+msgid "There was a problem in adding topic #1$s (<a href=\"%2$s\">%3$s</a>)."
+msgstr "Det uppstod ett problem med att lägga till tråden #1$s (<a href=\"%2$s\">%3$s</a>)."
+
+#: bbp-admin/importers/bbpress.php:1101
+msgid "Your forums, topics and posts have all been imported, but wait &#8211; there&#8217;s more! Now we need to do a <a href=\"%s\">recount</a> to get the counts in sync! Yes, we&#8217;re bad at Math."
+msgstr "Dina forum, trådar och inlägg har alla blivit importerade, men vänta - det finns mer att göra! Nu måste vi köra en <a href=\"%s\">omräkning</a> för att få statistiken i fas! Ja, vi är dåliga på matte."
+
+#: bbp-admin/importers/bbpress.php:1103
+msgid "After that it's all done. <a href=\"%s\">Have fun!</a> :)"
+msgstr "Efter det är allt klart. <a href=\"%s\">Håll till godo!</a> :)"
+
+#: bbp-admin/importers/bbpress.php:1114
+msgid "bbPress Standalone"
+msgstr "Fristående bbPress"
+
+#: bbp-admin/importers/bbpress.php:1114
+msgid "Import your bbPress standalone board."
+msgstr "Importera din fristående bbPress-installation."
+
+#: bbp-admin/bbp-functions.php:157
+msgid "Count topics in each forum"
+msgstr "Räkna antal trådar i varje forum"
+
+#: bbp-admin/bbp-functions.php:158
+msgid "Count replies in each forum"
+msgstr "Räkna antalet svar i varje forum"
+
+#: bbp-admin/bbp-functions.php:159
+msgid "Count replies in each topic"
+msgstr "Räkna antal svar i varje ämne"
+
+#: bbp-admin/bbp-functions.php:160
+msgid "Count voices in each topic"
+msgstr "Räkna antalet deltagare i varje tråd"
+
+#: bbp-admin/bbp-functions.php:161
+msgid "Count spammed & trashed replies in each topic"
+msgstr "Räkna skräp & förkastade svar i varje tråd"
+
+#: bbp-admin/bbp-functions.php:162
+msgid "Count replies for each user"
+msgstr "Räkna antal svar av varje användare"
+
+#: bbp-admin/bbp-functions.php:163
+msgid "Remove trashed topics from user favorites"
+msgstr "Ta bort borttagna trådar från användares favoriter"
+
+#: bbp-admin/bbp-functions.php:164
+msgid "Remove trashed topics from user subscriptions"
+msgstr "Ta bort borttagna trådar från användares prenumerationer"
+
+#: bbp-admin/bbp-functions.php:168
+msgid "Recalculate last activity in each topic and forum"
+msgstr "Beräkna om senaste aktiviteten i varje tråd och forum"
+
+#: bbp-admin/bbp-functions.php:188
+msgid "Counting the number of replies in each topic&hellip; %s"
+msgstr "Räknar antalet svar i varje tråd&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:189
+#: bbp-admin/bbp-functions.php:233
+#: bbp-admin/bbp-functions.php:276
+#: bbp-admin/bbp-functions.php:306
+#: bbp-admin/bbp-functions.php:340
+#: bbp-admin/bbp-functions.php:372
+#: bbp-admin/bbp-functions.php:418
+#: bbp-admin/bbp-functions.php:497
+#: bbp-admin/bbp-functions.php:579
+#: bbp-admin/bbp-functions.php:711
+#: bbp-admin/bbp-functions.php:770
+#: bbp-admin/bbp-functions.php:827
+msgid "Failed!"
+msgstr "Misslyckades!"
+
+#: bbp-admin/bbp-functions.php:215
+#: bbp-admin/bbp-functions.php:259
+#: bbp-admin/bbp-functions.php:286
+#: bbp-admin/bbp-functions.php:320
+#: bbp-admin/bbp-functions.php:354
+#: bbp-admin/bbp-functions.php:400
+#: bbp-admin/bbp-functions.php:752
+#: bbp-admin/bbp-functions.php:810
+#: bbp-admin/bbp-functions.php:907
+msgid "Complete!"
+msgstr "Klart!"
+
+#: bbp-admin/bbp-functions.php:232
+msgid "Counting the number of voices in each topic&hellip; %s"
+msgstr "Räknar antalet röster i varje tråd&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:275
+msgid "Counting the number of spammed and trashed replies in each topic&hellip; %s"
+msgstr "Räknar antalet skräpposter och borttagna svar i varje tråd&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:305
+msgid "Counting the number of topics in each forum&hellip; %s"
+msgstr "Räknar antalet trådar i varje forum&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:339
+msgid "Counting the number of replies in each forum&hellip; %s"
+msgstr "Räknar antalet svar i varje forum&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:371
+msgid "Counting the number of topics to which each user has replied&hellip; %s"
+msgstr "Räknar antalet trådar som varje användare har svarat&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:417
+msgid "Counting the number of topic tags in each topic&hellip; %s"
+msgstr "Räknar antalet trådtaggar i varje tråd&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:496
+msgid "Counting the number of topics in each topic tag&hellip; %s"
+msgstr "Räkna antalet trådar för varje trådtagg&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:578
+msgid "Deleting topic tags with no topics&hellip; %s"
+msgstr "Raderar trådtaggar utan associerade trådar&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:710
+msgid "Removing trashed topics from user favorites&hellip; %s"
+msgstr "Ta bort borttagna trådar från användares favoriter&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:736
+#: bbp-admin/bbp-functions.php:794
+msgid "Nothing to remove!"
+msgstr "Det finns inget att ta bort!"
+
+#: bbp-admin/bbp-functions.php:769
+msgid "Removing trashed topics from user subscriptions&hellip; %s"
+msgstr "Tar bort kastade trådar i användares prenumerationer&hellip; %s"
+
+#: bbp-admin/bbp-functions.php:826
+msgid "Recomputing latest post in every topic and forum&hellip; %s"
+msgstr "Omberäknar senaste inlägget i varje tråd och forum&hellip; %s"
+
+#: bbp-admin/bbp-tools.php:53
+msgid "bbPress Recount"
+msgstr "bbPress omräkning"
+
+#: bbp-admin/bbp-tools.php:57
+msgid "bbPress keeps a running count of things like replies to each topic and topics in each forum. In rare occasions these counts can fall out of sync. Using this form you can have bbPress manually recount these items."
+msgstr "bbPress håller löpande räkning på saker så som antal svar på varje ämne och trådar i varje forum. I sällsynta fall kan denna statistik hamna ur fas. Med detta formulär kan du be bbPress att manuellt räkna om dessa poster."
+
+#: bbp-admin/bbp-tools.php:58
+msgid "You can also use this form to clean out stale items like empty tags."
+msgstr "Du kan också använda detta formulär för att rensa ut gamla objekt så som tomma taggar."
+
+#: bbp-admin/bbp-tools.php:64
+msgid "Things to recount:"
+msgstr "Saker att räkna om:"
+
+#: bbp-admin/bbp-admin.php:177
+#: bbp-admin/bbp-tools.php:67
+msgid "Recount"
+msgstr "Räkna om"
+
+#: bbp-admin/bbp-tools.php:78
+msgid "There are no recount tools available."
+msgstr "Det finns inga omräkningsverktyg tillgängliga."
+
+#: bbp-admin/bbp-tools.php:89
+msgid "Recount Items"
+msgstr "Räkna om poster"
+
+#: bbp-admin/bbp-replies.php:116
+msgid "The reply title field and the big reply editing area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of the box. Use the Screen Options tab to unhide more boxes (Reply Attributes, Slug) or to choose a 1- or 2-column layout for this screen."
+msgstr "Fältet för svarstitel och det stora redigeringsfältet är fasta på plats, men du kan flytta alla de andra panelerna genom att dra och släppa, och minimera eller expandera dem genom att klicka på namnlisten i panelen. Använd fliken Panelinställningar för att aktivera flera paneler (Svarsattribut, Permalänk) eller för att välja en 1- eller 2-kolumnslayout för denna sida."
+
+#: bbp-admin/bbp-replies.php:117
+msgid "<strong>Title</strong> - Enter a title for your reply. After you enter a title, you will see the permalink below, which you can edit."
+msgstr "<strong>Titel</strong> - Ange en rubrik för ditt svar. När du angett en titel så kommer du att se permalänken nedan, som du även kan redigera."
+
+#: bbp-admin/bbp-replies.php:118
+msgid "<strong>Post editor</strong> - Enter the text for your reply. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The screen icon just before that allows you to expand the edit box to full screen. The HTML mode allows you to enter raw HTML along with your forum text. You can insert media files by clicking the icons above the post editor and following the directions."
+msgstr "<strong>Inläggredigeraren</strong> - Ange texten för ditt svar. Det finns två typer av redigeringslägen: Visuell och HTML. Välj läge genom att klicka på motsvarande flik. Visuellt läge ger dig en WYSIWYG-redigerare. Klicka på den sista ikonen i raden att få upp en andra rad med verktyg. Skärmikonen precis innan tillåter dig att expandera redigeringsrutan till helskärmsläge. I HTML-läget kan du skriva in ren HTML tillsammans med din forumtext. Du kan infoga media-filer genom att klicka på ikonerna ovan inläggsredigeraren och följa anvisningarna."
+
+#: bbp-admin/bbp-replies.php:119
+msgid "<strong>Reply Attributes</strong> - Select the attributes that your reply should have. The Parent Topic dropdown determines the parent topic that the reply belongs to."
+msgstr "<strong>Svarsattribut</strong> - Välj de attribut som ditt svar ska ha. Dropdown-menyn med föräldertrådar bestämmer vilken föräldertråd som svaret hör till."
+
+#: bbp-admin/bbp-replies.php:120
+msgid "<strong>Publish</strong> - The Publish box will allow you to save your reply as Draft or Pending Review. You may Preview your reply before it is published as well. The Visibility will determine whether the reply is Public, Password protected (requiring a password on the site to view) or Private (only the author will have access to it). Replies may be published immediately by clicking the dropdown, or at a specific date and time by clicking the Edit link."
+msgstr "<strong>Publicera</strong> - Via panelen Publicera så kan du spara ditt svar som Utkast eller Väntar på granskning. Du kan också förhandsgranska ditt svar innan det publiceras. Valen för synlighet kommer att avgöra om svaret är publikt, lösenordsskyddat (som kräver ett lösenord för att kunna ses) eller Privat (endast författaren kommer att ha tillgång till det). Svar kan publiceras omedelbart genom att klicka på rullgardinsmenyn eller vid ett specifikt datum och tid genom att klicka på länken Redigera."
+
+#: bbp-admin/bbp-replies.php:121
+msgid "<strong>Revisions</strong> - Revisions show past versions of the saved reply. Each revision can be compared to the current version, or another revision. Revisions can also be restored to the current version."
+msgstr "<strong>Versioner</strong> - Versioner visar tidigare versioner av det sparade svaret. Varje version kan jämföras med den aktuella versionen eller någon annan version. Versioner kan också återställas till den aktuella versionen."
+
+#: bbp-admin/bbp-topics.php:123
+#: bbp-admin/bbp-topics.php:167
+#: bbp-admin/bbp-settings.php:478
+#: bbp-admin/bbp-forums.php:119
+#: bbp-admin/bbp-forums.php:157
+#: bbp-admin/bbp-replies.php:122
+#: bbp-admin/bbp-replies.php:163
+msgid "<strong>For more information:</strong>"
+msgstr "<strong>För mer information:</strong>"
+
+#: bbp-admin/bbp-topics.php:126
+#: bbp-admin/bbp-topics.php:170
+#: bbp-admin/bbp-settings.php:481
+#: bbp-admin/bbp-forums.php:122
+#: bbp-admin/bbp-forums.php:160
+#: bbp-admin/bbp-replies.php:125
+#: bbp-admin/bbp-replies.php:166
+msgid "<a href=\"http://bbpress.org/documentation/\">bbPress Documentation</a>"
+msgstr "<a href=\"http://bbpress.org/documentation/\">bbPress dokumentation</a>"
+
+#: bbp-admin/bbp-topics.php:127
+#: bbp-admin/bbp-topics.php:171
+#: bbp-admin/bbp-settings.php:482
+#: bbp-admin/bbp-forums.php:123
+#: bbp-admin/bbp-forums.php:161
+#: bbp-admin/bbp-replies.php:126
+#: bbp-admin/bbp-replies.php:167
+msgid "<a href=\"http://bbpress.org/forums/\">bbPress Support Forums</a>"
+msgstr "<a href=\"http://bbpress.org/forums/\">bbPress Supportforum</a>"
+
+#: bbp-admin/bbp-replies.php:141
+msgid "This screen displays the replies created on your site."
+msgstr "Denna sida visar de svar som skapats på din webbplats."
+
+#: bbp-admin/bbp-topics.php:143
+#: bbp-admin/bbp-forums.php:139
+#: bbp-admin/bbp-replies.php:142
+msgid "You can customize the display of this screen in a number of ways:"
+msgstr "Du kan anpassa visningen av den här sida på flera sätt:"
+
+#: bbp-admin/bbp-replies.php:145
+msgid "You can hide/display columns based on your needs (Forum, Topic, Author, and Created) and decide how many replies to list per screen using the Screen Options tab."
+msgstr "Du kan dölja/visa kolumner utifrån dina behov (Forum, Tråd, Författare och Skapad) och bestämma hur många svar att lista per sida med hjälp av fliken Panelinställningar."
+
+#: bbp-admin/bbp-replies.php:146
+msgid "You can filter the list of replies by reply status using the text links in the upper left to show All, Published, Pending Review, Draft, or Trashed topics. The default view is to show all replies."
+msgstr "Du kan filtrera listan med svar efter status att använda textlänkarna i övre vänstra delen av sidan för att visa Alla, Publicerad, Väntande, Utkast eller Kastade trådar. Standard är att visa alla svar."
+
+#: bbp-admin/bbp-replies.php:147
+msgid "You can view replies in a simple title list or with an excerpt. Choose the view you prefer by clicking on the icons at the top of the list on the right."
+msgstr "Du kan se svar i en enkel titellista eller med ett utdrag. Välj den vy du föredrar genom att klicka på ikonerna överst i listan till höger."
+
+#: bbp-admin/bbp-replies.php:148
+msgid "You can refine the list to show only replies from a specific month by using the dropdown menus above the replies list. Click the Filter button after making your selection."
+msgstr "Du kan sortera listan för att visa svar från endast en specifik månad genom att använda rullgardinsmenyerna ovanför listan. Klicka på knappen Filtrera efter att ha gjort ditt val."
+
+#: bbp-admin/bbp-replies.php:149
+msgid "You can also show only replies from a specific parent forum by using the parent forum dropdown above the replies list and selecting the parent forum. Click the Filter button after making your selection."
+msgstr "Du kan också visa bara svar från ett visst huvudforum genom att använda dropdown-menyn med huvudforum ovanför listan med svar och markera det huvudforum du vill visa. Klicka på knappen Filtrera efter du gjort ditt val."
+
+#: bbp-admin/bbp-replies.php:152
+msgid "Hovering over a row in the replies list will display action links that allow you to manage your reply. You can perform the following actions:"
+msgstr "När muspekaren förs över en rad i listan över svar visas länkar med åtgärder som gör att du kan hantera ditt svar. Du kan utföra följande åtgärder:"
+
+#: bbp-admin/bbp-replies.php:155
+msgid "Edit takes you to the editing screen for that reply. You can also reach that screen by clicking on the reply title."
+msgstr "Redigera tar dig till redigeringssidan för det svaret. Du kan också nå den sidan genom att klicka på svarets titel."
+
+#: bbp-admin/bbp-replies.php:156
+msgid "Trash removes your reply from this list and places it in the trash, from which you can permanently delete it."
+msgstr "Papperskorg tar bort ditt svar från denna lista och placerar det i papperskorgen, där du sedan kan radera det permanent."
+
+#: bbp-admin/bbp-replies.php:157
+msgid "View will take you to your live reply to view the reply."
+msgstr "Visa tar dig till ditt svar för att visa detsamma live."
+
+#: bbp-admin/bbp-replies.php:158
+msgid "Spam will mark the topic as spam, preventing further replies to it and removing it from the site&rsquo;s public view."
+msgstr "Skräppost kommer att markera tråden som skräp, förhindra ytterligare svar på den och ta bort den från webbplatsens publika vy."
+
+#: bbp-admin/bbp-replies.php:161
+msgid "You can also edit multiple replies at once. Select the replies you want to edit using the checkboxes, select Edit from the Bulk Actions menu and click Apply. You will be able to change the metadata for all selected replies at once. To remove a reply from the grouping, just click the x next to its name in the Bulk Edit area that appears."
+msgstr "Du kan också redigera flera svar på en gång. Välj de svar du vill redigera med hjälp av kryssrutorna, välj Redigera i massåtgärdsmenyn och klicka på Verkställ. Du kommer att kunna ändra metadata för alla valda svar på en gång. För att ta bort ett svar från grupperingen, klicka bara på x bredvid dess namn i massredigeringsläget."
+
+#: bbp-admin/bbp-replies.php:162
+msgid "The Bulk Actions menu may also be used to delete multiple replies at once. Select Delete from the dropdown after making your selection."
+msgstr "Massåtgärdsmenyn kan också användas för att radera flera svar på en och samma gång. Välj Ta bort från rullgardinsmenyn efter att ha gjort ditt val."
+
+#: bbp-admin/bbp-replies.php:190
+msgid "Reply Attributes"
+msgstr "Svarsattribut"
+
+#: bbp-admin/bbp-topics.php:293
+#: bbp-admin/bbp-replies.php:272
+#: bbp-themes/bbp-twentyten/bbpress/form-anonymous.php:17
+msgid "Author Information"
+msgstr "Författarinformation"
+
+#: bbp-admin/bbp-replies.php:425
+msgid "The reply was not found!"
+msgstr "Svaret kunde inte hittas!"
+
+#: bbp-admin/bbp-topics.php:457
+#: bbp-admin/bbp-replies.php:428
+msgid "You do not have the permission to do that!"
+msgstr "Du har inte tillåtelse att göra det!"
+
+#: bbp-admin/bbp-replies.php:489
+msgid "There was a problem marking the reply \"%1$s\" as spam."
+msgstr "Det uppstod ett problem med att märkning svaret \"%1$s\" som skräp."
+
+#: bbp-admin/bbp-replies.php:489
+msgid "Reply \"%1$s\" successfully marked as spam."
+msgstr "Svaret \"%1$s\" har markerats som skräp."
+
+#: bbp-admin/bbp-replies.php:493
+msgid "There was a problem unmarking the reply \"%1$s\" as spam."
+msgstr "Det uppstod ett problem med att avmarkera svaret \"%1$s\" som skräp."
+
+#: bbp-admin/bbp-replies.php:493
+msgid "Reply \"%1$s\" successfully unmarked as spam."
+msgstr "Svaret \"%1$s\" har avmarkerats som skräp."
+
+#: bbp-admin/bbp-replies.php:523
+msgid "Title"
+msgstr "Titel"
+
+#: bbp-admin/bbp-topics.php:592
+#: bbp-admin/bbp-forums.php:389
+#: bbp-admin/bbp-metaboxes.php:50
+#: bbp-admin/bbp-metaboxes.php:254
+#: bbp-admin/bbp-metaboxes.php:362
+#: bbp-admin/bbp-metaboxes.php:365
+#: bbp-admin/bbp-metaboxes.php:405
+#: bbp-admin/bbp-metaboxes.php:408
+#: bbp-admin/bbp-replies.php:524
+#: bbp-themes/bbp-twentyten/bbpress/loop-forums.php:18
+#: bbpress.php:577
+msgid "Forum"
+msgstr "Forum"
+
+#: bbp-admin/bbp-metaboxes.php:67
+#: bbp-admin/bbp-metaboxes.php:430
+#: bbp-admin/bbp-metaboxes.php:433
+#: bbp-admin/bbp-replies.php:525
+#: bbp-themes/bbp-twentyten/bbpress/content-single-topic-lead.php:18
+#: bbp-themes/bbp-twentyten/bbpress/loop-topics.php:17
+#: bbpress.php:634
+msgid "Topic"
+msgid_plural "Topics"
+msgstr[0] "Tråd"
+msgstr[1] "Trådar"
+
+#: bbp-admin/bbp-topics.php:595
+#: bbp-admin/bbp-replies.php:526
+#: bbp-themes/bbp-twentyten/single-reply.php:31
+#: bbp-themes/bbp-twentyten/bbpress/loop-replies.php:17
+#: bbp-themes/bbp-twentyten/bbpress/loop-replies.php:40
+msgid "Author"
+msgstr "Författare"
+
+#: bbp-admin/bbp-topics.php:596
+#: bbp-admin/bbp-forums.php:393
+#: bbp-admin/bbp-replies.php:527
+msgid "Created"
+msgstr "Skapat"
+
+#: bbp-admin/bbp-replies.php:577
+#: bbp-admin/bbp-replies.php:584
+msgid "No Topic"
+msgstr "Ingen tråd"
+
+#: bbp-admin/bbp-topics.php:644
+#: bbp-admin/bbp-replies.php:601
+#: bbp-admin/bbp-replies.php:615
+msgid "No Forum"
+msgstr "Inget forum"
+
+#: bbp-admin/bbp-replies.php:606
+msgid "(Mismatch)"
+msgstr "(Matchar inte)"
+
+#: bbp-admin/bbp-topics.php:672
+#: bbp-admin/bbp-forums.php:428
+#: bbp-admin/bbp-replies.php:629
+msgid "%1$s <br /> %2$s"
+msgstr "%1$s <br /> %2$s"
+
+#: bbp-admin/bbp-topics.php:729
+#: bbp-admin/bbp-replies.php:673
+msgid "View &#8220;%s&#8221;"
+msgstr "Visa &#8220;%s&#8220;"
+
+#: bbp-admin/bbp-topics.php:729
+#: bbp-admin/bbp-replies.php:673
+msgid "View"
+msgstr "Visa"
+
+#: bbp-admin/bbp-replies.php:684
+msgid "Mark the reply as not spam"
+msgstr "Ta bort skräppostmarkering för svaret"
+
+#: bbp-admin/bbp-topics.php:760
+#: bbp-admin/bbp-replies.php:684
+msgid "Not spam"
+msgstr "Inte skräp"
+
+#: bbp-admin/bbp-replies.php:686
+msgid "Mark this reply as spam"
+msgstr "Markera detta svar som skräp"
+
+#: bbp-admin/bbp-topics.php:762
+#: bbp-admin/bbp-replies.php:686
+#: bbp-includes/bbp-reply-template.php:1613
+#: bbp-includes/bbp-topic-template.php:2440
+msgid "Spam"
+msgstr "Skräppost"
+
+#: bbp-admin/bbp-topics.php:770
+#: bbp-admin/bbp-replies.php:695
+#: bbp-includes/bbp-reply-template.php:1557
+#: bbp-includes/bbp-topic-template.php:2197
+msgid "Restore this item from the Trash"
+msgstr "Återställ det här objektet från papperskorgen"
+
+#: bbp-admin/bbp-topics.php:770
+#: bbp-admin/bbp-replies.php:695
+#: bbp-includes/bbp-reply-template.php:1542
+#: bbp-includes/bbp-topic-template.php:2183
+msgid "Restore"
+msgstr "Återställ"
+
+#: bbp-admin/bbp-topics.php:772
+#: bbp-admin/bbp-replies.php:697
+#: bbp-includes/bbp-reply-template.php:1559
+#: bbp-includes/bbp-topic-template.php:2199
+msgid "Move this item to the Trash"
+msgstr "Flytta detta objekt till papperskorgen"
+
+#: bbp-admin/bbp-topics.php:772
+#: bbp-admin/bbp-replies.php:697
+#: bbp-includes/bbp-reply-template.php:1541
+#: bbp-includes/bbp-topic-template.php:2182
+msgid "Trash"
+msgstr "Papperskorg"
+
+#: bbp-admin/bbp-topics.php:776
+#: bbp-admin/bbp-replies.php:701
+#: bbp-includes/bbp-reply-template.php:1563
+#: bbp-includes/bbp-topic-template.php:2203
+msgid "Delete this item permanently"
+msgstr "Ta bort den här posten permanent"
+
+#: bbp-admin/bbp-topics.php:776
+#: bbp-admin/bbp-replies.php:701
+msgid "Delete Permanently"
+msgstr "Radera permanent"
+
+#: bbp-admin/bbp-topics.php:811
+#: bbp-admin/bbp-replies.php:736
+msgid "Empty Spam"
+msgstr "Tomt skräpfilter"
+
+#: bbp-admin/bbp-topics.php:821
+#: bbp-admin/bbp-replies.php:746
+msgid "In all forums"
+msgstr "I alla forum"
+
+#: bbp-admin/bbp-replies.php:823
+msgid "Reply updated. <a href=\"%s\">View topic</a>"
+msgstr "Svar uppdaterat. <a href=\"%s\">Visa tråd</a>"
+
+#: bbp-admin/bbp-topics.php:901
+#: bbp-admin/bbp-forums.php:507
+#: bbp-admin/bbp-replies.php:826
+msgid "Custom field updated."
+msgstr "Eget fält uppdaterat."
+
+#: bbp-admin/bbp-topics.php:904
+#: bbp-admin/bbp-forums.php:510
+#: bbp-admin/bbp-replies.php:829
+msgid "Custom field deleted."
+msgstr "Eget fält raderat."
+
+#: bbp-admin/bbp-replies.php:832
+msgid "Reply updated."
+msgstr "Svar uppdaterat."
+
+#: bbp-admin/bbp-replies.php:837
+msgid "Reply restored to revision from %s"
+msgstr "Svar återställdes till versionen från %s"
+
+#: bbp-admin/bbp-replies.php:841
+msgid "Reply created. <a href=\"%s\">View topic</a>"
+msgstr "Svara skapat. <a href=\"%s\">Visa tråd</a>"
+
+#: bbp-admin/bbp-replies.php:844
+msgid "Reply saved."
+msgstr "Svar sparat."
+
+#: bbp-admin/bbp-replies.php:847
+msgid "Reply submitted. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "Svar postat. <a target=\"_blank\" href=\"%s\">Förhandsgranska tråd</a>"
+
+#: bbp-admin/bbp-replies.php:850
+msgid "Reply scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview topic</a>"
+msgstr "Svar tidsinställt till: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Förhandsgranska tråd</a>"
+
+#: bbp-admin/bbp-topics.php:927
+#: bbp-admin/bbp-forums.php:533
+#: bbp-admin/bbp-replies.php:852
+msgid "M j, Y @ G:i"
+msgstr "j M, Y @ H:i"
+
+#: bbp-admin/bbp-replies.php:857
+msgid "Reply draft updated. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "Utkast av svar uppdaterat. <a target=\"_blank\" href=\"%s\">Förhandsgranska tråd</a>"
+
+#: bbp-admin/bbp-metaboxes.php:84
+#: bbpress.php:691
+msgid "Reply"
+msgid_plural "Replies"
+msgstr[0] "Svar"
+msgstr[1] "Svar"
+
+#: bbp-admin/bbp-metaboxes.php:101
+#: bbpress.php:832
+msgid "Topic Tag"
+msgid_plural "Topic Tags"
+msgstr[0] "Trådtagg"
+msgstr[1] "Trådtaggar"
+
+#: bbp-admin/bbp-metaboxes.php:42
+msgid "Discussion"
+msgstr "Diskussion"
+
+#: bbp-admin/bbp-metaboxes.php:131
+msgid "User"
+msgid_plural "Users"
+msgstr[0] "Användare"
+msgstr[1] "Användare"
+
+#: bbp-admin/bbp-metaboxes.php:150
+msgid "Hidden Topic"
+msgid_plural "Hidden Topics"
+msgstr[0] "Dold tråd"
+msgstr[1] "Dolda trådar"
+
+#: bbp-admin/bbp-metaboxes.php:169
+msgid "Hidden Reply"
+msgid_plural "Hidden Replies"
+msgstr[0] "Dolt svar"
+msgstr[1] "Dolda svar"
+
+#: bbp-admin/bbp-metaboxes.php:188
+msgid "Empty Topic Tag"
+msgid_plural "Empty Topic Tags"
+msgstr[0] "Tom trådtagg"
+msgstr[1] "Tomma trådtaggar"
+
+#: bbp-admin/bbp-metaboxes.php:221
+msgid "You are using <span class=\"b\">bbPress %s</span>."
+msgstr "Du använder <span class=\"b\">bbPress %s</span>."
+
+#: bbp-admin/bbp-metaboxes.php:255
+msgid "Category"
+msgstr "Kategori"
+
+#: bbp-admin/bbp-topics.php:741
+#: bbp-admin/bbp-metaboxes.php:267
+#: bbp-includes/bbp-topic-template.php:2254
+msgid "Open"
+msgstr "Öppet"
+
+#: bbp-admin/bbp-metaboxes.php:268
+msgid "Closed"
+msgstr "Låst"
+
+#: bbp-admin/bbp-metaboxes.php:280
+msgid "Public"
+msgstr "Offentligt"
+
+#: bbp-admin/bbp-metaboxes.php:281
+#: bbp-themes/bbp-twentyten/bbpress/feedback-no-access.php:13
+msgid "Private"
+msgstr "Privat"
+
+#: bbp-admin/bbp-metaboxes.php:282
+msgid "Hidden"
+msgstr "Dolt"
+
+#: bbp-admin/bbp-metaboxes.php:294
+#: bbp-admin/bbp-metaboxes.php:295
+msgid "Type:"
+msgstr "Typ:"
+
+#: bbp-admin/bbp-metaboxes.php:300
+#: bbp-admin/bbp-metaboxes.php:301
+msgid "Status:"
+msgstr "Status:"
+
+#: bbp-admin/bbp-metaboxes.php:306
+#: bbp-admin/bbp-metaboxes.php:307
+msgid "Visibility:"
+msgstr "Synlighet:"
+
+#: bbp-admin/bbp-metaboxes.php:314
+msgid "Parent:"
+msgstr "Förälder:"
+
+#: bbp-admin/bbp-metaboxes.php:315
+msgid "Forum Parent"
+msgstr "Forumförälder"
+
+#: bbp-admin/bbp-metaboxes.php:321
+msgid "(No Parent)"
+msgstr "(Ingen förälder)"
+
+#: bbp-admin/bbp-metaboxes.php:330
+msgid "Order:"
+msgstr "Ordning:"
+
+#: bbp-admin/bbp-metaboxes.php:331
+msgid "Forum Order"
+msgstr "Forumordning"
+
+#: bbp-admin/bbp-topics.php:650
+#: bbp-admin/bbp-metaboxes.php:359
+msgid "(No Forum)"
+msgstr "(Inget forum)"
+
+#: bbp-admin/bbp-metaboxes.php:402
+msgid "(Use Forum of Topic)"
+msgstr "(Använd forum av tråd)"
+
+#: bbp-admin/bbp-metaboxes.php:423
+msgid "(No Topic)"
+msgstr "(Ingen tråd)"
+
+#: bbp-admin/bbp-metaboxes.php:464
+#: bbp-admin/bbp-metaboxes.php:467
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:14
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:19
+msgid "Name"
+msgstr "Namn"
+
+#: bbp-admin/bbp-metaboxes.php:471
+#: bbp-admin/bbp-metaboxes.php:474
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:105
+#: bbp-themes/bbp-twentyten/bbpress/form-user-register.php:28
+msgid "Email"
+msgstr "E-post"
+
+#: bbp-admin/bbp-metaboxes.php:478
+#: bbp-admin/bbp-metaboxes.php:481
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:57
+msgid "Website"
+msgstr "Webbplats"
+
+#: bbp-admin/bbp-metaboxes.php:487
+#: bbp-admin/bbp-metaboxes.php:490
+msgid "IP Address"
+msgstr "IP-adress"
+
+#: bbp-admin/bbp-topics.php:116
+msgid "The topic title field and the big topic editing area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of the box. Use the Screen Options tab to unhide more boxes (Topic Tags, Topic Attributes, or Slug) or to choose a 1- or 2-column layout for this screen."
+msgstr "Fältet trådtitel och det stora redigeringsfältet är fasta på plats, men du kan flytta alla de andra panelerna genom att dra och släppa, och minimera eller expandera dem genom att klicka på namnlisten i panelen. Använd fliken Panelinställningar för att aktivera flera paneler (så som Trådtaggar, Trådattribut eller Permalänk) eller för att välja en 1- eller 2-kolumnslayout för denna sida."
+
+#: bbp-admin/bbp-topics.php:117
+msgid "<strong>Title</strong> - Enter a title for your topic. After you enter a title, you will see the permalink below, which you can edit."
+msgstr "<strong>Titel</strong> - Ange en rubrik för din tråd. När du har angett en titel så kommer du att se permalänken nedan, som du även kan redigera."
+
+#: bbp-admin/bbp-topics.php:118
+msgid "<strong>Post editor</strong> - Enter the text for your topic. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The screen icon just before that allows you to expand the edit box to full screen. The HTML mode allows you to enter raw HTML along with your forum text. You can insert media files by clicking the icons above the post editor and following the directions."
+msgstr "<strong>Inläggredigeraren</strong> - Ange texten för din tråd. Det finns två typer av redigeringslägen: Visuell och HTML. Välj läge genom att klicka på motsvarande flik. Visuellt läge ger dig en WYSIWYG-redigerare. Klicka på den sista ikonen i raden att få upp en andra rad med verktyg. Skärmikonen precis innan tillåter dig att expandera redigeringsrutan till helskärmsläge. I HTML-läget kan du skriva in ren HTML tillsammans med din forumtext. Du kan infoga media-filer genom att klicka på ikonerna ovan inläggsredigeraren och följa anvisningarna."
+
+#: bbp-admin/bbp-topics.php:119
+msgid "<strong>Topic Attributes</strong> - Select the attributes that your topic should have. The Forum dropdown determines the parent forum that the topic belongs to. Select the forum or category from the dropdown, or leave the default (No Forum) to post the topic without an assigned forum."
+msgstr "<strong>Trådattribut</strong> - Välj de attribut som ditt ämne bör ha. Dropdown-menyn med forum bestämmer vilket huvudforum som tråden tillhör. Markera forum eller kategori från rullgardinsmenyn, eller lämna som standard (Inget forum) för att posta tråden utan ett tilldelat forum."
+
+#: bbp-admin/bbp-topics.php:120
+msgid "<strong>Publish</strong> - The Publish box will allow you to save your topic as Draft or Pending Review. You may Preview your topic before it is published as well. The Visibility will determine whether the topic is Public, Password protected (requiring a password on the site to view) or Private (only the author will have access to it). Topics may be published immediately by clicking the dropdown, or at a specific date and time by clicking the Edit link."
+msgstr "<strong>Publicera</strong> - Via panelen Publicera så kan du spara din tråd som Utkast eller Väntar på granskning. Du kan också förhandsgranska din tråd innan den publiceras. Valen för synlighet kommer att avgöra om tråden är publik, lösenordsskyddat (som kräver ett lösenord för att kunna ses) eller Privat (endast författaren kommer att ha tillgång till den). Trådar kan publiceras omedelbart genom att klicka på rullgardinsmenyn eller vid ett specifikt datum och tid genom att klicka på länken Redigera."
+
+#: bbp-admin/bbp-topics.php:121
+msgid "<strong>Topic Tags</strong> - You can assign keywords to your topics using Topic Tags. Unlike categories, tags have no hierarchy, meaning there is no relationship from one tag to another. Topics can be added and modified further from the Topic Tags screen."
+msgstr "<strong>Trådtaggar</strong> - Du kan tilldela nyckelord till dina trådar med hjälp av trådtaggar. Till skillnad från kategorier har taggar ingen hierarki, vilket innebär att det inte finns någon relation mellan taggar. Trådar kan läggas till och ändras ytteröigare från sidan trådtaggar."
+
+#: bbp-admin/bbp-topics.php:122
+msgid "<strong>Revisions</strong> - Revisions show past versions of the saved topic. Each revision can be compared to the current version, or another revision. Revisions can also be restored to the current version."
+msgstr "<strong>Versioner</strong> - Versioner visar tidigare versioner av den sparade tråden. Varje version kan jämföras med den aktuella versionen, eller någon annan version. Versioner kan också återställas till den aktuella versionen."
+
+#: bbp-admin/bbp-topics.php:142
+msgid "This screen displays the topics created on your site."
+msgstr "Denna sida visar de trådar som skapats på din webbplats."
+
+#: bbp-admin/bbp-topics.php:146
+msgid "You can hide/display columns based on your needs and decide how many topics to list per screen using the Screen Options tab."
+msgstr "Du kan dölja/visa kolumner utifrån dina behov och bestämma hur många trådar som ska visas per sida i listningen under fliken Panelinställningar."
+
+#: bbp-admin/bbp-topics.php:147
+msgid "You can filter the list of topics by topics status using the text links in the upper left to show All, Published, Pending Review, Draft, or Trashed topics. The default view is to show all topics."
+msgstr "Du kan filtrera listan över trådar efter trådars status med hjälp av textlänkarna i övre vänstra hörnet till att visa Alla, Publicerad, Väntande, Utkast eller Kastade trådar. Standard är att visa alla ämnen."
+
+#: bbp-admin/bbp-topics.php:148
+msgid "You can view topics in a simple title list or with an excerpt. Choose the view you prefer by clicking on the icons at the top of the list on the right."
+msgstr "Du kan visa trådar i en enkel titellista eller med utdrag. Välj den vy du föredrar genom att klicka på ikonerna överst i listan till höger."
+
+#: bbp-admin/bbp-topics.php:149
+msgid "You can refine the list to show only topics from a specific month by using the dropdown menus above the topics list. Click the Filter button after making your selection."
+msgstr "Du kan sortera listan för att visa enbart ämnen från en specifik månad genom att använda rullgardinsmenyerna ovanför trådlistan. Klicka på knappen Filtrera efter att ha gjort ditt val."
+
+#: bbp-admin/bbp-topics.php:150
+msgid "You can also show only topics from a specific parent forum by using the parent forum dropdown above the topics list and selecting the parent forum. Click the Filter button after making your selection."
+msgstr "Du kan också visa bara trådar från ett specifikt huvudforum genom att använda dropdown-menyn ovanför trådlistan och välja huvudforumet. Klicka på knappen Filtrera efter du har gjort ditt val."
+
+#: bbp-admin/bbp-topics.php:151
+msgid "You can refine the list by clicking on the topic creator in the topics list."
+msgstr "Du kan sortera listan genom att klicka på trådskaparen i trådlistan."
+
+#: bbp-admin/bbp-topics.php:154
+msgid "Hovering over a row in the topics list will display action links that allow you to manage your topic. You can perform the following actions:"
+msgstr "När du för muspekaren över en rad i trådlistan visas åtgärdslänkar som gör att du kan hantera din tråd. Du kan utföra följande åtgärder:"
+
+#: bbp-admin/bbp-topics.php:157
+msgid "Edit takes you to the editing screen for that topic. You can also reach that screen by clicking on the topic title."
+msgstr "Redigera tar dig till redigeringssidan för den tråden. Du kan även nå den sidan genom att klicka på trådens titel."
+
+#: bbp-admin/bbp-topics.php:158
+msgid "Trash removes your topic from this list and places it in the trash, from which you can permanently delete it."
+msgstr "Flytta till papperskorgen tar bort din tråd från denna lista och placerar det i papperskorgen, där du sedan kan radera den permanent."
+
+#: bbp-admin/bbp-topics.php:159
+msgid "View will take you to your live topic to view the topic."
+msgstr "Visa tar dig till din aktuella tråd för att visa tråden."
+
+#: bbp-admin/bbp-topics.php:160
+msgid "Close will close your topic, disabling new replies within it. It will remain viewable to users, but replies will not be allowed."
+msgstr "Stäng för att stänga din tråd, inaktiverar möjligheten till att posta nya svar i den. Den kommer att förbli synliga för användare, men svar kommer inte att tillåtas."
+
+#: bbp-admin/bbp-topics.php:161
+msgid "Stick (to front) will pin the topic to the front page of the forum that it&rsquo;s in. New topics will begin beneath the list of \"stuck\" topics, which will always sit at the top of the list."
+msgstr "Klistra (till förstasidan) kommer att fästa tråden till den första sidan av det forum den finns i. Nya trådar börjar under listan med \"klistrat\" ämnen, som alltid kommer att finnas i toppen av listan."
+
+#: bbp-admin/bbp-topics.php:162
+msgid "Spam will mark the topic as spam, closing the post to new replies and removing it from the public view."
+msgstr "Skräppost kommer att markera tråden som skräp, stänger inlägget för nya svar och ta bort den från publik listning."
+
+#: bbp-admin/bbp-topics.php:165
+msgid "You can also edit multiple topics at once. Select the topics you want to edit using the checkboxes, select Edit from the Bulk Actions menu and click Apply. You will be able to change the metadata for all selected topics at once. To remove a topic from the grouping, just click the x next to its name in the Bulk Edit area that appears."
+msgstr "Du kan också redigera flera trådar samtidigt. Markera de trådar du vill redigera med hjälp av kryssrutorna, välj Redigera i massåtgärdsmenyn och klicka på Utför. Du kommer att kunna ändra metadata för alla utvalda trådar på en gång. För att ta bort en tråd från gruppen, klicka bara på x bredvid dess namn i massredigeringsområdet som visas."
+
+#: bbp-admin/bbp-topics.php:166
+msgid "The Bulk Actions menu may also be used to delete multiple topics at once. Select Delete from the dropdown after making your selection."
+msgstr "Massåtgärdsmenyn kan också användas för att radera flera trådar samtidigt. Välj Radera från rullgardinsmenyn efter att ha gjort ditt val."
+
+#: bbp-admin/bbp-topics.php:186
+msgid "You can change the display of this screen using the Screen Options tab to set how many items are displayed per screen (20 by default) and to display/hide columns in the table (Description, Slug, and Topics)."
+msgstr "Du kan ändra visningen av den här sidan via fliken Panelinställningar för att ange hur många objekt som ska visas per sida (20 som standard) och för att visa/dölja kolumner i tabellen (Beskrivning, Permalänk och Trådar)."
+
+#: bbp-admin/bbp-topics.php:187
+msgid "You can assign keywords to your topics using Topic Tags. Unlike categories, tags have no hierarchy, meaning there is no relationship from one tag to another."
+msgstr "Du kan tilldela nyckelord i dina trådar med hjälp av taggar. Till skillnad från kategorier, har taggar ingen hierarki, vilket innebär att det inte finns någon association mellan en tagg till en annat."
+
+#: bbp-admin/bbp-topics.php:188
+msgid "Normally, tags are ad-hoc keywords that identify important information in your topic (names, subjects, etc) that may or may not recur in other topics. If you think of your forum like a book, the tags are like the terms in the index."
+msgstr "Normalt är taggar tillfälliga nyckelord som identifierar viktig information i din tråd (namn, ämnen etc.) som kan eller inte kan återkomma i andra ämnen. Om du tänker på ditt forum som en bok så är taggarna termerna i indexet."
+
+#: bbp-admin/bbp-topics.php:189
+msgid "When editing a topic tag on this screen, you will fill in the following fields:"
+msgstr "När du redigerar en trådtagg på den här sidan kommer du att fylla i följande fält:"
+
+#: bbp-admin/bbp-topics.php:192
+msgid "<strong>Name</strong> - The name is how it appears on your site."
+msgstr "<strong>Namn</strong> - Namnet är hur det visas på din webbplats."
+
+#: bbp-admin/bbp-topics.php:193
+msgid "<strong>Slug</strong> - The Slug is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
+msgstr "<strong>Permalänk</strong> - Permalänken är den URL-vänliga version av namnet. Den består oftast av gemener och innehåller endast bokstäver, siffror och bindestreck."
+
+#: bbp-admin/bbp-topics.php:194
+msgid "<strong>Description</strong> - The description is not prominent by default; however, some forum themes may display it."
+msgstr "<strong>Beskrivning</strong> - Beskrivningen är inte framträdande som standard, men vissa forumteman kan visa det."
+
+#: bbp-admin/bbp-topics.php:218
+msgid "Topic Attributes"
+msgstr "Trådattribut"
+
+#: bbp-admin/bbp-topics.php:454
+msgid "The topic was not found!"
+msgstr "Tråden kunde inte hittas!"
+
+#: bbp-admin/bbp-topics.php:537
+msgid "There was a problem opening the topic \"%1$s\"."
+msgstr "Det uppstod ett problem med att öppna tråden \"%1$s\"."
+
+#: bbp-admin/bbp-topics.php:537
+msgid "Topic \"%1$s\" successfully opened."
+msgstr "Tråden \"%1$s\" öppnades."
+
+#: bbp-admin/bbp-topics.php:541
+msgid "There was a problem closing the topic \"%1$s\"."
+msgstr "Det uppstod ett problem med att stänga tråden \"%1$s\"."
+
+#: bbp-admin/bbp-topics.php:541
+msgid "Topic \"%1$s\" successfully closed."
+msgstr "Tråden \"%1$s\" stängdes."
+
+#: bbp-admin/bbp-topics.php:545
+msgid "There was a problem sticking the topic \"%1$s\" to front."
+msgstr "Det uppstod ett problem med att klistra tråden \"%1$s\" på förstasidan."
+
+#: bbp-admin/bbp-topics.php:545
+msgid "Topic \"%1$s\" successfully sticked to front."
+msgstr "Tråden \"%1$s\" klistrades till förstasidan."
+
+#: bbp-admin/bbp-topics.php:549
+msgid "There was a problem sticking the topic \"%1$s\"."
+msgstr "Det uppstod ett problem med att klistra tråden \"%1$s\"."
+
+#: bbp-admin/bbp-topics.php:549
+msgid "Topic \"%1$s\" successfully sticked."
+msgstr "Tråden \"%1$s\" klistrades."
+
+#: bbp-admin/bbp-topics.php:553
+msgid "There was a problem unsticking the topic \"%1$s\"."
+msgstr "Det uppstod ett problem när tråden \"%1$s\" skulle avklistras."
+
+#: bbp-admin/bbp-topics.php:553
+msgid "Topic \"%1$s\" successfully unsticked."
+msgstr "Tråden \"%1$s\" avklistrades."
+
+#: bbp-admin/bbp-topics.php:557
+msgid "There was a problem marking the topic \"%1$s\" as spam."
+msgstr "Det uppstod ett problem när tråden \"%1$s\" skulle märkas som skräp."
+
+#: bbp-admin/bbp-topics.php:557
+msgid "Topic \"%1$s\" successfully marked as spam."
+msgstr "Tråden \"%1$s\" markerades som skräp."
+
+#: bbp-admin/bbp-topics.php:561
+msgid "There was a problem unmarking the topic \"%1$s\" as spam."
+msgstr "Det uppstod ett problem när tråden \"%1$s\" skulle avmarkeras som skräp."
+
+#: bbp-admin/bbp-topics.php:561
+msgid "Topic \"%1$s\" successfully unmarked as spam."
+msgstr "Tråden \"%1$s\" avmarkerades som skräp."
+
+#: bbp-admin/bbp-topics.php:591
+#: bbp-admin/bbp-admin.php:236
+#: bbp-admin/bbp-admin.php:249
+#: bbp-admin/bbp-forums.php:390
+#: bbp-includes/bbp-forum-template.php:1771
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:45
+#: bbp-themes/bbp-twentyten/bbpress/loop-forums.php:19
+#: bbpress.php:632
+#: bbpress.php:633
+msgid "Topics"
+msgstr "Trådar"
+
+#: bbp-admin/bbp-topics.php:593
+#: bbp-admin/bbp-admin.php:240
+#: bbp-admin/bbp-admin.php:253
+#: bbp-admin/bbp-forums.php:391
+#: bbp-includes/bbp-core-compatibility.php:939
+#: bbp-includes/bbp-forum-template.php:1835
+#: bbp-themes/bbp-twentyten/single-reply.php:32
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:50
+#: bbp-themes/bbp-twentyten/bbpress/loop-replies.php:30
+#: bbp-themes/bbp-twentyten/bbpress/loop-replies.php:49
+#: bbp-themes/bbp-twentyten/bbpress/loop-forums.php:20
+#: bbp-themes/bbp-twentyten/bbpress/loop-topics.php:19
+#: bbpress.php:689
+#: bbpress.php:690
+msgid "Replies"
+msgstr "Svar"
+
+#: bbp-admin/bbp-topics.php:594
+#: bbp-themes/bbp-twentyten/bbpress/loop-topics.php:18
+msgid "Voices"
+msgstr "Deltagare"
+
+#: bbp-admin/bbp-topics.php:597
+#: bbp-admin/bbp-forums.php:394
+#: bbp-themes/bbp-twentyten/bbpress/loop-forums.php:21
+#: bbp-themes/bbp-twentyten/bbpress/loop-topics.php:20
+msgid "Freshness"
+msgstr "Senast aktivt"
+
+#: bbp-admin/bbp-topics.php:682
+#: bbp-admin/bbp-forums.php:437
+msgid "%s ago"
+msgstr "%s sedan"
+
+#: bbp-admin/bbp-topics.php:684
+#: bbp-includes/bbp-topic-template.php:1657
+msgid "No Replies"
+msgstr "Inga svar"
+
+#: bbp-admin/bbp-topics.php:739
+msgid "Close this topic"
+msgstr "Stäng tråd"
+
+#: bbp-admin/bbp-topics.php:739
+#: bbp-includes/bbp-topic-template.php:2253
+msgid "Close"
+msgstr "Lås"
+
+#: bbp-admin/bbp-topics.php:741
+msgid "Open this topic"
+msgstr "Öppna denna tråd"
+
+#: bbp-admin/bbp-topics.php:750
+msgid "Unstick this topic"
+msgstr "Ta bort klistrat läge för denna tråd"
+
+#: bbp-admin/bbp-topics.php:750
+#: bbp-includes/bbp-topic-template.php:2315
+msgid "Unstick"
+msgstr "Avklistra"
+
+#: bbp-admin/bbp-topics.php:753
+msgid "Stick this topic to its forum"
+msgstr "Klistra denna tråd till dess forum"
+
+#: bbp-admin/bbp-topics.php:753
+#: bbp-includes/bbp-topic-template.php:2314
+msgid "Stick"
+msgstr "Klistra"
+
+#: bbp-admin/bbp-topics.php:753
+msgid "Stick this topic to front"
+msgstr "Klistra denna tråd till förstasidan"
+
+#: bbp-admin/bbp-topics.php:753
+#: bbp-includes/bbp-topic-template.php:2316
+msgid "to front"
+msgstr "till startsidan"
+
+#: bbp-admin/bbp-topics.php:760
+msgid "Mark the topic as not spam"
+msgstr "Ta bort skräppostmarkering för tråd"
+
+#: bbp-admin/bbp-topics.php:762
+msgid "Mark this topic as spam"
+msgstr "Markera denna tråd som skräp"
+
+#: bbp-admin/bbp-topics.php:898
+msgid "Topic updated. <a href=\"%s\">View topic</a>"
+msgstr "Tråd uppdaterad. <a href=\"%s\">Visa tråd</a>"
+
+#: bbp-admin/bbp-topics.php:907
+msgid "Topic updated."
+msgstr "Tråd uppdaterad."
+
+#: bbp-admin/bbp-topics.php:912
+msgid "Topic restored to revision from %s"
+msgstr "Tråden återställd till versionen från %s"
+
+#: bbp-admin/bbp-topics.php:916
+msgid "Topic created. <a href=\"%s\">View topic</a>"
+msgstr "Tråd skapad. <a href=\"%s\">Visa tråd</a>"
+
+#: bbp-admin/bbp-topics.php:919
+msgid "Topic saved."
+msgstr "Tråd sparad."
+
+#: bbp-admin/bbp-topics.php:922
+msgid "Topic submitted. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "Tråd postad.<a target=\"_blank\" href=\"%s\">Förhandsgranska tråd</a>"
+
+#: bbp-admin/bbp-topics.php:925
+msgid "Topic scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview topic</a>"
+msgstr "Tråd tidsinställt till: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Förhandsgranska tråd</a>"
+
+#: bbp-admin/bbp-topics.php:932
+msgid "Topic draft updated. <a target=\"_blank\" href=\"%s\">Preview topic</a>"
+msgstr "Utkast av tråd uppdaterad.<a target=\"_blank\" href=\"%s\">Förhandsgranska tråd</a>"
+
+#: bbp-admin/bbp-forums.php:104
+msgid "The forum title field and the big forum editing area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of the box. Use the Screen Options tab to unhide more boxes (like Slug) or to choose a 1- or 2-column layout for this screen."
+msgstr "Fältet forumtitel och det stora redigeringsfältet är fasta på plats, men du kan flytta alla de andra panelerna genom att dra och släppa, och minimera eller expandera dem genom att klicka på namnlisten i panelen. Använd fliken Panelinställningar för att aktivera flera paneler (så som permalänk) eller för att välja en 1- eller 2-kolumnslayout för denna sida."
+
+#: bbp-admin/bbp-forums.php:105
+msgid "<strong>Title</strong> - Enter a title for your forum. After you enter a title, you will see the permalink appear below it, which is fully editable."
+msgstr "<strong>Titel</strong> - Ange en titel för ditt forum. När du angett en titel kommer du att se en permalänk som visas under det och som är fullt redigerbar."
+
+#: bbp-admin/bbp-forums.php:106
+msgid "<strong>Post editor</strong> - Enter the description for your forum. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The screen icon just before that allows you to expand the edit box to full screen. The HTML mode allows you to enter raw HTML along with your forum text. You can insert media files by clicking the icons above the post editor and following the directions."
+msgstr "<strong>Inläggredigeraren</strong> - Skriv en beskrivning för ditt forum. Det finns två typer av redigeringslägen: Visuell och HTML. Välj läge genom att klicka på motsvarande flik. Visuellt läge ger dig en WYSIWYG-redigerare. Klicka på den sista ikonen i raden att få upp en andra rad med verktyg. Skärmikonen precis innan tillåter dig att expandera redigeringsrutan till helskärmsläge. I HTML-läget kan du skriva in ren HTML tillsammans med din forumtext. Du kan infoga media-filer genom att klicka på ikonerna ovan inläggsredigeraren och följa anvisningarna."
+
+#: bbp-admin/bbp-forums.php:107
+msgid "<strong>Forum Attributes</strong> - Select the various attributes that your forum should have:"
+msgstr "<strong>Forumattribut</strong> - Välj olika attribut som ditt forum bör ha:"
+
+#: bbp-admin/bbp-forums.php:110
+msgid "Forum Type determines whether it is a Forum (by default) or a Category, which means no new topics (only other forums) can be created within it."
+msgstr "Forumtyp avgör om det är ett forum (standard) eller en kategori, vilket innebär att inga nya trådar (endast andra forum) kan skapas inom det."
+
+#: bbp-admin/bbp-forums.php:111
+msgid "Forum Status controls whether it is open (and thus can be posted to) or closed (thus not able to be posted to)."
+msgstr "Forumstatus kontrollerar om det är öppet (och därmed kan postas i) eller stängt (inte kan postas i)."
+
+#: bbp-admin/bbp-forums.php:112
+msgid "Visibility can be set to either Public (by default, seen by everyone), Private (seen only by chosen users), and Hidden (hidden from all users)."
+msgstr "Synligheten kan sättas till antingen offentlig (standard, kan ses av alla), Privat (ses endast av utvalda användare) och Dolt (dolt för alla användare)."
+
+#: bbp-admin/bbp-forums.php:113
+msgid "Parent turns the forum into a child forum of the selected forum/category in the dropdown."
+msgstr "Genom att välja en förälder i rullgardinsmenyn så blir forumet ett underforum för det valda forumet/kategorin."
+
+#: bbp-admin/bbp-forums.php:114
+msgid "Order determines the order that forums in the given hierarchy are displayed (lower numbers first, higher numbers last)."
+msgstr "Ordning bestämmer den ordning som forum i den givna hierarkin visas (lägre siffror först, högre siffror sist)."
+
+#: bbp-admin/bbp-forums.php:117
+msgid "<strong>Publish</strong> - The Publish box will allow you to Preview your forum before it is published, Publish your forum to your site, or Move to Trash will move your forum to the trash."
+msgstr "<strong>Publicera</strong> - Via panelen Publicera kan du förhandsgranska ditt forum innan det publiceras, Publicera ditt forum på din webbplats eller Flytta till papperskorgen som flyttar ditt forum till papperskorgen."
+
+#: bbp-admin/bbp-forums.php:118
+msgid "<strong>Revisions</strong> - Revisions show past versions of the saved forum. Each revision can be compared to the current version, or another revision. Revisions can also be restored to the current version."
+msgstr "<strong>Versioner</strong> - Versioner visar tidigare versioner av det sparade forumet. Varje version kan jämföras med den aktuella versionen eller någon annan version. Versioner kan också återställas till den aktuella versionen."
+
+#: bbp-admin/bbp-forums.php:138
+msgid "This screen displays the forums available on your site."
+msgstr "Denna sida visar forumen som finns på din webbplats."
+
+#: bbp-admin/bbp-forums.php:142
+msgid "You can hide/display columns based on your needs and decide how many forums to list per screen using the Screen Options tab."
+msgstr "Du kan dölja/visa kolumner utifrån dina behov och bestämma hur många forum att lista per sida under fliken Panelinställningar."
+
+#: bbp-admin/bbp-forums.php:143
+msgid "You can filter the list of forums by forum status using the text links in the upper left to show All, Published, or Trashed forums. The default view is to show all forums."
+msgstr "Du kan filtrera listan av forum efter status med hjälp av textlänkarna i övre vänstra delen av sidan för att visa Alla, Publicerad eller Kastade forum. Standard är att visa alla forum."
+
+#: bbp-admin/bbp-forums.php:144
+msgid "You can refine the list to show only forums from a specific month by using the dropdown menus above the forums list. Click the Filter button after making your selection. You also can refine the list by clicking on the forum creator in the forums list."
+msgstr "Du kan sortera listan för att visa enbart forum från en specifik månad genom att använda rullgardinsmenyerna ovanför forumlistan. Klicka på knappen Filtrera efter att ha gjort ditt val. Du kan också sortera listan genom att klicka på forumskaparen i forumlistan."
+
+#: bbp-admin/bbp-forums.php:147
+msgid "Hovering over a row in the forums list will display action links that allow you to manage your forum. You can perform the following actions:"
+msgstr "Att föra muspekaren över en rad i forumlistan visas åtgärdslänkar som gör att du kan hantera dina forum. Du kan utföra följande åtgärder:"
+
+#: bbp-admin/bbp-forums.php:150
+msgid "Edit takes you to the editing screen for that forum. You can also reach that screen by clicking on the forum title."
+msgstr "Redigera tar dig till redigeringssidan för det forumet. Du kan också nå den genom att klicka på forumets titel."
+
+#: bbp-admin/bbp-forums.php:151
+msgid "Trash removes your forum from this list and places it in the trash, from which you can permanently delete it."
+msgstr "Papperskorg tar bort ditt forum i listan och placerar det i papperskorgen, där kan du permanent radera den."
+
+#: bbp-admin/bbp-forums.php:152
+msgid "View will take you to your live forum to view the forum."
+msgstr "Visa tar dig till ditt aktuella forum för att visa forumet."
+
+#: bbp-admin/bbp-forums.php:155
+msgid "You can also edit multiple forums at once. Select the forums you want to edit using the checkboxes, select Edit from the Bulk Actions menu and click Apply. You will be able to change the metadata for all selected forums at once. To remove a forum from the grouping, just click the x next to its name in the Bulk Edit area that appears."
+msgstr "Du kan också redigera flera forum samtidigt. Markera det forum som du vill redigera med hjälp av kryssrutorna, välj Redigera i massåtgärdsmenyn och klicka på Utför. Du kommer att kunna ändra metadata för alla valda forum på en och samma gång. För att ta bort ett forum från gruppen, klicka bara på x bredvid dess namn i massredigeringsläget."
+
+#: bbp-admin/bbp-forums.php:156
+msgid "The Bulk Actions menu may also be used to delete multiple forums at once. Select Delete from the dropdown after making your selection."
+msgstr "Massåtgärdsmenyn kan också användas för att radera flera forum på en och samma gång. Välj Ta bort från rullgardinsmenyn efter att ha gjort ditt val."
+
+#: bbp-admin/bbp-forums.php:184
+msgid "Forum Attributes"
+msgstr "Forumattribut"
+
+#: bbp-admin/bbp-forums.php:392
+#: bbp-themes/bbp-twentyten/bbpress/content-single-topic-lead.php:15
+msgid "Creator"
+msgstr "Skapare"
+
+#: bbp-admin/bbp-forums.php:439
+#: bbp-includes/bbp-forum-template.php:512
+msgid "No Topics"
+msgstr "Inga trådar"
+
+#: bbp-admin/bbp-forums.php:504
+msgid "Forum updated. <a href=\"%s\">View forum</a>"
+msgstr "Forum uppdaterat. <a href=\"%s\">Visa forum</a>"
+
+#: bbp-admin/bbp-forums.php:513
+msgid "Forum updated."
+msgstr "Forum uppdaterat."
+
+#: bbp-admin/bbp-forums.php:518
+msgid "Forum restored to revision from %s"
+msgstr "Forum återställs till versionen från %s"
+
+#: bbp-admin/bbp-forums.php:522
+msgid "Forum created. <a href=\"%s\">View forum</a>"
+msgstr "Forum skapat. <a href=\"%s\">Visa forum</a>"
+
+#: bbp-admin/bbp-forums.php:525
+msgid "Forum saved."
+msgstr "Forum sparat."
+
+#: bbp-admin/bbp-forums.php:528
+msgid "Forum submitted. <a target=\"_blank\" href=\"%s\">Preview forum</a>"
+msgstr "Forum skapat. <a target=\"_blank\" href=\"%s\">Förhandsgranska forum</a>"
+
+#: bbp-admin/bbp-forums.php:531
+msgid "Forum scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview forum</a>"
+msgstr "Forum tidsinställt till: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Förhandsgranska forum</a>"
+
+#: bbp-admin/bbp-forums.php:538
+msgid "Forum draft updated. <a target=\"_blank\" href=\"%s\">Preview forum</a>"
+msgstr "Utkast av forum uppdaterat. <a target=\"_blank\" href=\"%s\">Förhandsgranska forum</a>"
+
+#: bbp-admin/bbp-admin.php:180
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:40
+#: bbpress.php:575
+#: bbpress.php:576
+msgid "Forums"
+msgstr "Forum"
+
+#: bbp-admin/bbp-admin.php:198
+msgid "Main Settings"
+msgstr "Huvudinställningar"
+
+#: bbp-admin/bbp-admin.php:201
+msgid "Lock post editing after"
+msgstr "Lås inläggsredigering efter"
+
+#: bbp-admin/bbp-admin.php:205
+msgid "Throttle time"
+msgstr "Tidsbegränsning för postning"
+
+#: bbp-admin/bbp-admin.php:213
+msgid "Allow Favorites"
+msgstr "Tillåt favoriter"
+
+#: bbp-admin/bbp-admin.php:217
+msgid "Allow Subscriptions"
+msgstr "Tillåt prenumerationer"
+
+#: bbp-admin/bbp-admin.php:221
+msgid "Allow Anonymous Posting"
+msgstr "Tillåt anonyma inlägg"
+
+#: bbp-admin/bbp-admin.php:233
+msgid "Per Page"
+msgstr "Per sida"
+
+#: bbp-admin/bbp-admin.php:246
+msgid "Per RSS Page"
+msgstr "Per RSS-sida"
+
+#: bbp-admin/bbp-admin.php:259
+msgid "Archive Slugs"
+msgstr "Arkivpermalänkar"
+
+#: bbp-admin/bbp-admin.php:272
+msgid "Single Slugs"
+msgstr "Enskilda permalänkar"
+
+#: bbp-admin/bbp-admin.php:275
+msgid "Forum Prefix"
+msgstr "Forumprefix"
+
+#: bbp-admin/bbp-settings.php:591
+#: bbp-admin/bbp-admin.php:279
+msgid "Forum slug"
+msgstr "Forumpermalänk"
+
+#: bbp-admin/bbp-settings.php:594
+#: bbp-admin/bbp-admin.php:283
+msgid "Topic slug"
+msgstr "Trådpermalänk"
+
+#: bbp-admin/bbp-settings.php:606
+#: bbp-admin/bbp-admin.php:287
+msgid "Topic tag slug"
+msgstr "Trådtaggspermalänk"
+
+#: bbp-admin/bbp-settings.php:597
+#: bbp-admin/bbp-admin.php:291
+msgid "Reply slug"
+msgstr "Svarspermalänk"
+
+#: bbp-admin/bbp-settings.php:600
+#: bbp-admin/bbp-admin.php:297
+msgid "User base"
+msgstr "Användarbas"
+
+#: bbp-admin/bbp-settings.php:603
+#: bbp-admin/bbp-admin.php:301
+msgid "View base"
+msgstr "Visningsbas"
+
+#: bbp-admin/bbp-admin.php:374
+msgid "Your active theme does not include bbPress template files. Your forums are using the default styling included with bbPress."
+msgstr "Ditt aktiva tema inkluderar inte mallfiler för bbPress. Ditt forum använder standardinställningarna för stilar som följer med bbPress."
+
+#: bbp-admin/bbp-admin.php:393
+msgid "Settings"
+msgstr "Inställningar"
+
+#: bbp-admin/bbp-admin.php:419
+msgid "Right Now in Forums"
+msgstr "Just nu i forumet"
+
+#: bbp-admin/bbp-admin.php:679
+msgid "Green"
+msgstr "Grön"
+
+#: bbp-admin/bbp-settings.php:23
+msgid "Main settings for the bbPress plugin"
+msgstr "Huvudinställningar för bbPress-tillägget"
+
+#: bbp-admin/bbp-settings.php:39
+msgid "minutes"
+msgstr "minuter"
+
+#: bbp-admin/bbp-settings.php:55
+msgid "seconds"
+msgstr "sekunder"
+
+#: bbp-admin/bbp-settings.php:71
+msgid "Allow users to mark topics as favorites?"
+msgstr "Tillåt användare att markera trådar som favoriter"
+
+#: bbp-admin/bbp-settings.php:87
+msgid "Allow users to subscribe to topics"
+msgstr "Tillåt användare att prenumerera på trådar"
+
+#: bbp-admin/bbp-settings.php:119
+msgid "Allow guest users without accounts to create topics and replies"
+msgstr "Tillåta gäster utan konton att skapa trådar och svar"
+
+#: bbp-admin/bbp-settings.php:150
+msgid "Per page settings for the bbPress plugin"
+msgstr "Inställningar för hur mycket som ska visas per sida i bbPress"
+
+#: bbp-admin/bbp-settings.php:166
+#: bbp-admin/bbp-settings.php:182
+#: bbp-admin/bbp-settings.php:213
+#: bbp-admin/bbp-settings.php:229
+msgid "per page"
+msgstr "per sida"
+
+#: bbp-admin/bbp-settings.php:197
+msgid "Per RSS page settings for the bbPress plugin"
+msgstr "Inställningar för hur mycket som ska visas per rss-sida"
+
+#: bbp-admin/bbp-settings.php:247
+msgid "Include custom root slugs to prefix your forums and topics with. These can be partnered with WordPress pages to allow more flexibility."
+msgstr "Inkludera anpassade grundprefix för permalänkar i dina forum och trådar. Dessa kan samarbeta med WordPress sidor för att tillåta mer flexibilitet."
+
+#: bbp-admin/bbp-settings.php:296
+msgid "You can enter custom slugs for your single forums, topics, replies, and tags URLs here. If you change these, existing permalinks will also change."
+msgstr "Du kan ange egna permalänksstrukturer för dina enskilda forum, trådar, svar, och taggars URLer här. Om du ändrar dessa kommer befintliga permalänkar också att förändras."
+
+#: bbp-admin/bbp-settings.php:440
+msgid "bbPress Settings"
+msgstr "Inställningar för bbPress"
+
+#: bbp-admin/bbp-settings.php:449
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:169
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: bbp-admin/bbp-settings.php:464
+msgid "This screen provides access to basic bbPress settings."
+msgstr "Den här sidan ger tillgång till grundläggande bbPress-inställningar."
+
+#: bbp-admin/bbp-settings.php:465
+msgid "In the Main Settings you have a number of options:"
+msgstr "I huvudinställningar har du ett antal alternativ:"
+
+#: bbp-admin/bbp-settings.php:468
+msgid "You can choose to lock a post after a certain number of minutes. \"Locking post editing\" will prevent the author from editing some amount of time after saving a post."
+msgstr "Du kan välja att låsa ett inlägg efter ett visst antal minuter. \"Låsa inläggsredigering\" kommer att hindra författaren från att redigera en viss tid efter att ett inlägg är sparats."
+
+#: bbp-admin/bbp-settings.php:469
+msgid "\"Throttle time\" is the amount of time required between posts from a single author. The higher the throttle time, the longer a user will need to wait between posting to the forum."
+msgstr "\"Tidsbegränsning för postning\" är den tid som krävs mellan inlägg från och samma författare. Ju högre begränsning, ju längre måste en användare vänta innan nya meddelanden kan postas i forumet."
+
+#: bbp-admin/bbp-settings.php:470
+msgid "You may choose to allow favorites, which are a way for users to save and later return to topics they favor. This is enabled by default."
+msgstr "Du kan välja att tillåta favoriter, som är ett sätt för användare att spara och senare återvända till tråden som de följer/gillar. Detta är aktiverad som standard."
+
+#: bbp-admin/bbp-settings.php:471
+msgid "You may choose to allow subscriptions, which allows users to subscribe for notifications to topics that interest them. This is enabled by default."
+msgstr "Du kan välja att tillåta prenumerationer, som tillåter användaren att prenumerera för att få meddelanden för trådar som intresserar dem. Detta är aktiverat som standard."
+
+#: bbp-admin/bbp-settings.php:472
+msgid "You may choose to allow \"Anonymous Posting\", which will allow guest users who do not have accounts on your site to both create topics as well as replies."
+msgstr "Du kan välja att tillåta \"anonym postning\", vilket gör att gäster som inte har konton på din webbplats kan skapa både trådar och svar."
+
+#: bbp-admin/bbp-settings.php:475
+msgid "Per Page settings allow you to control the number of topics and replies will appear on each of those pages. This is comparable to the WordPress \"Reading Settings\" page, where you can set the number of posts that should show on blog pages and in feeds."
+msgstr "Per sida inställningarna tillåter dig att kontrollera antalet trådar och svar som kommer att visas på varje sida. Detta är jämförbart med WordPress inställningar för \"Läsa\", där du kan ställa in hur många inlägg som ska visas på bloggsidor och i flöden."
+
+#: bbp-admin/bbp-settings.php:476
+msgid "The Forums section allows you to control the permalink structure for your forums. Each \"base\" is what will be displayed after your main URL and right before your permalink slug."
+msgstr "I forumavsnittet kan du styra permalänkstrukturen för ditt forum. Varje \"bas\" är vad som kommer att visas efter din huvudsakliga webbadress och just innan din permalänk."
+
+#: bbp-admin/bbp-settings.php:477
+msgid "You must click the Save Changes button at the bottom of the screen for new settings to take effect."
+msgstr "Du måste klicka på knappen Spara ändringar längst ned på sidan för att de nya inställningarna ska börja gälla."
+
+#: bbp-admin/bbp-settings.php:570
+#: bbp-themes/bbp-twentyten/bbpress/loop-replies.php:22
+#: bbp-themes/bbp-twentyten/bbpress/loop-replies.php:45
+#: bbp-themes/bbp-twentyten/bbpress/loop-forums.php:20
+#: bbp-themes/bbp-twentyten/bbpress/loop-topics.php:19
+msgid "Posts"
+msgstr "Inlägg"
+
+#: bbp-admin/bbp-settings.php:571
+msgid "Pages"
+msgstr "Sidor"
+
+#: bbp-admin/bbp-settings.php:572
+msgid "Revisions"
+msgstr "Versioner"
+
+#: bbp-admin/bbp-settings.php:573
+msgid "Attachments"
+msgstr "Bilagor"
+
+#: bbp-admin/bbp-settings.php:574
+msgid "Menus"
+msgstr "Menyer"
+
+#: bbp-admin/bbp-settings.php:577
+msgid "Tag base"
+msgstr "Taggbas"
+
+#: bbp-admin/bbp-settings.php:580
+msgid "Category base"
+msgstr "Kategoribas"
+
+#: bbp-admin/bbp-settings.php:585
+#: bbp-admin/bbp-admin.php:262
+msgid "Forums base"
+msgstr "Forumbas"
+
+#: bbp-admin/bbp-settings.php:588
+#: bbp-admin/bbp-admin.php:266
+msgid "Topics base"
+msgstr "Trådbas"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:29
+msgid "<p>Here are the statistics and popular topics of our forums.</p>"
+msgstr "<p>Här är statistiken och populära trådar i forumet.</p>"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:35
+msgid "Registered Users"
+msgstr "Registrerade användare"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:55
+#: bbpress.php:831
+msgid "Topic Tags"
+msgstr "Trådtaggar"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:62
+msgid "Empty Topic Tags"
+msgstr "Tomma trådtaggar"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:71
+msgid "Hidden Topics"
+msgstr "Dolda trådar"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:82
+msgid "Hidden Replies"
+msgstr "Dolda svar"
+
+#: bbp-themes/bbp-twentyten/page-forum-statistics.php:101
+msgid "Popular Topics"
+msgstr "Populära trådar"
+
+#: bbp-includes/bbp-common-template.php:1507
+#: bbp-includes/bbp-common-template.php:1605
+#: bbp-includes/bbp-common-template.php:1817
+#: bbp-includes/bbp-core-compatibility.php:986
+#: bbp-includes/bbp-core-compatibility.php:996
+#: bbp-themes/bbp-twentyten/taxonomy-topic-tag.php:20
+#: bbp-themes/bbp-twentyten/taxonomy-topic-tag-edit.php:20
+msgid "Topic Tag: %s"
+msgstr "Trådtagg: %s"
+
+#: bbp-themes/bbp-twentyten/bbpress/feedback-no-forums.php:13
+msgid "Oh bother! No forums were found here!"
+msgstr "Åh typiskt! Inga forum hittades här!"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-details.php:14
+msgid "Profile: %s"
+msgstr "Profil: %s"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-details.php:18
+msgid "Edit Profile of User %s"
+msgstr "Redigera profil för användaren %s"
+
+#: bbp-includes/bbp-common-template.php:1503
+#: bbp-themes/bbp-twentyten/bbpress/user-details.php:18
+msgid "(Edit)"
+msgstr "(Redigera)"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-details.php:31
+msgid "About %s"
+msgstr "Om %s"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-anonymous.php:17
+msgid "Your information:"
+msgstr "Din information:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-anonymous.php:22
+msgid "Name (required):"
+msgstr "Namn (obligatoriskt):"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-anonymous.php:27
+msgid "Mail (will not be published) (required):"
+msgstr "E-post (publiceras inte) (obligatoriskt):"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-anonymous.php:32
+msgid "Website:"
+msgstr "Webbplats:"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-topics-created.php:16
+msgid "Forum Topics Created"
+msgstr "Forumtrådar skapade"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-topics-created.php:27
+msgid "You have not created any topics."
+msgstr "Du har inte skapat några trådar."
+
+#: bbp-themes/bbp-twentyten/bbpress/user-topics-created.php:27
+msgid "This user has not created any topics."
+msgstr "Den här användaren har inte skapat några trådar."
+
+#: bbp-themes/bbp-twentyten/bbpress/user-favorites.php:16
+msgid "Favorite Forum Topics"
+msgstr "Favorittrådar"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-favorites.php:27
+msgid "You currently have no favorite topics."
+msgstr "Du har för närvarande inga favorittrådar."
+
+#: bbp-themes/bbp-twentyten/bbpress/user-favorites.php:27
+msgid "This user has no favorite topics."
+msgstr "Denna användare har inga favorittrådar."
+
+#: bbp-includes/bbp-core-widgets.php:85
+#: bbp-themes/bbp-twentyten/bbpress/form-user-login.php:17
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:99
+#: bbp-themes/bbp-twentyten/bbpress/form-user-register.php:23
+msgid "Username"
+msgstr "Användarnamn"
+
+#: bbp-includes/bbp-core-widgets.php:90
+#: bbp-themes/bbp-twentyten/bbpress/form-user-login.php:22
+msgid "Password"
+msgstr "Lösenord"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-login.php:28
+msgid "Keep me signed in"
+msgstr "Håll mig inloggad"
+
+#: bbp-themes/bbp-twentyten/bbpress/feedback-logged-in.php:13
+msgid "You are already logged in."
+msgstr "Du är redan inloggad."
+
+#: bbp-includes/bbp-core-widgets.php:121
+#: bbp-themes/bbp-twentyten/bbpress/form-user-lost-pass.php:14
+msgid "Lost Password"
+msgstr "Glömt lösenord"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-lost-pass.php:18
+msgid "Username or Email"
+msgstr "Användarnamn eller e-post"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-lost-pass.php:27
+msgid "Reset my password"
+msgstr "Återställ mitt lösenord"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:24
+msgid "First Name"
+msgstr "Förnamn"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:29
+msgid "Last Name"
+msgstr "Efternamn"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:34
+msgid "Nickname"
+msgstr "Smeknamn"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:39
+msgid "Display name publicly as"
+msgstr "Visa namn offentligt som"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:49
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:52
+msgid "Contact Info"
+msgstr "Kontaktuppgifter"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:74
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:77
+msgid "About Yourself"
+msgstr "Om dig"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:74
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:77
+msgid "About the user"
+msgstr "Om användaren"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:82
+msgid "Biographical Info"
+msgstr "Biografi"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:84
+msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
+msgstr "Dela lite biografisk information för att fylla ut din profil. Detta visas eventuellt offentligt."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:91
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:94
+msgid "Account"
+msgstr "Konto"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:101
+msgid "Usernames cannot be changed."
+msgstr "Användarnamn kan inte ändras."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:117
+msgid "There is a pending email address change to <code>%1$s</code>. <a href=\"%2$s\">Cancel</a>"
+msgstr "Det finns en väntande e-postadressändring till <code>%1$s </code>. <a href=\"%2$s\">Avbryt</a>"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:126
+msgid "New Password"
+msgstr "Nytt lösenord"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:129
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr "Om du vill ändra lösenordet, ange ett nytt här. Lämna det tomt annars."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:132
+msgid "Type your new password again."
+msgstr "Ange ditt nya lösenord igen."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:135
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Tips: Lösenordet bör vara minst sju tecken. För att göra det starkare, använd gemener och versaler samt siffror och symboler som ! \"? $% ^ &amp;)."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:142
+msgid "Role:"
+msgstr "Roll:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:153
+msgid "Super Admin"
+msgstr "Superadmin"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:156
+msgid "Grant this user super admin privileges for the Network."
+msgstr "Ge denna användare administratörsrättigheter för nätverket."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:174
+msgid "Update Profile"
+msgstr "Uppdatera profil"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-edit.php:174
+msgid "Update User"
+msgstr "Uppdatera användare"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:22
+msgid "Merge topic \"%s\""
+msgstr "Sammanfoga tråd \"%s\""
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:27
+msgid "Select the topic to merge this one into. The destination topic will remain the lead topic, and this one will change into a reply."
+msgstr "Välj tråd att slå samman denna med. Destinationstråden kommer att förbli den ledande tråden, och denna tråd kommer att förändras till ett svar."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:28
+msgid "To keep this topic as the lead, go to the other topic and use the merge tool from there instead."
+msgstr "För att hålla denna tråd som huvudtråd, gå till den andra tråden och använd sammanslagningsverktyget därifrån istället."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:32
+msgid "All replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted. If the destination topic was created after this one, it's post date will be updated to second earlier than this one."
+msgstr "Alla svar i båda trådarna kommer att slås samman kronologiskt. Ordningen på sammanslagna svaren bygger på tid och datum de publicerats. Om destinationstråden skapades efter den här så kommer det inläggsdatumet att uppdateras för att visas som postat tidigare än det här."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:36
+msgid "Destination"
+msgstr "Destination"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:40
+msgid "Merge with this topic:"
+msgstr "Sammanfoga med denna tråd:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:49
+msgid "No topics were found to which the topic could be merged to!"
+msgstr "Inga trådar som denna tråd skulle kunna slås samman med hittades!"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:55
+msgid "There are no other topics in this forum to merge with."
+msgstr "Det finns inga andra trådar i detta forum att slå samman med."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:63
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:67
+msgid "Topic Extras"
+msgstr "Trådalternativ"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:70
+msgid "Merge topic subscribers"
+msgstr "Sammanfoga trådprenumeranter"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:75
+msgid "Merge topic favoriters"
+msgstr "Sammanfoga favorittrådar"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:78
+msgid "Merge topic tags"
+msgstr "Sammanfoga trådtaggar"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:84
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:88
+msgid "<strong>WARNING:</strong> This process cannot be undone."
+msgstr "<strong>VARNING:</strong> Denna process kan inte ångras."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:135
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:88
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:92
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:184
+msgid "Submit"
+msgstr "Skicka"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:101
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:105
+msgid "You do not have the permissions to edit this topic!"
+msgstr "Du har inte behörighet att redigera denna tråd!"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-merge.php:101
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:105
+msgid "You cannot edit this topic."
+msgstr "Du kan inte redigera den här tråden."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:22
+msgid "Split topic \"%s\""
+msgstr "Dela trådar \"%s\""
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:27
+msgid "When you split a topic, you are slicing it in half starting with the reply you just selected. Choose to use that reply as a new topic with a new title, or merge those replies into an existing topic."
+msgstr "När du delar en tråd delas den i två delar med början vid det svar du just valde. Välj att använda detta svar som en ny tråd med en ny titel, eller slå samman dessa svar till en befintlig tråd."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:31
+msgid "If you use the existing topic option, replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted."
+msgstr "Om du använder befintliga trådinställningar kommer svar inom båda trådarna att slås samman kronologiskt. Ordningen på de sammanslagna svaren utgår från den tid och datum då de publicerades."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:35
+msgid "Split Method"
+msgstr "Metod för delning"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:39
+msgid "New topic in <strong>%s</strong> titled:"
+msgstr "Ny tråd i <strong>%s</strong> med titeln:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:40
+msgid "Split: %s"
+msgstr "Dela: %s"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:47
+msgid "Use an existing topic in this forum:"
+msgstr "Använd en befintlig tråd i detta forum:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:56
+msgid "No other topics found!"
+msgstr "Inga andra trådar hittades!"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:74
+msgid "Copy subscribers to the new topic"
+msgstr "Kopiera prenumeranter till den nya tråden"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:79
+msgid "Copy favoriters to the new topic"
+msgstr "Kopiera favoriter till den nya tråden"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-split.php:82
+msgid "Copy topic tags to the new topic"
+msgstr "Kopiera trådtaggar till den nya tråden"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-subscriptions.php:20
+msgid "Subscribed Forum Topics"
+msgstr "Prenumererade trådar"
+
+#: bbp-themes/bbp-twentyten/bbpress/user-subscriptions.php:31
+msgid "You are not currently subscribed to any topics."
+msgstr "Du prenumererar för närvarande inte på några trådar."
+
+#: bbp-themes/bbp-twentyten/bbpress/user-subscriptions.php:31
+msgid "This user is not currently subscribed to any topics."
+msgstr "Den här användaren prenumererar för närvarande inte på några trådar."
+
+#: bbp-themes/bbp-twentyten/bbpress/loop-topics.php:21
+msgid "Remove"
+msgstr "Ta bort"
+
+#: bbp-themes/bbp-twentyten/bbpress/loop-single-topic.php:30
+msgid "Started by: %1$s"
+msgstr "Startad av: %1$s"
+
+#: bbp-themes/bbp-twentyten/bbpress/loop-single-topic.php:38
+msgid "in: <a href=\"%1$s\">%2$s</a>"
+msgstr "i: <a href=\"%1$s\">%2$s</a>"
+
+#: bbp-themes/bbp-twentyten/bbpress/feedback-no-topics.php:13
+msgid "Oh bother! No topics were found here!"
+msgstr "Åh typiskt! Inga trådar hittades här!"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-protected.php:13
+msgid "Protected"
+msgstr "Skyddat"
+
+#: bbp-themes/bbp-twentyten/bbpress/loop-single-reply.php:15
+#: bbp-themes/bbp-twentyten/bbpress/content-single-topic-lead.php:43
+msgid "%1$s at %2$s"
+msgstr "%1$s kl %2$s"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:34
+msgid "This topic is marked as closed to new replies, however your posting capabilities still allow you to do so."
+msgstr "Den här tråden är markerad som stängd för nya svar, din behörighet ger dig dock tillåtelse att posta i den i alla fall."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:42
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:59
+msgid "Your account has the ability to post unrestricted HTML content."
+msgstr "Ditt konto har behörighet att posta ofiltrerad HTML-kod."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:56
+msgid "Reply:"
+msgstr "Svar:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:65
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:91
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
+msgstr "Du kan använda följande <abbr title=\"HyperText Markup Language\">HTML</abbr>-taggar och attribut:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:74
+msgid "Tags:"
+msgstr "Taggar:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:90
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:144
+msgid "Notify the author of follow-up replies via email"
+msgstr "Meddela författaren om uppföljningar via e-post"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:94
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:148
+msgid "Notify me of follow-up replies via email"
+msgstr "Meddela mig via mail vid svar"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:109
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:162
+msgid "Revision"
+msgstr "Version"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:112
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:165
+msgid "Keep a log of this edit:"
+msgstr "För en logg över denna redigering:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:116
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:169
+msgid "Optional reason for editing:"
+msgstr "Skäl för redigering (valfritt):"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:158
+msgid "The topic &#8216;%s&#8217; is closed to new replies."
+msgstr "Tråden &#8216;%s&#8217; är stängd för nya svar."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:166
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:207
+msgid "The forum &#8216;%s&#8217; is closed to new topics and replies."
+msgstr "Forumet &#8216;%s&#8217; är stängt för nya trådar och svar."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:174
+msgid "You cannot reply to this topic."
+msgstr "Du kan inte svara på denna tråd."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-reply.php:174
+msgid "You must be logged in to reply to this topic."
+msgstr "Du måste vara inloggad för att svara på denna tråd."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:51
+msgid "This forum is marked as closed to new topics, however your posting capabilities still allow you to do so."
+msgstr "Detta forum är markerat som stängt för nya trådar men din behörighetsnivå tillåter dig ändå att göra det."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:73
+msgid "Topic Title (Maximum Length: %d):"
+msgstr "Trådtitel (Max antal tecken: %d):"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:82
+msgid "Topic Description:"
+msgstr "Inlägg:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:100
+msgid "Topic Tags:"
+msgstr "Trådtaggar:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:111
+#: bbpress.php:646
+msgid "Forum:"
+msgstr "Forum:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:125
+msgid "Topic Type:"
+msgstr "Trådtyp:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:215
+msgid "You cannot create new topics at this time."
+msgstr "Du kan inte skapa nya trådar just nu."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:215
+msgid "You must be logged in to create new topics."
+msgstr "Du måste vara inloggad för att skapa nya trådar."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-register.php:14
+msgid "Create an Account"
+msgstr "Skapa ett konto"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-register.php:17
+msgid "Your username must be unique, and cannot be changed later."
+msgstr "Ditt användarnamn måste vara unikt och kan inte ändras senare."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-user-register.php:18
+msgid "We use your email address to email you a secure password and verify your account."
+msgstr "Vi använder din e-postadress till att skicka dig ett säkert lösenord och bekräfta ditt konto."
+
+#: bbp-includes/bbp-core-widgets.php:115
+#: bbp-themes/bbp-twentyten/bbpress/form-user-register.php:36
+msgid "Register"
+msgstr "Registrera"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:18
+msgid "Manage Tag: \"%s\""
+msgstr "Hantera tagg: \"%s\""
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:22
+msgid "Rename"
+msgstr "Byt namn"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:25
+msgid "Leave the slug empty to have one automatically generated."
+msgstr "Lämna fältet permalänk tomt för att automatiskt få en genererad."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:29
+msgid "Changing the slug affects its permalink. Any links to the old slug will stop working."
+msgstr "Ändring av permalänk påverkar dess befintlig permalänk. Eventuella länkar till den gamla permalänken kommer att sluta fungera."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:35
+msgid "Name:"
+msgstr "Namn:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:40
+msgid "Slug:"
+msgstr "Permalänk:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:45
+msgid "Update"
+msgstr "Uppdatera"
+
+#: bbp-includes/bbp-topic-template.php:2383
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:59
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:73
+msgid "Merge"
+msgstr "Sammanfoga"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:62
+msgid "Merging tags together cannot be undone."
+msgstr "Sammanfogning av taggar går inte att ångra."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:68
+msgid "Existing tag:"
+msgstr "Befintlig tagg:"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:74
+msgid "Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr "Är du säker på att du vill slå ihop taggen \"%s\" med taggen som du angav?"
+
+#: bbp-includes/bbp-reply-template.php:1543
+#: bbp-includes/bbp-topic-template.php:2184
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:89
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:102
+msgid "Delete"
+msgstr "Radera"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:92
+msgid "This does not delete your topics. Only the tag itself is deleted."
+msgstr "Detta raderar inte dina trådar. Bara själva taggen raderas."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:95
+msgid "Deleting a tag cannot be undone."
+msgstr "Radering av en tagg kan inte ångras."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:96
+msgid "Any links to this tag will no longer function."
+msgstr "Inga länkar till denna tagg kommer längre att fungera."
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic-tag.php:103
+msgid "Are you sure you want to delete the \"%s\" tag? This is permanent and cannot be undone."
+msgstr "Är du säker på att du vill radera taggen \"%s\"? Detta är permanent och går inte att ångra."
+
+#: bbp-themes/bbp-twentyten/bbpress/feedback-no-access.php:16
+msgid "You do not have permission to view this forum."
+msgstr "Du har inte behörighet att visa detta forum."
+
+#: bbp-themes/bbp-twentyten/functions.php:245
+msgid "favorites"
+msgstr "favoriter"
+
+#: bbp-themes/bbp-twentyten/functions.php:246
+msgid "?"
+msgstr "?"
+
+#: bbp-themes/bbp-twentyten/functions.php:247
+msgid "This topic is one of your %favLinkYes% [%favDel%]"
+msgstr "Den här tråden är en av dina %favLinkYes% [%favDel%]"
+
+#: bbp-themes/bbp-twentyten/functions.php:248
+msgid "%favAdd% (%favLinkNo%)"
+msgstr "%favAdd% (%favLinkNo%)"
+
+#: bbp-includes/bbp-user-template.php:557
+#: bbp-themes/bbp-twentyten/functions.php:249
+msgid "&times;"
+msgstr "&times;"
+
+#: bbp-includes/bbp-user-template.php:549
+#: bbp-themes/bbp-twentyten/functions.php:250
+msgid "Add this topic to your favorites"
+msgstr "Lägg till den här tråden till dina favoriter"
+
+#: bbp-includes/bbp-user-template.php:662
+#: bbp-themes/bbp-twentyten/functions.php:259
+msgid "Subscribe"
+msgstr "Prenumerera"
+
+#: bbp-includes/bbp-user-template.php:663
+#: bbp-themes/bbp-twentyten/functions.php:260
+msgid "Unsubscribe"
+msgstr "Avsluta prenumeration"
+
+#: bbp-themes/bbp-twentyten/page-topic-tags.php:25
+msgid "<p>This is a collection of tags that are currently popular on our forums.</p>"
+msgstr "<p>Detta är en samling taggar som för närvarande är populära i vårat forum.</p>"
+
+#: bbp-themes/bbp-twentyten/single-reply.php:52
+msgid "Posted on %1$s at %2$s"
+msgstr "Postat %1$s kl. %2$s"
+
+#: bbpress.php:578
+msgid "All Forums"
+msgstr "Alla forum"
+
+#: bbpress.php:579
+#: bbpress.php:583
+msgid "New Forum"
+msgstr "Nytt forum"
+
+#: bbpress.php:580
+msgid "Create New Forum"
+msgstr "Skapa nytt forum"
+
+#: bbp-includes/bbp-common-template.php:1511
+#: bbp-includes/bbp-reply-template.php:1428
+#: bbp-includes/bbp-topic-template.php:2070
+#: bbpress.php:581
+#: bbpress.php:638
+#: bbpress.php:695
+msgid "Edit"
+msgstr "Redigera"
+
+#: bbpress.php:582
+msgid "Edit Forum"
+msgstr "Redigera forum"
+
+#: bbpress.php:584
+#: bbpress.php:585
+msgid "View Forum"
+msgstr "Visa forum"
+
+#: bbpress.php:586
+msgid "Search Forums"
+msgstr "Sök forum"
+
+#: bbp-admin/importers/bbpress.php:875
+#: bbpress.php:587
+msgid "No forums found"
+msgstr "Inga forum funna"
+
+#: bbpress.php:588
+msgid "No forums found in Trash"
+msgstr "Inga forum funna i papperskorgen"
+
+#: bbpress.php:589
+msgid "Parent Forum:"
+msgstr "Moderforum:"
+
+#: bbpress.php:610
+msgid "bbPress Forums"
+msgstr "bbPress Forum"
+
+#: bbp-includes/bbp-topic-functions.php:2933
+#: bbpress.php:635
+msgid "All Topics"
+msgstr "Alla trådar"
+
+#: bbpress.php:636
+#: bbpress.php:640
+msgid "New Topic"
+msgstr "Ny tråd"
+
+#: bbp-themes/bbp-twentyten/bbpress/form-topic.php:41
+#: bbpress.php:637
+msgid "Create New Topic"
+msgstr "Skapa ny tråd"
+
+#: bbpress.php:639
+msgid "Edit Topic"
+msgstr "Redigera tråd"
+
+#: bbpress.php:641
+#: bbpress.php:642
+msgid "View Topic"
+msgstr "Visa tråd"
+
+#: bbpress.php:643
+msgid "Search Topics"
+msgstr "Sök ämnen"
+
+#: bbpress.php:644
+msgid "No topics found"
+msgstr "Inga trådar hittades"
+
+#: bbpress.php:645
+msgid "No topics found in Trash"
+msgstr "Inga trådar funna i papperskorgen"
+
+#: bbpress.php:667
+msgid "bbPress Topics"
+msgstr "bbPress Trådar"
+
+#: bbp-includes/bbp-reply-functions.php:1301
+#: bbpress.php:692
+msgid "All Replies"
+msgstr "Alla svar"
+
+#: bbpress.php:693
+#: bbpress.php:697
+msgid "New Reply"
+msgstr "Nytt svar"
+
+#: bbpress.php:694
+msgid "Create New Reply"
+msgstr "Skapa nytt svar"
+
+#: bbpress.php:696
+msgid "Edit Reply"
+msgstr "Redigera svar"
+
+#: bbpress.php:698
+#: bbpress.php:699
+msgid "View Reply"
+msgstr "Visa svar"
+
+#: bbpress.php:700
+msgid "Search Replies"
+msgstr "Sök svar"
+
+#: bbpress.php:701
+msgid "No replies found"
+msgstr "Inga svar funna"
+
+#: bbpress.php:702
+msgid "No replies found in Trash"
+msgstr "Inga svar funna i papperskorgen"
+
+#: bbpress.php:703
+msgid "Topic:"
+msgstr "Tråd:"
+
+#: bbpress.php:724
+msgid "bbPress Replies"
+msgstr "bbPress Svar"
+
+#: bbpress.php:758
+msgctxt "post"
+msgid "Closed"
+msgstr "Stängd"
+
+#: bbpress.php:759
+msgctxt "bbpress"
+msgid "Closed <span class=\"count\">(%s)</span>"
+msgid_plural "Closed <span class=\"count\">(%s)</span>"
+msgstr[0] "Stängt <span class=\"count\">(%s)</span>"
+msgstr[1] "Stängda <span class=\"count\">(%s)</span>"
+
+#: bbpress.php:767
+msgctxt "post"
+msgid "Spam"
+msgstr "Skräppost"
+
+#: bbpress.php:768
+msgctxt "bbpress"
+msgid "Spam <span class=\"count\">(%s)</span>"
+msgid_plural "Spam <span class=\"count\">(%s)</span>"
+msgstr[0] "Skräppost <span class=\"count\">(%s)</span>"
+msgstr[1] "Skräpposter <span class=\"count\">(%s)</span>"
+
+#: bbpress.php:778
+msgctxt "post"
+msgid "Orphan"
+msgstr "Föräldralös"
+
+#: bbpress.php:779
+msgctxt "bbpress"
+msgid "Orphan <span class=\"count\">(%s)</span>"
+msgid_plural "Orphans <span class=\"count\">(%s)</span>"
+msgstr[0] "Föräldralös <span class=\"count\">(%s)</span>"
+msgstr[1] "Föräldralösa <span class=\"count\">(%s)</span>"
+
+#: bbpress.php:789
+msgctxt "post"
+msgid "Hidden"
+msgstr "Dolt"
+
+#: bbpress.php:790
+msgctxt "bbpress"
+msgid "Hidden <span class=\"count\">(%s)</span>"
+msgid_plural "Hidden <span class=\"count\">(%s)</span>"
+msgstr[0] "Dolt <span class=\"count\">(%s)</span>"
+msgstr[1] "Dolda <span class=\"count\">(%s)</span>"
+
+#: bbpress.php:833
+msgid "Search Tags"
+msgstr "Sök taggar"
+
+#: bbpress.php:834
+msgid "Popular Tags"
+msgstr "Populära taggar"
+
+#: bbpress.php:835
+msgid "All Tags"
+msgstr "Alla taggar"
+
+#: bbpress.php:836
+msgid "Edit Tag"
+msgstr "Redigera tagg"
+
+#: bbpress.php:837
+msgid "Update Tag"
+msgstr "Uppdatera tagg"
+
+#: bbpress.php:838
+msgid "Add New Tag"
+msgstr "Lägg till ny tagg"
+
+#: bbpress.php:839
+msgid "New Tag Name"
+msgstr "Nytt taggnamn"
+
+#: bbpress.php:840
+msgid "View Topic Tag"
+msgstr "Visa trådtagg"
+
+#: bbpress.php:887
+msgid "Topics with no replies"
+msgstr "Trådar utan svar"
+
+#: bbp-includes/bbp-forum-template.php:1082
+msgid "%s topic"
+msgid_plural "%s topics"
+msgstr[0] "%s tråd"
+msgstr[1] "%s trådar"
+
+#: bbp-includes/bbp-forum-template.php:1095
+#: bbp-includes/bbp-topic-template.php:1711
+msgid " (+ %d hidden)"
+msgstr " (+ %d dolda)"
+
+#: bbp-includes/bbp-forum-template.php:1672
+#: bbp-includes/bbp-topic-template.php:1698
+msgid "%s reply"
+msgid_plural "%s replies"
+msgstr[0] "%s svar"
+msgstr[1] "%s svar"
+
+#: bbp-includes/bbp-forum-template.php:1682
+msgid "This category contains %1$s and %2$s, and was last updated by %3$s %4$s ago."
+msgstr "Denna kategori innehåller %1$s och %2$s och uppdaterades senast av %3$s för %4$s sedan."
+
+#: bbp-includes/bbp-forum-template.php:1686
+msgid "This forum contains %1$s and %2$s, and was last updated by %3$s %4$s ago."
+msgstr "Detta forum innehåller %1$s och %2$s och uppdaterades senast av %3$s för %4$s sedan."
+
+#: bbp-includes/bbp-forum-template.php:1693
+msgid "This category contains %1$s and %2$s."
+msgstr "Denna kategori innehåller %1$s och %2$s."
+
+#: bbp-includes/bbp-forum-template.php:1697
+msgid "This forum contains %1$s and %2$s."
+msgstr "Detta forum innehåller %1$s och %2$s."
+
+#: bbp-includes/bbp-user-template.php:1058
+#: bbp-includes/bbp-reply-template.php:968
+#: bbp-includes/bbp-topic-template.php:1224
+msgid "View %s's profile"
+msgstr "Visa %s's profil"
+
+#: bbp-includes/bbp-user-template.php:1058
+#: bbp-includes/bbp-reply-template.php:968
+#: bbp-includes/bbp-topic-template.php:1224
+msgid "Visit %s's website"
+msgstr "Besök %s's webbplats"
+
+#: bbp-includes/bbp-topic-template.php:1872
+msgid "Tagged:"
+msgstr "Taggat:"
+
+#: bbp-includes/bbp-reply-template.php:1563
+#: bbp-includes/bbp-topic-template.php:2203
+msgid "Are you sure you want to delete that permanently?"
+msgstr "Är du säker på att du vill radera det permanent?"
+
+#: bbp-includes/bbp-reply-template.php:1614
+#: bbp-includes/bbp-topic-template.php:2441
+msgid "Unspam"
+msgstr "Avmarkera som skräppost"
+
+#: bbp-includes/bbp-topic-template.php:2504
+msgid "Viewing topic %1$s (of %2$s total)"
+msgstr "Visar tråd %1$s (av totalt %2$s)"
+
+#: bbp-includes/bbp-topic-template.php:2508
+msgid "Viewing %1$s topics"
+msgstr "Visar %1$s inlägg"
+
+#: bbp-includes/bbp-topic-template.php:2512
+msgid "Viewing %1$s topics - %2$s through %3$s (of %4$s total)"
+msgstr "Visar %1$s inlägg - %2$s till %3$s (av totalt %4$s)"
+
+#: bbp-includes/bbp-topic-template.php:2517
+msgid "Viewing %1$s topic"
+msgstr "Visar %1$s tråd"
+
+#: bbp-includes/bbp-topic-template.php:2577
+msgid "This topic is marked as spam."
+msgstr "Denna tråd är markerad som skräp."
+
+#: bbp-includes/bbp-topic-template.php:2582
+msgid "This topic is in the trash."
+msgstr "Denna tråd ligger i papperskorgen."
+
+#: bbp-includes/bbp-topic-template.php:2618
+msgid "Normal"
+msgstr "Normal"
+
+#: bbp-includes/bbp-topic-template.php:2619
+msgid "Sticky"
+msgstr "Klistrad"
+
+#: bbp-includes/bbp-topic-template.php:2620
+msgid "Super Sticky"
+msgstr "Superklistrad"
+
+#: bbp-includes/bbp-topic-template.php:2742
+msgid "%s voice"
+msgid_plural "%s voices"
+msgstr[0] "%s deltagare"
+msgstr[1] "%s deltagare"
+
+#: bbp-includes/bbp-topic-template.php:2747
+msgid "This topic has %1$s, contains %2$s, and was last updated by %3$s %4$s ago."
+msgstr "Denna tråd har %1$s, innehåller %2$s och uppdaterades senast av %3$s för %4$s sedan."
+
+#: bbp-includes/bbp-topic-template.php:2751
+msgid "This topic has %1$s, contains %2$s."
+msgstr "Denna tråd har %1$s, innehåller %2$s."
+
+#: bbp-includes/bbp-common-template.php:1011
+msgid "No topics available"
+msgstr "Inga trådar tillgängliga"
+
+#: bbp-includes/bbp-common-template.php:1016
+msgid "No forums available"
+msgstr "Inga forum tillgängliga"
+
+#: bbp-includes/bbp-common-template.php:1021
+msgid "None available"
+msgstr "Inga tillgängliga"
+
+#: bbp-includes/bbp-common-template.php:1441
+msgid "Home"
+msgstr "Hem"
+
+#: bbp-includes/bbp-common-template.php:1526
+msgid "&lsaquo;"
+msgstr "&lsaquo;"
+
+#: bbp-includes/bbp-common-template.php:1526
+msgid "&rsaquo;"
+msgstr "&rsaquo;"
+
+#: bbp-includes/bbp-common-template.php:1751
+msgid "Log Out"
+msgstr "Logga ut"
+
+#: bbp-includes/bbp-common-template.php:1804
+msgid "Forum: %s"
+msgstr "Forum: %s"
+
+#: bbp-includes/bbp-common-template.php:1808
+msgid "Topic: %s"
+msgstr "Tråd: %s"
+
+#: bbp-includes/bbp-common-template.php:1826
+msgid "Your Profile"
+msgstr "Din profil"
+
+#: bbp-includes/bbp-common-template.php:1831
+msgid "%s's Profile"
+msgstr "%s's profil"
+
+#: bbp-includes/bbp-common-template.php:1839
+msgid "Edit Your Profile"
+msgstr "Redigera din profil"
+
+#: bbp-includes/bbp-common-template.php:1844
+msgid "Edit %s's Profile"
+msgstr "Redigera %s's profil"
+
+#: bbp-includes/bbp-common-template.php:1851
+msgid "View: %s"
+msgstr "Visa: %s"
+
+#: bbp-includes/bbp-common-functions.php:500
+#: bbp-includes/bbp-common-functions.php:532
+msgid "Private: %s"
+msgstr "Privat: %s"
+
+#: bbp-includes/bbp-common-functions.php:501
+#: bbp-includes/bbp-common-functions.php:533
+msgid "Spammed: %s"
+msgstr "Skräppost: %s"
+
+#: bbp-includes/bbp-common-functions.php:502
+#: bbp-includes/bbp-common-functions.php:534
+msgid "Trashed: %s"
+msgstr "Kastade: %s"
+
+#: bbp-includes/bbp-common-functions.php:734
+msgid "<strong>ERROR</strong>: Invalid author name submitted!"
+msgstr "<strong>FEL</strong>: Ogiltigt författarnamn angivet!"
+
+#: bbp-includes/bbp-common-functions.php:737
+msgid "<strong>ERROR</strong>: Invalid email address submitted!"
+msgstr "<strong>FEL</strong>: Ogiltig e-postadress angiven!"
+
+#: bbp-includes/bbp-reply-template.php:1678
+msgid "Split"
+msgstr "Dela"
+
+#: bbp-includes/bbp-reply-template.php:1679
+msgid "Split the topic from this reply"
+msgstr "Dela tråden från detta svar"
+
+#: bbp-includes/bbp-reply-template.php:1776
+msgid "Viewing reply %1$s (of %2$s total)"
+msgstr "Visar svar %1$s (av totalt %2$s)"
+
+#: bbp-includes/bbp-reply-template.php:1780
+msgid "Viewing %1$s replies"
+msgstr "Visar %1$s svar"
+
+#: bbp-includes/bbp-reply-template.php:1784
+msgid "Viewing %1$s replies - %2$s through %3$s (of %4$s total)"
+msgstr "Visar %1$s svar - %2$s till %3$s (av totalt %4$s)"
+
+#: bbp-includes/bbp-reply-template.php:1789
+msgid "Viewing %1$s reply"
+msgstr "Visar %1$s svar"
+
+#: bbp-includes/bbp-reply-template.php:1800
+msgid "Viewing post %1$s (of %2$s total)"
+msgstr "Visar inlägg %1$s (av totalt %2$s)"
+
+#: bbp-includes/bbp-reply-template.php:1804
+msgid "Viewing %1$s posts"
+msgstr "Visar %1$s inlägg"
+
+#: bbp-includes/bbp-reply-template.php:1808
+msgid "Viewing %1$s posts - %2$s through %3$s (of %4$s total)"
+msgstr "Visar %1$s inlägg -%2$s till %3$s (av %4$s totalt)"
+
+#: bbp-includes/bbp-reply-template.php:1813
+msgid "Viewing %1$s post"
+msgstr "Visar %1$s inlägg"
+
+#: bbp-includes/bbp-core-compatibility.php:308
+msgid "Hands off, partner!"
+msgstr "Ajabaja, partner!"
+
+#: bbp-includes/bbp-core-compatibility.php:1337
+msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
+msgstr "Villkorsstyrda query-taggar fungerar inte innan queryn körs. Innan dess så kommer de alltid returnera false."
+
+#: bbp-includes/bbp-core-compatibility.php:1572
+msgid "You do not have the permission to edit this user."
+msgstr "Du har inte tillåtelse att redigera den här användaren."
+
+#: bbp-includes/bbp-extend-akismet.php:296
+msgid "%1$s reported this %2$s as spam"
+msgstr "%1$s rapporterade detta %2$s som skräp"
+
+#: bbp-includes/bbp-extend-akismet.php:303
+msgid "%1$s reported this %2$s as not spam"
+msgstr "%1$s rapporterade detta %2$s som inte skräp"
+
+#: bbp-includes/bbp-extend-akismet.php:445
+msgid "Akismet caught this post as spam"
+msgstr "Akismet markerade detta inlägg som skräp"
+
+#: bbp-includes/bbp-extend-akismet.php:449
+#: bbp-includes/bbp-extend-akismet.php:464
+msgid "Post status was changed to %s"
+msgstr "Inläggsstatusen ändrades till %s"
+
+#: bbp-includes/bbp-extend-akismet.php:457
+msgid "Akismet cleared this post"
+msgstr "Akismet godkände detta inlägg"
+
+#: bbp-includes/bbp-extend-akismet.php:471
+msgid "Akismet was unable to check this post (response: %s), will automatically retry again later."
+msgstr "Akismet kunde inte kontrollera detta inlägg (svar: %s), ett nytt försök kommer automatiskt ske igen."
+
+#: bbp-includes/bbp-reply-functions.php:143
+msgid "<strong>ERROR</strong>: You do not have permission to reply."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att svara."
+
+#: bbp-includes/bbp-reply-functions.php:155
+msgid "<strong>ERROR</strong>: Topic ID is missing."
+msgstr "<strong>FEL</strong>: Tråd-ID saknas."
+
+#: bbp-includes/bbp-reply-functions.php:161
+#: bbp-includes/bbp-topic-functions.php:195
+#: bbp-includes/bbp-topic-functions.php:470
+msgid "<strong>ERROR</strong>: Forum ID is missing."
+msgstr "<strong>FEL</strong>: Forum-ID saknas."
+
+#: bbp-includes/bbp-reply-functions.php:181
+msgid "<strong>ERROR</strong>: Your reply needs a title."
+msgstr "<strong>FEL</strong>: Ditt svar behöver en titel."
+
+#: bbp-includes/bbp-reply-functions.php:193
+#: bbp-includes/bbp-reply-functions.php:451
+msgid "<strong>ERROR</strong>: Your reply cannot be empty."
+msgstr "<strong>FEL</strong>: Ditt svar kan inte vara tomt."
+
+#: bbp-includes/bbp-reply-functions.php:198
+#: bbp-includes/bbp-topic-functions.php:224
+msgid "<strong>ERROR</strong>: Slow down; you move too fast."
+msgstr "<strong>FEL</strong>: Sakta ner, du går för fort fram."
+
+#: bbp-includes/bbp-reply-functions.php:203
+msgid "<strong>ERROR</strong>: Duplicate reply detected; it looks as though you&#8217;ve already said that!"
+msgstr "<strong>FEL</strong>: Duplicerat svar upptäcktes; det verkar som om du redan hade sagt det!"
+
+#: bbp-includes/bbp-reply-functions.php:365
+msgid "<strong>ERROR</strong>: Reply ID not found."
+msgstr "<strong>FEL</strong>: Svars-ID hittades inte."
+
+#: bbp-includes/bbp-reply-functions.php:375
+msgid "<strong>ERROR</strong>: The reply you want to edit was not found."
+msgstr "<strong>FEL</strong>: Svaret du vill redigera hittades inte."
+
+#: bbp-includes/bbp-reply-functions.php:388
+msgid "<strong>ERROR</strong>: You do not have permission to edit that reply."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera detta svar."
+
+#: bbp-includes/bbp-reply-functions.php:418
+msgid "<strong>ERROR</strong>: This forum is a category. No topics or replies can be created in it."
+msgstr "<strong>FEL</strong>: Detta forum är en kategori. Inga trådar eller svar kan skapas i det."
+
+#: bbp-includes/bbp-reply-functions.php:422
+msgid "<strong>ERROR</strong>: This forum has been closed to new topics and replies."
+msgstr "<strong>FEL</strong>: Detta forum har stängts för nya trådar och svar."
+
+#: bbp-includes/bbp-reply-functions.php:426
+msgid "<strong>ERROR</strong>: This forum is private and you do not have the capability to read or create new replies in it."
+msgstr "<strong>FEL</strong>: Detta forum är privat och du har inte behörighet att läsa eller skapa nya svar i det."
+
+#: bbp-includes/bbp-reply-functions.php:430
+msgid "<strong>ERROR</strong>: This forum is hidden and you do not have the capability to read or create new replies in it."
+msgstr "<strong>FEL</strong>: Detta forum är dolt och du har inte behörighet att läsa eller skapa nya svar i det."
+
+#: bbp-includes/bbp-reply-functions.php:976
+msgid "<strong>ERROR:</strong> You do not have the permission to do that!"
+msgstr "<strong>FEL:</strong> Du har inte behörighet att göra detta!"
+
+#: bbp-includes/bbp-reply-functions.php:989
+msgid "<strong>ERROR</strong>: There was a problem unmarking the reply as spam!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att avmarkera svaret som skräppost!"
+
+#: bbp-includes/bbp-reply-functions.php:989
+msgid "<strong>ERROR</strong>: There was a problem marking the reply as spam!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att märka svaret som skräppost!"
+
+#: bbp-includes/bbp-reply-functions.php:1008
+msgid "<strong>ERROR</strong>: There was a problem trashing the reply!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att ta bort svaret!"
+
+#: bbp-includes/bbp-reply-functions.php:1016
+msgid "<strong>ERROR</strong>: There was a problem untrashing the reply!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att återskapa svaret!"
+
+#: bbp-includes/bbp-reply-functions.php:1024
+msgid "<strong>ERROR</strong>: There was a problem deleting the reply!"
+msgstr "<strong>FEL</strong>: Det var ett problem med att radera svaret!"
+
+#: bbp-includes/bbp-reply-functions.php:1299
+msgid "All Posts"
+msgstr "Alla inlägg"
+
+#: bbp-includes/bbp-reply-functions.php:1341
+#: bbp-includes/bbp-topic-functions.php:2958
+msgid "Replies: %s"
+msgstr "Svar: %s"
+
+#: bbp-includes/bbp-topic-functions.php:153
+msgid "<strong>ERROR</strong>: You do not have permission to create new topics."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att skapa nya trådar."
+
+#: bbp-includes/bbp-topic-functions.php:177
+#: bbp-includes/bbp-topic-functions.php:510
+msgid "<strong>ERROR</strong>: Your topic needs a title."
+msgstr "<strong>FEL</strong>: Din tråd behöver en titel."
+
+#: bbp-includes/bbp-topic-functions.php:189
+#: bbp-includes/bbp-topic-functions.php:522
+msgid "<strong>ERROR</strong>: Your topic cannot be empty."
+msgstr "<strong>FEL</strong>: Din tråd kan inte vara tom."
+
+#: bbp-includes/bbp-topic-functions.php:206
+msgid "<strong>ERROR</strong>: This forum is a category. No topics can be created in this forum."
+msgstr "<strong>FEL</strong>: Detta forum är en kategori. Inga trådar kan skapas i detta forum."
+
+#: bbp-includes/bbp-topic-functions.php:210
+#: bbp-includes/bbp-topic-functions.php:489
+msgid "<strong>ERROR</strong>: This forum has been closed to new topics."
+msgstr "<strong>FEL</strong>: Detta forum har stängts för nya trådar."
+
+#: bbp-includes/bbp-topic-functions.php:214
+#: bbp-includes/bbp-topic-functions.php:493
+msgid "<strong>ERROR</strong>: This forum is private and you do not have the capability to read or create new topics in it."
+msgstr "<strong>FEL</strong>: Detta forum är privat och du har inte behörighet att läsa eller skapa nya trådar i det."
+
+#: bbp-includes/bbp-topic-functions.php:218
+#: bbp-includes/bbp-topic-functions.php:497
+msgid "<strong>ERROR</strong>: This forum is hidden and you do not have the capability to read or create new topics in it."
+msgstr "<strong>FEL</strong>: Detta forum är dolt och du har inte behörighet att läsa eller skapa nya trådar i det."
+
+#: bbp-includes/bbp-topic-functions.php:229
+msgid "<strong>ERROR</strong>: Duplicate topic detected; it looks as though you&#8217;ve already said that!"
+msgstr "<strong>FEL</strong>: Duplicerade trådar upptäcktes; det verkar som om du redan hade sagt det!"
+
+#: bbp-includes/bbp-topic-functions.php:426
+#: bbp-includes/bbp-topic-functions.php:1010
+msgid "<strong>ERROR</strong>: Topic ID not found."
+msgstr "<strong>FEL</strong>: Tråd-ID hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:436
+msgid "<strong>ERROR</strong>: The topic you want to edit was not found."
+msgstr "<strong>FEL</strong>: Den tråd du vill redigera hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:449
+msgid "<strong>ERROR</strong>: You do not have permission to edit that topic."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera denna tråd."
+
+#: bbp-includes/bbp-topic-functions.php:485
+msgid "<strong>ERROR</strong>: This forum is a category. No topics can be created in it."
+msgstr "<strong>FEL</strong>: Detta forum är en kategori. Inga trådar kan skapas i det."
+
+#: bbp-includes/bbp-topic-functions.php:1019
+msgid "<strong>ERROR</strong>: The topic you want to merge was not found."
+msgstr "<strong>FEL</strong>: Den tråd du vill slå samman med hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:1023
+#: bbp-includes/bbp-topic-functions.php:1314
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the source topic."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera källtråden."
+
+#: bbp-includes/bbp-topic-functions.php:1029
+msgid "<strong>ERROR</strong>: Destination topic ID not found."
+msgstr "<strong>FEL</strong>: Destinationens tråd-ID hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:1035
+msgid "<strong>ERROR</strong>: The topic you want to merge to was not found."
+msgstr "<strong>FEL</strong>: Den tråd du vill sammanfoga med hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:1039
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the destination topic."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera destinationstråden."
+
+#: bbp-includes/bbp-topic-functions.php:1290
+msgid "<strong>ERROR</strong>: Reply ID to split the topic from not found!"
+msgstr "<strong>FEL</strong>: Svars-ID att dela tråden i från kunde inte hittas!"
+
+#: bbp-includes/bbp-topic-functions.php:1298
+msgid "<strong>ERROR</strong>: The reply you want to split from was not found."
+msgstr "<strong>FEL</strong>: Svaret du vill dela hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:1307
+msgid "<strong>ERROR</strong>: The topic you want to split was not found."
+msgstr "<strong>FEL</strong>: Den tråd du vill dela hittades inte."
+
+#: bbp-includes/bbp-topic-functions.php:1323
+msgid "<strong>ERROR</strong>: You need to choose a valid split option."
+msgstr "<strong>FEL</strong>: Du måste välja en giltig delningsmetod."
+
+#: bbp-includes/bbp-topic-functions.php:1336
+msgid "<strong>ERROR</strong>: Destination topic ID not found!"
+msgstr "<strong>FEL</strong>: Destinationstrådens ID hittades inte!"
+
+#: bbp-includes/bbp-topic-functions.php:1345
+msgid "<strong>ERROR</strong>: The topic you want to split to was not found!"
+msgstr "<strong>FEL</strong>: Den tråd du vill dela till kunde inte hittas!"
+
+#: bbp-includes/bbp-topic-functions.php:1349
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the destination topic!"
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera destinationstråden!"
+
+#: bbp-includes/bbp-topic-functions.php:1388
+msgid "<strong>ERROR</strong>: There was a problem converting the reply into the topic. Please try again."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem vid konvertering av svaret till tråden. Var god försök igen."
+
+#: bbp-includes/bbp-topic-functions.php:1393
+msgid "<strong>ERROR</strong>: You do not have the permissions to create new topics. The reply could not be converted into a topic."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att skapa nya trådar. Svaret kunde inte omvandlas till en tråd."
+
+#: bbp-includes/bbp-topic-functions.php:1599
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while getting the tag: %s"
+msgstr "<strong>FEL</strong>: Följande problem uppstod vid hämtning av taggen:%s"
+
+#: bbp-includes/bbp-topic-functions.php:1614
+#: bbp-includes/bbp-topic-functions.php:1650
+msgid "<strong>ERROR</strong>: You do not have the permissions to edit the topic tags."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera trådens taggar."
+
+#: bbp-includes/bbp-topic-functions.php:1620
+#: bbp-includes/bbp-topic-functions.php:1656
+msgid "<strong>ERROR</strong>: You need to enter a tag name."
+msgstr "<strong>FEL</strong>: Du måste ange ett taggnamn."
+
+#: bbp-includes/bbp-topic-functions.php:1630
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while updating the tag: %s"
+msgstr "<strong>FEL</strong>: Följande problem uppstod vid uppdatering av taggen:%s"
+
+#: bbp-includes/bbp-topic-functions.php:1666
+#: bbp-includes/bbp-topic-functions.php:1684
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while merging the tags: %s"
+msgstr "<strong>FEL</strong>: Följande problem uppstod vid sammanslagning av taggarna: %s"
+
+#: bbp-includes/bbp-topic-functions.php:1675
+msgid "<strong>ERROR</strong>: The tags which are being merged can not be the same."
+msgstr "<strong>FEL</strong>: De taggar som sammanfogas kan inte vara samma."
+
+#: bbp-includes/bbp-topic-functions.php:1704
+msgid "<strong>ERROR</strong>: You do not have the permissions to delete the topic tags."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att ta bort taggar."
+
+#: bbp-includes/bbp-topic-functions.php:1713
+msgid "<strong>ERROR</strong>: The following problem(s) have been found while deleting the tag: %s"
+msgstr "<strong>FEL</strong>: Följande problem uppstod vid radering taggen: %s"
+
+#: bbp-includes/bbp-topic-functions.php:1839
+msgid "<strong>ERROR:</strong> You do not have the permission to do that."
+msgstr "<strong>FEL</strong>: Du har inte behörighet att göra detta."
+
+#: bbp-includes/bbp-topic-functions.php:1852
+msgid "<strong>ERROR</strong>: There was a problem closing the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem att stänga tråden."
+
+#: bbp-includes/bbp-topic-functions.php:1852
+msgid "<strong>ERROR</strong>: There was a problem opening the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att öppna tråden."
+
+#: bbp-includes/bbp-topic-functions.php:1863
+msgid "<strong>ERROR</strong>: There was a problem unsticking the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem vid avklistring av tråden."
+
+#: bbp-includes/bbp-topic-functions.php:1863
+msgid "<strong>ERROR</strong>: There was a problem sticking the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att klistra tråden."
+
+#: bbp-includes/bbp-topic-functions.php:1873
+msgid "<strong>ERROR</strong>: There was a problem unmarking the topic as spam."
+msgstr "<strong>FEL</strong>: Det uppstod ett fel när tråden skulle avmarkeras som skräp."
+
+#: bbp-includes/bbp-topic-functions.php:1873
+msgid "<strong>ERROR</strong>: There was a problem marking the topic as spam."
+msgstr "<strong>FEL</strong>: Det uppstod ett fel när tråden skulle markeras som skräp."
+
+#: bbp-includes/bbp-topic-functions.php:1892
+msgid "<strong>ERROR</strong>: There was a problem trashing the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem när tråden skulle kastas i papperskorgen."
+
+#: bbp-includes/bbp-topic-functions.php:1900
+msgid "<strong>ERROR</strong>: There was a problem untrashing the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att återställa tråden från papperskorgen."
+
+#: bbp-includes/bbp-topic-functions.php:1908
+msgid "<strong>ERROR</strong>: There was a problem deleting the topic."
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att radera tråden."
+
+#: bbp-includes/bbp-user-functions.php:402
+#: bbp-includes/bbp-user-functions.php:694
+msgid "<strong>ERROR</strong>: You don't have the permission to edit favorites of that user!"
+msgstr "<strong>FEL</strong>: Du har inte behörighet att redigera favoriter för denna användar!"
+
+#: bbp-includes/bbp-user-functions.php:406
+msgid "<strong>ERROR</strong>: No topic was found! Which topic are you marking/unmarking as favorite?"
+msgstr "<strong>FEL</strong>: Ingen tråd hittades! Vilken tråd är det du markerar/avmarkerar som favorit?"
+
+#: bbp-includes/bbp-user-functions.php:445
+msgid "<strong>ERROR</strong>: There was a problem removing that topic from favorites!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att ta bort den tråden från favoriter!"
+
+#: bbp-includes/bbp-user-functions.php:447
+msgid "<strong>ERROR</strong>: There was a problem favoriting that topic!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att favoritmarkera denna tråd!"
+
+#: bbp-includes/bbp-user-functions.php:698
+msgid "<strong>ERROR</strong>: No topic was found! Which topic are you subscribing/unsubscribing to?"
+msgstr "<strong>FEL</strong>: Ingen tråd hittades! Vilken tråd vill du prenumerera på/avsluta prenumerationen av?"
+
+#: bbp-includes/bbp-user-functions.php:736
+msgid "<strong>ERROR</strong>: There was a problem unsubscribing from that topic!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att avsluta prenumerationen på denna tråd!"
+
+#: bbp-includes/bbp-user-functions.php:738
+msgid "<strong>ERROR</strong>: There was a problem subscribing to that topic!"
+msgstr "<strong>FEL</strong>: Det uppstod ett problem med att prenumerera på denna tråd!"
+
+#: bbp-includes/bbp-user-functions.php:820
+msgid "What are you doing here? You do not have the permission to edit this user."
+msgstr "Vad gör du här? Du har inte behörighet att redigera den här användaren."
+
+#: bbp-includes/bbp-user-template.php:151
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: bbp-includes/bbp-user-template.php:413
+msgid "Admin"
+msgstr "Admin"
+
+#: bbp-includes/bbp-user-template.php:550
+msgid " (%?%)"
+msgstr " (%?%)"
+
+#: bbp-includes/bbp-user-template.php:556
+msgid "This topic is one of your %favorites% ["
+msgstr "Den här tråden är en av dina %favoriter% ["
+
+#: bbp-includes/bbp-user-template.php:558
+msgid "]"
+msgstr "]"
+
+#: bbp-includes/bbp-user-template.php:725
+msgid "User updated."
+msgstr "Användaren uppdaterad."
+
+#: bbp-includes/bbp-user-template.php:749
+msgid "You have super admin privileges."
+msgstr "Du har superadministratörsbehörighet."
+
+#: bbp-includes/bbp-user-template.php:749
+msgid "This user has super admin privileges."
+msgstr "Denna användare har superadministratörsbehörighet."
+
+#: bbp-includes/bbp-user-template.php:816
+msgid "&mdash; No role for this site &mdash;"
+msgstr "&mdash; Ingen roll för den här webbplatsen &mdash;"
+
+#: bbp-includes/bbp-user-template.php:864
+msgid "You are now logged out."
+msgstr "Du är nu utloggad."
+
+#: bbp-includes/bbp-user-template.php:868
+msgid "New user registration is currently not allowed."
+msgstr "Registrering av nya användare är för närvarande inte tillåtet."
+
+#: bbp-includes/bbp-user-template.php:877
+msgid "Check your e-mail for the confirmation link."
+msgstr "Kolla din e-post för bekräftelselänken."
+
+#: bbp-includes/bbp-user-template.php:882
+msgid "Check your e-mail for your new password."
+msgstr "Kontrollera din e-post för ditt nya lösenord."
+
+#: bbp-includes/bbp-user-template.php:887
+msgid "Registration complete. Please check your e-mail."
+msgstr "Registrering klar. Kontrollera din e-post."
+
+#: bbp-includes/bbp-core-widgets.php:50
+msgid "The login widget."
+msgstr "Inloggningswidget"
+
+#: bbp-includes/bbp-core-widgets.php:53
+msgid "bbPress Login Widget"
+msgstr "bbPress Inloggningswidget"
+
+#: bbp-includes/bbp-core-widgets.php:82
+#: bbp-includes/bbp-core-widgets.php:103
+#: bbp-themes/bbp-twentyten/bbpress/form-user-login.php:14
+#: bbp-themes/bbp-twentyten/bbpress/form-user-login.php:35
+msgid "Log In"
+msgstr "Logga in"
+
+#: bbp-includes/bbp-core-widgets.php:182
+#: bbp-includes/bbp-core-widgets.php:308
+#: bbp-includes/bbp-core-widgets.php:450
+#: bbp-includes/bbp-core-widgets.php:651
+#: bbp-includes/bbp-core-widgets.php:809
+msgid "Title:"
+msgstr "Titel:"
+
+#: bbp-includes/bbp-core-widgets.php:235
+msgid "A list of views."
+msgstr "En lista av olika vyer."
+
+#: bbp-includes/bbp-core-widgets.php:238
+msgid "bbPress View List"
+msgstr "bbPress Vylista"
+
+#: bbp-includes/bbp-core-widgets.php:352
+msgid "A list of forums."
+msgstr "En lista över forum."
+
+#: bbp-includes/bbp-core-widgets.php:355
+msgid "bbPress Forum List"
+msgstr "bbPress Forumlista"
+
+#: bbp-includes/bbp-core-widgets.php:504
+msgid "A list of recent topics, sorted by popularity or freshness."
+msgstr "En lista över aktuella trådar, sorterade efter popularitet eller färskhet."
+
+#: bbp-includes/bbp-core-widgets.php:507
+msgid "bbPress Topics List"
+msgstr "bbPress Trådlista"
+
+#: bbp-includes/bbp-core-widgets.php:652
+msgid "Maximum topics to show:"
+msgstr "Maximalt antal trådar att visa:"
+
+#: bbp-includes/bbp-core-widgets.php:653
+#: bbp-includes/bbp-core-widgets.php:811
+msgid "Show post date:"
+msgstr "Visa inläggsdatum:"
+
+#: bbp-includes/bbp-core-widgets.php:655
+msgid "Popularity check:"
+msgstr "Popularitetskontroll:"
+
+#: bbp-includes/bbp-core-widgets.php:656
+msgid "Number of topics back to check reply count to determine popularity. A number less than the maximum number of topics to show disables the check."
+msgstr "Hur många trådar tillbaka som ska kollas efter svarsfrekvens för att avgöra popularitet.  Ett nummer lägre än det maximala antalet trådar att visa stänger av kontrollen."
+
+#: bbp-includes/bbp-core-widgets.php:698
+msgid "A list of bbPress recent replies."
+msgstr "En lista över bbPress senaste trådsvar."
+
+#: bbp-includes/bbp-core-widgets.php:810
+msgid "Maximum replies to show:"
+msgstr "Maximalt antal svar att visa:"
+
