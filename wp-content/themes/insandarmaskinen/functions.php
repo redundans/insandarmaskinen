@@ -133,7 +133,7 @@ if( ! function_exists( 'read_letter_screen_show' ) ) {
 register_nav_menu( 'user', 'User menu' );
 
 add_action('paper_add_form_fields', 'category_metabox_add', 10, 1);
-add_action('category_edit_form_fields', 'category_metabox_edit', 10, 1);    
+add_action('paper_edit_form_fields', 'category_metabox_edit', 10, 1);    
  
 function category_metabox_add($tag) { ?>
     <div class="form-field">
@@ -153,8 +153,8 @@ function category_metabox_edit($tag) { ?>
     </tr>
 <?php }
 
-add_action('created_category', 'save_category_metadata', 10, 1);    
-add_action('edited_category', 'save_category_metadata', 10, 1);
+add_action('created_paper', 'save_category_metadata', 10, 1);    
+add_action('edited_paper, 'save_category_metadata', 10, 1);
  
 function save_category_metadata($term_id)
 {
