@@ -154,7 +154,7 @@ function category_metabox_edit($tag) { ?>
 <?php }
 
 add_action('created_paper', 'save_category_metadata', 10, 1);    
-add_action('edited_paper, 'save_category_metadata', 10, 1);
+add_action('edited_paper', 'save_category_metadata', 10, 1);
  
 function save_category_metadata($term_id)
 {
