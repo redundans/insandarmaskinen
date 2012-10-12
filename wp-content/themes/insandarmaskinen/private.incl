@@ -1,0 +1,7 @@
+<div class="alert alert-info">
+  <strong>Halloj!</strong>
+  Denna sida är bara för registrerade medlemmar. Var god logga in eller registrera dig nedan.
+</div>
+ 
+<a class="btn btn-large" href="/registrera/"><i class="icon-pencil"></i> Registrera dig</a>
+<a class="btn btn-large" href="/login/"><i class="icon-lock"></i> Logga in</a> 
