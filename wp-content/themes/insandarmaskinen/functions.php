@@ -153,8 +153,8 @@ function category_metabox_edit($tag) { ?>
     </tr>
 <?php }
 
-add_action('created_category', 'save_category_metadata', 10, 1);    
-add_action('edited_category', 'save_category_metadata', 10, 1);
+add_action('created_term', 'save_category_metadata', 10, 1);    
+add_action('edited_term', 'save_category_metadata', 10, 1);
  
 function save_category_metadata($term_id)
 {
