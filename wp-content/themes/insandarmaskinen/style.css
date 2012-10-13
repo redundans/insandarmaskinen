@@ -631,8 +631,8 @@ body#insandarmaskinen .ac_over {
 
 .unread_message {
 	position: absolute;
-	top: 5px;
-	right: -5px;
+	top: 3px;
+	right: -8px;
 	background-color: #ED6B4E;
 	padding: 4px 6px;
 	line-height: 1em;
