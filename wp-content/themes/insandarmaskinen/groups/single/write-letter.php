@@ -9,9 +9,9 @@
     $user_nicename = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
 
     foreach ( $papers as $paper ) {
-      $to      = 'jesnil@gmail.com';
+      $to      = get_term_meta($paper->term_id, 'email', true);
       $subject = $title;
-      $message = $content . "\n\n" . $contact;
+      $message = $content . "\n\n / " . $signature . "\n\n" . $contact;
       //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
 
       $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
@@ -19,7 +19,7 @@
       $mail = wp_mail( $to, $subject, $message, $headers );
       //$mail = mail($to, $subject, $message, $headers);
       if($mail) {
-        error_log( 'Sent mail from insändarmaskinen to '.get_term_meta($paper->term_id, 'email', true) );
+        error_log( 'Sent mail from insändarmaskinen to '. $to);
       } else {
         $error = 'Ett problem uppstog med någon av mailutskickan du försökte göra. Var god rapportera buggen i forumet';
       }
