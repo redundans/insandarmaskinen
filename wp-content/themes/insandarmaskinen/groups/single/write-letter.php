@@ -11,7 +11,7 @@
     foreach ( $papers as $paper ) {
       $to      = 'jesnil@gmail.com';
       $subject = $title;
-      $message = '<p>' . $content . '</p><p>' . $contact . '</p>';
+      $message = $content . '\r\n' . $contact;
       //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
 
       $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
@@ -79,8 +79,6 @@
 			<div class="page-header">
 				  <h1>Skriv en insändare</h1>
 			</div>
-
-      <?php global $bp; echo bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 )); ?>
 
 			<form class="form-vertical" method="post">
 

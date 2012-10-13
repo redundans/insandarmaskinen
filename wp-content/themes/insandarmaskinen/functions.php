@@ -174,6 +174,5 @@ function new_mail_from($old) {
 function new_mail_from_name($old) {
     global $bp;
     $user_name = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
-    $user_name = $bp->loggedin_user->userdata->user_nicename;
     return $user_name;
 }
