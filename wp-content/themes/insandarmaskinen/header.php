@@ -29,10 +29,11 @@
 						  <li class="dropdown">
 						    <a class="dropdown-toggle avatar" data-toggle="dropdown" href="#">
 						        <?php echo get_avatar( bp_loggedin_user_id(), 35 ); ?>
+						        <?php if( messages_get_unread_count() != 0) : ?><div class="unread_message"><?php echo messages_get_unread_count(); ?></div><?php endif; ?>
 						    </a>
 						    <ul id="nav" class="dropdown-menu">
 						    	<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/profile/">Användarprofil</a></li>
-								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/messages/">Meddelanden</a></li>
+								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/messages/">Meddelanden <?php echo messages_get_unread_count() ?></a></li>
 								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/settings/">Inställningar</a></li>
 								<li class="divider"></li>
 								<li class="menu-item menu-item-type-custom"><a href="<?php echo wp_logout_url( '/' ); ?>">Logga ut</a></li>

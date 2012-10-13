@@ -611,7 +611,7 @@ input#send-to-input {
 /**
  * MEDDELANDEN
  **/
- 
+
 body#insandarmaskinen .ac_odd {
 	background: white;
 }
@@ -627,6 +627,19 @@ body#insandarmaskinen .ac_over {
   background-image: linear-gradient(to bottom, #0088cc, #0077b3);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+
+.unread_message {
+	position: absolute;
+	top: 5px;
+	right: -5px;
+	background-color: #ED6B4E;
+	padding: 4px 6px;
+	line-height: 1em;
+	color: white;
+	text-shadow: none;
+	font-size: 75%;
+	-webkit-border-radius: 10px;
 }
 
 body#insandarmaskinen .ac_results li img {
