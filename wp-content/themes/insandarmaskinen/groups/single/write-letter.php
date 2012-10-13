@@ -6,14 +6,15 @@
     $user_name = $bp->loggedin_user->userdata->user_nicename;
     $papers = wp_get_post_terms( $post_id, 'paper' );
     $contact = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>3 ));
+    $user_nicename = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
 
     foreach ( $papers as $paper ) {
       $to      = 'jesnil@gmail.com';
       $subject = $title;
-      $message = $content;
+      $message = '<p>' . $content . '</p><p>' . $contact . '</p>';
       //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
 
-      $headers[] = 'From: '.$user_name.' <'.$user_email.'>';
+      $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
 
       $mail = wp_mail( $to, $subject, $message, $headers );
       //$mail = mail($to, $subject, $message, $headers);
