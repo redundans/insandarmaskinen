@@ -24,17 +24,17 @@
 	          </button>
 	          <a class="brand" href="<?php echo get_bloginfo('home'); ?>"><img src="<?php echo get_bloginfo('stylesheet_directory'); ?>/img/logo_small.png"></a>
 	          <div class="nav-collapse collapse">
-            		<?php if ( bp_loggedin_user_id() ) : ?>
+            		<?php if ( bp_loggedin_user_id() ) : $current_user = wp_get_current_user(); ?>
 						<ul class="nav pull-right">
 						  <li class="dropdown">
 						    <a class="dropdown-toggle avatar" data-toggle="dropdown" href="#">
 						        <?php echo get_avatar( bp_loggedin_user_id(), 35 ); ?>
 						    </a>
 						    <ul id="nav" class="dropdown-menu">
-						    	<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php bp_loggedin_user_id(); ?>/profile/">Användarprofil</a></li>
-								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php bp_loggedin_user_id(); ?>/messages/">Meddelanden</a></li>
-								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php bp_loggedin_user_id(); ?>/settings/">Inställningar</a></li>
-								<li class="menu-item menu-item-type-custom"><a href="/wp-login.php?action=logout">Logga ut</a></li>
+						    	<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/profile/">Användarprofil</a></li>
+								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/messages/">Meddelanden</a></li>
+								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/settings/">Inställningar</a></li>
+								<li class="menu-item menu-item-type-custom"><a href="<?php echo wp_logout_url( '/' ); ?>">Logga ut</a></li>
 							</ul>
 						  </li>
 						</ul>
