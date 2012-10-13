@@ -21,46 +21,54 @@
 
 			</span>
 
-			<a class="button confirm" href="<?php bp_the_thread_delete_link(); ?>" title="<?php _e( "Delete Message", "buddypress" ); ?>"><?php _e( 'Delete', 'buddypress' ); ?></a> &nbsp;
 		</p>
 
 		<?php do_action( 'bp_before_message_thread_list' ); ?>
 
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th id="th-author">Från</th>
+					<th id="th-content">Innehåll</th>
+				</tr>
+			</thead>
+			<tbody>
 		<?php while ( bp_thread_messages() ) : bp_thread_the_message(); ?>
 
-			<div class="message-box <?php bp_the_thread_message_alt_class(); ?>">
-
-				<div class="message-metadata">
+			<tr class="message-box <?php bp_the_thread_message_alt_class(); ?>">
+				<td class="message-metadata span2">
 
 					<?php do_action( 'bp_before_message_meta' ); ?>
 
-					<?php bp_the_thread_message_sender_avatar( 'type=thumb&width=30&height=30' ); ?>
-					<strong><a href="<?php bp_the_thread_message_sender_link(); ?>" title="<?php bp_the_thread_message_sender_name(); ?>"><?php bp_the_thread_message_sender_name(); ?></a> <span class="activity"><?php bp_the_thread_message_time_since(); ?></span></strong>
+					<a href="<?php bp_the_thread_message_sender_link(); ?>" title="<?php bp_the_thread_message_sender_name(); ?>"><?php bp_the_thread_message_sender_avatar( 'type=thumb&width=65&height=65' ); ?></a>
+					<p><span class="activity"><?php bp_the_thread_message_time_since(); ?></span></p>
 
 					<?php do_action( 'bp_after_message_meta' ); ?>
 
-				</div><!-- .message-metadata -->
+				</td><!-- .message-metadata -->
 
 				<?php do_action( 'bp_before_message_content' ); ?>
 
-				<div class="message-content">
+				<td class="message-content">
 
 					<?php bp_the_thread_message_content(); ?>
 
-				</div><!-- .message-content -->
+				</td><!-- .message-content -->
 
 				<?php do_action( 'bp_after_message_content' ); ?>
 
 				<div class="clear"></div>
 
-			</div><!-- .message-box -->
+			</tr><!-- .message-box -->
 
 		<?php endwhile; ?>
+		</tbody>
+	</table>
 
 		<?php do_action( 'bp_after_message_thread_list' ); ?>
 
 		<?php do_action( 'bp_before_message_thread_reply' ); ?>
-
+		<hr>
 		<form id="send-reply" action="<?php bp_messages_form_action(); ?>" method="post" class="standard-form">
 
 			<div class="message-box">
@@ -70,9 +78,8 @@
 					<?php do_action( 'bp_before_message_meta' ); ?>
 
 					<div class="avatar-box">
-						<?php bp_loggedin_user_avatar( 'type=thumb&height=30&width=30' ); ?>
 
-						<strong><?php _e( 'Send a Reply', 'buddypress' ); ?></strong>
+						<h3><?php _e( 'Send a Reply', 'buddypress' ); ?></h3>
 					</div>
 
 					<?php do_action( 'bp_after_message_meta' ); ?>
@@ -83,12 +90,12 @@
 
 					<?php do_action( 'bp_before_message_reply_box' ); ?>
 
-					<textarea name="content" id="message_content" rows="15" cols="40"></textarea>
+					<textarea name="content" id="message_content" rows="6" class="span9"></textarea>
 
 					<?php do_action( 'bp_after_message_reply_box' ); ?>
 
 					<div class="submit">
-						<input type="submit" name="send" value="<?php _e( 'Send Reply', 'buddypress' ); ?>" id="send_reply_button"/>
+						<input type="submit" name="send" class="btn " value="<?php _e( 'Send Reply', 'buddypress' ); ?>" id="send_reply_button"/>
 					</div>
 
 					<input type="hidden" id="thread_id" name="thread_id" value="<?php bp_the_thread_id(); ?>" />

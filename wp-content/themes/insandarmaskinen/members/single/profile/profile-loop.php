@@ -12,19 +12,18 @@
 
 				<h4><?php bp_the_profile_group_name(); ?></h4>
 
-				<table class="profile-fields">
 
 					<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
 						<?php if ( bp_field_has_data() ) : ?>
 
-							<tr<?php bp_field_css_class(); ?>>
+							<dl class="dl-horizontal">
 
-								<td class="label"><?php bp_the_profile_field_name(); ?></td>
+								<dt><?php bp_the_profile_field_name(); ?></dt>
 
-								<td class="data"><?php bp_the_profile_field_value(); ?></td>
+								<dd><?php bp_the_profile_field_value(); ?></dd>
 
-							</tr>
+							</dl>
 
 						<?php endif; ?>
 
@@ -32,7 +31,6 @@
 
 					<?php endwhile; ?>
 
-				</table>
 			</div>
 
 			<?php do_action( 'bp_after_profile_field_content' ); ?>

@@ -9,7 +9,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 
 		<legend><?php printf( __( "Editing '%s' Profile Group", "buddypress" ), bp_get_the_profile_group_name() ); ?></legend>
 
-		<ul class="button-nav">
+		<ul class="nav nav-pills">
 
 			<?php bp_profile_group_tabs(); ?>
 

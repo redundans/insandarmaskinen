@@ -14,7 +14,7 @@
 
 
 	<div class="page-header">
-	  <h1>Profil</h1>
+	  <h1><?php bp_is_my_profile() ? _e( 'My Profile', 'buddypress' ) : printf( __( "%s's Profile", 'buddypress' ), bp_get_displayed_user_fullname() ); ?></h1>
 	</div>
 
 

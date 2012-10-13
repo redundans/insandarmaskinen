@@ -646,3 +646,39 @@ body#insandarmaskinen .ac_results li img {
 	margin-right: 3px;
 	margin-bottom: 3px;
 }
+
+.table tbody tr.unread td {
+	background-color: #FCF8E3;
+}
+
+td.message-metadata p {
+	margin-top: 0.5em;
+	font-size: 100%;
+	line-height: 1.2em;
+}
+
+td.thread-options {
+	text-align: center !important;
+}
+
+body#insandarmaskinen .btn-danger {
+	color: white;
+}
+
+body#insandarmaskinen #message {
+	padding: 8px 35px 0px 14px;
+	margin-bottom: 0;
+	color: #C09853;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #FCF8E3;
+	border: 1px solid #FBEED5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: 30px;
+}
+
+body#insandarmaskinen .nav-pills > .current > a, .nav-pills > .current > a:hover {
+	color: white;
+	background-color: #ed6b4e;
+}
