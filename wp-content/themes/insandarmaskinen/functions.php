@@ -161,3 +161,14 @@ function save_category_metadata($term_id)
     if (isset($_POST['email'])) 
         update_term_meta( $term_id, 'email', $_POST['email']);                  
 }
+
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+
+function new_mail_from($old) {
+    return 'admin@yourblogname.com';
+}
+
+function new_mail_from_name($old) {
+    return 'Blog Name';
+}
