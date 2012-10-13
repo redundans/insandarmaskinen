@@ -23,7 +23,7 @@
 		</a>
 	</div>
 
-	<div class="activity-content span5 arrow_box">
+	<div class="activity-content span6 arrow_box">
 
 		<div class="activity-header">
 

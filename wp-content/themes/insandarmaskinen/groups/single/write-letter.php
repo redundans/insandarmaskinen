@@ -11,7 +11,7 @@
     foreach ( $papers as $paper ) {
       $to      = get_term_meta($paper->term_id, 'email', true);
       $subject = $title;
-      $message = $content . "\n\n / " . $signature . "\n\n" . $contact;
+      $message = $content . "\n\n " . $signature . "\n\n ----- \n\n" . $contact;
       //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
 
       $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
