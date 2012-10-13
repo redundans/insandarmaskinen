@@ -166,9 +166,13 @@ add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
 
 function new_mail_from($old) {
-    return 'admin@yourblogname.com';
+    global $bp;
+    $user_email = $bp->loggedin_user->userdata->user_email;
+    return $user_email;
 }
 
 function new_mail_from_name($old) {
-    return 'Blog Name';
+    global $bp;
+    $user_name = $bp->loggedin_user->userdata->user_nicename;
+    return $user_name;
 }
