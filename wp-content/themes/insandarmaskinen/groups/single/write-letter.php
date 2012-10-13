@@ -11,7 +11,7 @@
     foreach ( $papers as $paper ) {
       $to      = 'jesnil@gmail.com';
       $subject = $title;
-      $message = $content . '\r\n' . $contact;
+      $message = $content . "\n\n" . $contact;
       //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
 
       $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
