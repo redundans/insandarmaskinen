@@ -3,6 +3,7 @@
   function sendMail( $post_id, $title, $content, $signature ) {
     global $bp;
     $user_email = $bp->loggedin_user->userdata->user_email;
+    $user_name = $bp->loggedin_user->userdata->user_nicename;
     $papers = wp_get_post_terms( $post_id, 'paper' );
     $contact = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>3 ));
 
@@ -10,11 +11,14 @@
       $to      = 'jesnil@gmail.com';
       $subject = $title;
       $message = $content;
-      $headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
-      $mail = mail($to, $subject, $message, $headers);
-      var_dump($mail);
-      if(1==1) {
-        error_log( 'Sent mail from insändarmaskinen to '.$paper->description );
+      //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
+
+      $headers[] = 'From: '.$user_name.' <'.$user_email.'>';
+
+      $mail = wp_mail( $to, $subject, $message, $headers );
+      //$mail = mail($to, $subject, $message, $headers);
+      if($mail) {
+        error_log( 'Sent mail from insändarmaskinen to '.get_term_meta($paper->term_id, 'email', true) );
       } else {
         $error = 'Ett problem uppstog med någon av mailutskickan du försökte göra. Var god rapportera buggen i forumet';
       }
