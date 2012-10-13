@@ -5,7 +5,7 @@
     $user_email = $bp->loggedin_user->userdata->user_email;
     $user_name = $bp->loggedin_user->userdata->user_nicename;
     $papers = wp_get_post_terms( $post_id, 'paper' );
-    $contact = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>3 ));
+    $contact = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>2 ));
     $user_nicename = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
 
     foreach ( $papers as $paper ) {
@@ -80,7 +80,7 @@
 				  <h1>Skriv en insändare</h1>
 			</div>
 
-      <?php global $bp; echo bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>3 )); ?>
+      <?php global $bp; echo bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 )); ?>
 
 			<form class="form-vertical" method="post">
 
