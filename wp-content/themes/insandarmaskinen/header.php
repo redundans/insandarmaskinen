@@ -36,7 +36,6 @@
 								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php bp_loggedin_user_id(); ?>/settings/">Inställningar</a></li>
 								<li class="menu-item menu-item-type-custom"><a href="/wp-login.php?action=logout">Logga ut</a></li>
 							</ul>
-					    	<?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'menu_class' => 'dropdown-menu', 'theme_location' => 'user', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?>
 						  </li>
 						</ul>
 					<?php endif; ?> 
