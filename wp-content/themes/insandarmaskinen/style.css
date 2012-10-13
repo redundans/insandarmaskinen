@@ -264,6 +264,10 @@ body#insandarmaskinen .btn, body#insandarmaskinen .dropdown-menu a {
 	color: #222;
 }
 
+body#insandarmaskinen .dropdown-menu a:hover{
+	color: white;
+}
+
 body#insandarmaskinen .btn-inverse, body#insandarmaskinen .btn-primary {
 	color: whiteSmoke;
 }
@@ -589,4 +593,43 @@ body#insandarmaskinen .pagination ul li.active  a {
 
 #signup_submit {
 	display: none;
+}
+
+input#send-to-input {
+	width: 206px !important;
+}
+
+.ac_loading{
+	background:	url('img/ajax-loader.gif') 97% center no-repeat !important;
+}
+
+.ac_results {
+	width: 218px !important;
+}
+
+
+/**
+ * MEDDELANDEN
+ **/
+ 
+body#insandarmaskinen .ac_odd {
+	background: white;
+}
+
+body#insandarmaskinen .ac_over {
+  color: white;
+  background-color: #0088cc;
+  background-color: #0081c2;
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+
+body#insandarmaskinen .ac_results li img {
+	margin-right: 3px;
+	margin-bottom: 3px;
 }

@@ -176,3 +176,76 @@ function new_mail_from_name($old) {
     $user_name = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
     return $user_name;
 }
+
+
+function ray_bp_autocomplete_list($friends, $filter, $limit) {
+    global $wpdb, $bp;
+    error_log('kör ray_bp_autocomplete_list');
+
+    $filter = like_escape( $wpdb->escape( $filter ) );
+    $page = 1;
+
+    if ( $limit && $page )
+        $pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+
+    // filter the user_ids based on the search criteria.
+    if ( function_exists('xprofile_install') ) {
+        $sql = "SELECT DISTINCT user_id FROM {$bp->profile->table_name_data} WHERE value LIKE '$filter%%' {$pag_sql}";
+        $total_sql = "SELECT COUNT(DISTINCT user_id) FROM {$bp->profile->table_name_data} WHERE value LIKE '$filter%%'";
+    } else {
+        $sql = "SELECT DISTINCT user_id FROM " . CUSTOM_USER_META_TABLE . " WHERE meta_key = 'nickname' AND meta_value LIKE '$filter%%' {$pag_sql}";
+        $total_sql = "SELECT COUNT(DISTINCT user_id) FROM " . CUSTOM_USER_META_TABLE . " WHERE meta_key = 'nickname' AND meta_value LIKE '$filter%%'";
+    }
+
+    $filtered_ids = $wpdb->get_col($sql);
+    $total_ids = $wpdb->get_var($total_sql);
+
+    if ( !$filtered_ids )
+        return false;
+
+    return array( 'friends' => $filtered_ids, 'total' => (int)$total_ids );
+}
+add_filter( 'bp_friends_autocomplete_list', 'ray_bp_autocomplete_list', 1, 3 );
+
+
+add_action( 'wp_ajax_messages_autocomplete_results', 'insandarmaskinen_ajax_messages_autocomplete_results' );
+
+function insandarmaskinen_ajax_messages_autocomplete_results() {
+    global $bp;
+
+    $pag_page = 1;
+    $limit    = $_GET['limit'] ? $_GET['limit'] : apply_filters( 'bp_autocomplete_max_results', 10 );
+    
+    $users = BP_Core_User::search_users( $_GET['q'], $limit, $pag_page );
+
+    if ( ! empty( $users['users'] ) ) {
+        $user_ids = array();
+        foreach( $users['users'] as $user ) {
+            if ( $user->id != bp_loggedin_user_id() )
+                $user_ids[] = $user->id;
+        }
+
+        $user_ids = apply_filters( 'bp_core_autocomplete_ids', $user_ids, $_GET['q'], $limit );
+    }
+
+    if ( ! empty( $user_ids ) ) {
+        foreach ( $user_ids as $user_id ) {
+            $ud = get_userdata( $user_id );
+            if ( ! $ud )
+                continue;
+
+            if ( bp_is_username_compatibility_mode() )
+                $username = $ud->user_login;
+            else
+                $username = $ud->user_nicename;
+
+            // Note that the final line break acts as a delimiter for the
+            // autocomplete javascript and thus should not be removed
+            echo '<span id="link-' . $username . '" href="' . bp_core_get_user_domain( $user_id ) . '"></span>' . bp_core_fetch_avatar( array( 'item_id' => $user_id, 'type' => 'thumb', 'width' => 15, 'height' => 15, 'alt' => $ud->display_name ) ) . ' &nbsp;' . bp_core_get_user_displayname( $user_id ) . ' (' . $username . ')' . "\n";
+        }
+    }
+
+    exit;
+}
+
+

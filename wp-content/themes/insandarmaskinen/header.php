@@ -34,6 +34,7 @@
 						    	<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/profile/">Användarprofil</a></li>
 								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/messages/">Meddelanden</a></li>
 								<li class="menu-item menu-item-type-custom"><a href="/medlemmar/<?php echo $current_user->user_login; ?>/settings/">Inställningar</a></li>
+								<li class="divider"></li>
 								<li class="menu-item menu-item-type-custom"><a href="<?php echo wp_logout_url( '/' ); ?>">Logga ut</a></li>
 							</ul>
 						  </li>
