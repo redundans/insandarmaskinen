@@ -80,6 +80,8 @@
 				  <h1>Skriv en insändare</h1>
 			</div>
 
+      <?php global $bp; echo bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>3 )); ?>
+
 			<form class="form-vertical" method="post">
 
         <input type="hidden" id="action" name="action" value="send">
