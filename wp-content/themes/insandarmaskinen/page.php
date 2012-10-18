@@ -4,15 +4,16 @@
 		<?php get_sidebar(); ?>
 	</div>
 
-	<div class="span9" role="main">
+	<div class="span7" role="main">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
 		<div class="page" id="blog-page" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-				<h2 class="pagetitle"><?php the_title(); ?></h2>
+				<div class="page-header">
+					 <h1><?php the_title(); ?></h1>
+				</div>
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
