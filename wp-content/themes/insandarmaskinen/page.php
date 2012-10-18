@@ -1,6 +1,10 @@
 <?php get_header(); ?>
+	
+	<div id="sidebar" role="coplementary" class="span3">
+		<?php get_sidebar(); ?>
+	</div>
 
-	<div class="span8" role="main">
+	<div class="span9" role="main">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
