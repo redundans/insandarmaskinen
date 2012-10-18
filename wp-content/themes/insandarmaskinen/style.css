@@ -644,6 +644,7 @@ body#insandarmaskinen .ac_over {
 	color: white;
 	text-shadow: none;
 	font-size: 75%;
+	font-weight: bold;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
