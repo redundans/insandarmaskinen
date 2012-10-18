@@ -645,6 +645,7 @@ body#insandarmaskinen .ac_over {
 	text-shadow: none;
 	font-size: 75%;
 	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 
 body#insandarmaskinen .ac_results li img {
