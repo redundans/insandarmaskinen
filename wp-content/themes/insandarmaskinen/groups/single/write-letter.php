@@ -54,7 +54,7 @@
     if( !empty( $post_id ) ):
     $activity_id = bp_activity_add( array( 
       'user_id' => $bp->loggedin_user->id, 
-      'action'=> sprintf("%s har rapporterat en insändare som publicerad i %s",bp_core_get_userlink( $bp->loggedin_user->id ), $paper_name->name),
+      'action'=> sprintf("%s har skrivit en ny <a href='%s'>insändare</a>.", bp_core_get_userlink( $bp->loggedin_user->id ), get_permalink( $post_id ) ),
       'content' => false, 
       'primary_link' => bp_core_get_userlink( $bp->loggedin_user->id ),
       'component_name' => 'groups',

@@ -10,7 +10,7 @@ if ( $_POST['action'] == 'add' ){
   $paper_name = get_term_by('slug', $_POST['paper'], 'paper');
   $activity_id = bp_activity_add( array( 
     'user_id' => $bp->loggedin_user->id, 
-    'action'=> sprintf("%s har rapporterat en insändare som publicerad i %s",bp_core_get_userlink( $bp->loggedin_user->id ), $paper_name->name),
+    'action'=> sprintf("%s har rapporterat en <a href='%s'>insändare</a> som publicerad i %s",bp_core_get_userlink( $bp->loggedin_user->id ), get_permalink( $_POST['post_id'] ), $paper_name->name),
     'content' => false, 
     'primary_link' => bp_core_get_userlink( $bp->loggedin_user->id ),
     'component_name' => 'groups',
