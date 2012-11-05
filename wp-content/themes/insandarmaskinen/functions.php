@@ -60,7 +60,7 @@ function create_papers_taxonomies()
 );    
 
 register_taxonomy('paper',array('insandare'), array(
-    'hierarchical' => false,
+    'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
     'query_var' => true,
