@@ -113,7 +113,7 @@
               <div id="<?php echo $paper->slug; ?>" class="accordion-body collapse in">
                 <div class="accordion-inner">
                 <?php
-                  $children = get_terms( 'paper', 'orderby=name&child_of='.$paper->term_id );
+                  $children = get_terms( 'paper', 'orderby=name&hide_empty=0&child_of='.$paper->term_id );
                   foreach( $children as $child ){
                     ?>
                     <label class="checkbox inline span3">
