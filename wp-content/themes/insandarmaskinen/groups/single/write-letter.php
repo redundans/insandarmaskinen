@@ -46,7 +46,7 @@
       'post_status'    => 'publish',
       'post_title'     => $title,
       'post_type'      => 'insandare',
-      'tax_input'      => array( 'paper' => $papers ),
+      'tax_input'      => array( 'paper' => array_values($papers) ),
     ); 
     var_dump($post);
 
