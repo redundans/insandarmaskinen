@@ -97,20 +97,56 @@
         </div>
 
         <div class="row-fluid" style="margin-bottom:1em;">
-        <?php
-          $papers = get_terms('paper', 'orderby=count&hide_empty=0');
-          foreach ($papers as $paper) {
+          <div class="accordion" id="papers">
+          <?php
+            $papers = get_terms('paper', 'parent=0&orderby=name&hide_empty=0');
+            foreach ($papers as $paper) {
+            ?>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <label class="checkbox"><input type="checkbox" class="parent">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#<?php echo $paper->slug; ?>" href="#<?php echo $paper->slug; ?>">
+                    <?php echo $paper->name; ?>
+                  </a>
+                </label>
+              </div>
+              <div id="<?php echo $paper->slug; ?>" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                <?php
+                  $children = get_terms( 'paper', 'orderby=name&child_of='.$paper->term_id );
+                  foreach( $children as $child ){
+                    ?>
+                    <label class="checkbox inline span3">
+                      <input type="checkbox" name="inpitPapers[]" class="child" value="<?php echo $child->slug; ?>"> <?php echo $child->name; ?>
+                    </label>
+                    <?php
+                  }
+                ?>
+                
+                </div>
+              </div>
+            </div>
+            <?php 
+            }
           ?>
-          <label class="checkbox inline span3">
-            <input type="checkbox" name="inpitPapers[]" value="<?php echo $paper->slug; ?>"> <?php echo $paper->name; ?>
-          </label>
-          <?php 
-          }
-        ?>
-        </div>
+            <script>
+              $(document).ready( function() {
+                $(".collapse").collapse();
 
-        <a href="" class="btn btn-mini">Markera alla</a> <a href="" class="btn btn-mini btn-inverse" style="margin-left: 1em;">Avarkera alla</a>
-        
+                $('.parent').change(function() {
+                  var parent = $(this);
+                  var isChecked = $(parent).attr('checked')?true:false;
+                  $(parent).closest('.accordion-group').find('input.child').each( function(e){
+                    if( isChecked )
+                      $(this).attr('checked', 'checked');
+                    else
+                      $(this).removeAttr('checked');
+                  });
+                });
+              });
+            </script>
+          </div>
+        </div>        
 
         <hr/>
         <button type="submit" class="btn btn-primary">Skicka</button>

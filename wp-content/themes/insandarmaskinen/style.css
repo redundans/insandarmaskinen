@@ -361,9 +361,13 @@ body#insandarmaskinen .pagination ul li.active  a {
  }
 
  div.insandare .meta {
- 	border-right: 1px solid #eee;
  	height: 100%;
  	padding: 1em;
+ }
+
+ div.insandare .mail {
+ 	padding: 1em;
+ 	border-left: 1px solid #eee;
  }
 
  /**
@@ -688,4 +692,33 @@ body#insandarmaskinen #message {
 body#insandarmaskinen .nav-pills > .current > a, .nav-pills > .current > a:hover {
 	color: white;
 	background-color: #ed6b4e;
+}
+
+body#insandarmaskinen .accordion-group {
+	border: 1px solid #CCC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-bottom: 0.5em;
+}
+
+body#insandarmaskinen .accordion-heading {
+	background-color: white;
+}
+
+body#insandarmaskinen .accordion-inner {
+	padding: 2px 15px !important;
+}
+
+body#insandarmaskinen .accordion-heading label.checkbox {
+	margin: 0;
+	padding: 0 0 0 15px;
+}
+
+.accordion-heading label.checkbox a {
+	padding: 8px 20px 8px 18px;
+}
+
+.accordion-heading label.checkbox input[type=checkbox] {
+	margin: 13px 0 0 0;
 }
