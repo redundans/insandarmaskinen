@@ -59,7 +59,7 @@
         'primary_link' => bp_core_get_userlink( $bp->loggedin_user->id ),
         'component_name' => 'groups',
         'component_action' =>"report_published",
-        'item_id' => $_POST['group'],
+        'item_id' => $bp->groups->current_group->id,
         'secondary_item_id' => false,
         'recorded_time' => gmdate( "Y-m-d H:i:s" ),
         'hide_sitewide' => false
