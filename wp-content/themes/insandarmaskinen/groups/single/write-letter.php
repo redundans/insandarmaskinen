@@ -48,10 +48,8 @@
     ); 
 
     $post_id = wp_insert_post( $post );
-    var_dump($post_id);
 
     $out = wp_set_object_terms( $post_id, $papers, 'paper' );
-    var_dump($out);
 
     if( !empty( $post_id ) ):
       $activity_id = bp_activity_add( array( 
