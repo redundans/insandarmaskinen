@@ -11,13 +11,12 @@
     foreach ( $papers as $paper ) {
       $to      = get_term_meta($paper->term_id, 'email', true);
       $subject = $title;
-      $message = $content . "\n\n " . $signature . "\n\n ----- \n\n" . $contact;
-      //$headers = 'From: ' . $user_email . '\r\n' . 'Reply-To: ' . $user_email . '\r\n' . 'X-Mailer: PHP/' . phpversion();
+      $message = $content . "\n\n" . $signature . "\n\n ----- \n\n" . $contact;
 
       $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
 
       $mail = wp_mail( $to, $subject, $message, $headers );
-      //$mail = mail($to, $subject, $message, $headers);
+
       if($mail) {
         error_log( 'Sent mail from insändarmaskinen to '. $to);
       } else {
