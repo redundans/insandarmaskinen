@@ -52,6 +52,8 @@
 
     $post_id = wp_insert_post( $post );
 
+    wp_set_object_terms( $post_id, $papers, 'paper' );
+
     if( !empty( $post_id ) ):
       $activity_id = bp_activity_add( array( 
         'user_id' => $bp->loggedin_user->id, 
@@ -119,7 +121,7 @@
                   foreach( $children as $child ){
                     ?>
                     <label class="checkbox inline span3">
-                      <input type="checkbox" name="inpitPapers[]" class="child" value="<?php echo $child->slug; ?>"> <?php echo $child->name; ?>
+                      <input type="checkbox" name="inpitPapers[]" class="child" value="<?php echo $child->term_id; ?>"> <?php echo $child->name; ?>
                     </label>
                     <?php
                   }
