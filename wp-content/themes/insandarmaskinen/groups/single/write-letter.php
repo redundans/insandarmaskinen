@@ -35,6 +35,8 @@
     global $current_user;
     global $bp;
 
+    var_dump($_POST);
+
     $title = $_POST['inputHeader'];
     $content = $_POST['inputMessage'];
     $papers = $_POST['inpitPapers'];
