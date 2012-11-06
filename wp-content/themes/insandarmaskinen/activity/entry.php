@@ -16,7 +16,7 @@
 
 <li class="<?php bp_activity_css_class(); ?> row" id="activity-<?php bp_activity_id(); ?>">
 	<div class="activity-avatar span1">
-		<a href="<?php bp_activity_user_link(); ?>">
+		<a href="<?php bp_activity_user_link(); ?>/profile/">
 
 			<?php bp_activity_avatar(); ?>
 
