@@ -35,8 +35,6 @@
     global $current_user;
     global $bp;
 
-    var_dump($_POST);
-
     $title = $_POST['inputHeader'];
     $content = $_POST['inputMessage'];
     $papers = $_POST['inpitPapers'];
@@ -50,22 +48,24 @@
       'post_type'      => 'insandare',
       'tax_input'      => array( 'paper' => $papers ),
     ); 
+    var_dump($post);
 
     $post_id = wp_insert_post( $post );
 
     if( !empty( $post_id ) ):
-    $activity_id = bp_activity_add( array( 
-      'user_id' => $bp->loggedin_user->id, 
-      'action'=> sprintf("%s har skrivit en ny <a href='%s'>insändare</a>.", bp_core_get_userlink( $bp->loggedin_user->id ), get_permalink( $post_id ) ),
-      'content' => false, 
-      'primary_link' => bp_core_get_userlink( $bp->loggedin_user->id ),
-      'component_name' => 'groups',
-      'component_action' =>"report_published",
-      'item_id' => $_POST['group'],
-      'secondary_item_id' => false,
-      'recorded_time' => gmdate( "Y-m-d H:i:s" ),
-      'hide_sitewide' => false
-    ) );      sendMail( $post_id, $title, $content, $signature );
+      $activity_id = bp_activity_add( array( 
+        'user_id' => $bp->loggedin_user->id, 
+        'action'=> sprintf("%s har skrivit en ny <a href='%s'>insändare</a>.", bp_core_get_userlink( $bp->loggedin_user->id ), get_permalink( $post_id ) ),
+        'content' => false, 
+        'primary_link' => bp_core_get_userlink( $bp->loggedin_user->id ),
+        'component_name' => 'groups',
+        'component_action' =>"report_published",
+        'item_id' => $_POST['group'],
+        'secondary_item_id' => false,
+        'recorded_time' => gmdate( "Y-m-d H:i:s" ),
+        'hide_sitewide' => false
+      ) );
+      sendMail( $post_id, $title, $content, $signature );
     endif;
 ?>
       <div class="page-header">
