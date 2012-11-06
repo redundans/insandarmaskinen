@@ -21,7 +21,7 @@
 
 								<dt><?php bp_the_profile_field_name(); ?></dt>
 
-								<dd><?php bp_the_profile_field_value(); ?></dd>
+								<dd><?php echo strip_tags(bp_get_the_profile_field_value()); ?></dd>
 
 							</dl>
 

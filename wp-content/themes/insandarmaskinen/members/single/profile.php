@@ -9,12 +9,11 @@
 
 ?>
 
+<div class="page-header">
+  <h1><?php bp_is_my_profile() ? _e( 'My Profile', 'buddypress' ) : printf( __( "%s's Profile", 'buddypress' ), bp_get_displayed_user_fullname() ); ?></h1>
+</div>
+
 <?php if ( bp_is_my_profile() ) : ?>
-
-	<div class="page-header">
-	  <h1><?php bp_is_my_profile() ? _e( 'My Profile', 'buddypress' ) : printf( __( "%s's Profile", 'buddypress' ), bp_get_displayed_user_fullname() ); ?></h1>
-	</div>
-
 	<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 		<ul class="nav nav-tabs">
 
