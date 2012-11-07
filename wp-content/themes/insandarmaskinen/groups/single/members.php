@@ -38,7 +38,7 @@
 
 		<?php $i = 0; while ( bp_group_members() ) : bp_group_the_member(); ?>
 
-		<?php if( $i % 36 == 0 && $i != 0 ) echo '</div><div class="row-fluid">'; ?>
+		<?php if( $i % 6 == 0 && $i != 0 ) echo '</div><div class="row-fluid">'; ?>
 
 			<div class="span2 member">
 				<a href="<?php bp_group_member_domain(); ?>">
