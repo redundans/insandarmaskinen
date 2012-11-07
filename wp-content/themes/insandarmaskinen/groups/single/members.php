@@ -32,9 +32,13 @@
 
 	<?php do_action( 'bp_before_group_members_list' ); ?>
 
-	<div id="member-list" class="item-list row-fluid" role="main">
+	<div id="member-list" class="item-list" role="main">
 
-		<?php while ( bp_group_members() ) : bp_group_the_member(); ?>
+		<div class="row-fluid">
+
+		<?php $i = 0; while ( bp_group_members() ) : bp_group_the_member(); ?>
+
+		<?php if( $i % 36 == 0) echo '</div><div class="row-fluid">'; ?>
 
 			<div class="span2 member">
 				<a href="<?php bp_group_member_domain(); ?>">
@@ -62,6 +66,8 @@
 			</div>
 
 		<?php endwhile; ?>
+
+		</div>
 
 	</div>
 
