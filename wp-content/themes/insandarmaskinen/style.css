@@ -723,6 +723,11 @@ body#insandarmaskinen .accordion-heading label.checkbox {
 	margin: 13px 0 0 0;
 }
 
+div.member h5 {
+	word-wrap: break-word;
+	line-height: 1em;
+}
+
 div.member img.avatar {
 	margin-bottom: 0.5em;
 }
