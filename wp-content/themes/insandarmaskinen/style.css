@@ -722,3 +722,7 @@ body#insandarmaskinen .accordion-heading label.checkbox {
 .accordion-heading label.checkbox input[type=checkbox] {
 	margin: 13px 0 0 0;
 }
+
+div.member img.avatar {
+	margin-bottom: 0.5em;
+}

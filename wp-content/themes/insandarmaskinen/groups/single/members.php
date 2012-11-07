@@ -41,13 +41,13 @@
 		<?php if( $i % 6 == 0 && $i != 0 ) echo '</div><div class="row-fluid">'; ?>
 
 			<div class="span2 member">
-				<a href="<?php bp_group_member_domain(); ?>">
+				<a href="<?php bp_group_member_domain(); ?>/profile/">
 
 					<?php bp_group_member_avatar(); ?>
 
 				</a>
 
-				<h5><?php bp_group_member_link(); ?></h5>
+				<h5><a href="<?php bp_group_member_domain(); ?>/profile/"><?php bp_group_member_name(); ?></a></h5>
 				<span class="activity"><?php bp_group_member_joined_since(); ?></span>
 
 				<?php do_action( 'bp_group_members_list_item' ); ?>
