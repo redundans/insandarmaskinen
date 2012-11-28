@@ -49,7 +49,7 @@ if ( $_POST['action'] == 'add' ){
       ?>
         <div class="insandare row-fluid">
           <div class="meta span3">
-            <a href="<?php bp_group_member_domain(); ?>/profile/"><?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?></a>
+            <a href="<?php global $bp; echo $bp->loggedin_user->domain; ?>profile/"><?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?></a>
 
             <p>
               <strong>Tidningar</strong> <?php echo count($papers); ?> st

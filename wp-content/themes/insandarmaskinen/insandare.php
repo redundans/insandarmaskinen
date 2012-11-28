@@ -1,6 +1,33 @@
-<?php get_header(); ?>
+<?php get_header(); ?><div class="span3">
+			<?php get_sidebar(); ?>
 
-		<div class="span8">
+			<?php if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group(); ?>
+
+			<?php do_action( 'bp_before_group_home_content' ); ?>
+
+			<div id="item-header" role="complementary">
+
+				<?php locate_template( array( 'groups/single/group-header.php' ), true ); ?>
+
+			</div><!-- #item-header -->
+
+			<div id="item-nav">
+				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
+					<ul>
+
+						<?php bp_get_options_nav(); ?>
+
+						<?php do_action( 'bp_group_options_nav' ); ?>
+
+					</ul>
+				</div>
+			</div><!-- #item-nav -->
+	</div>
+	<div class="span9">
+
+			<div class="page-header">
+				<h1>Insändare</h1>
+			</div>
 
 			<?php do_action( 'bp_before_blog_single_post' ); ?>
 
