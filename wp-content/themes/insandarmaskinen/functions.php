@@ -18,9 +18,9 @@ add_action( 'wp_enqueue_scripts', 'bp_dtheme_enqueue_styles' );
 endif;
 
 function my_scripts_method() {
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'http://code.jquery.com/jquery-latest.js');
-    wp_enqueue_script( 'jquery' );
+    //wp_deregister_script( 'jquery' );
+    //wp_register_script( 'jquery', 'http://code.jquery.com/jquery-latest.js');
+    //wp_enqueue_script( 'jquery' );
 }    
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');
