@@ -1,5 +1,7 @@
 <?php
 
+add_filter( 'show_admin_bar', '__return_false' );
+
 if ( !function_exists( 'bp_dtheme_enqueue_styles' ) ) :
 function bp_dtheme_enqueue_styles() {
  
