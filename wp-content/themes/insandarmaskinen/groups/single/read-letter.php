@@ -98,7 +98,7 @@ if ( $_POST['action'] == 'add' ){
   endif;
 ?>
             <script>
-              $(document).ready(function() {
+              jQuery(document).ready(function($) {
                 $('.dropdown-menu a').click( function(e){
                   var icon = $(this).find('i');
                   var update_action = 'add';
