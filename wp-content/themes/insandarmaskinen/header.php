@@ -56,5 +56,5 @@ if ( !is_user_logged_in() && !is_page('registrera') ) {
 		<?php do_action( 'bp_after_header' ); ?>
 		<?php do_action( 'bp_before_container' ); ?>
 
-		<div class="container">
+		<div id="content" class="container">
 			<div class="row">
