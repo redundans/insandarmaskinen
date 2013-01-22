@@ -144,7 +144,7 @@
                       $(this).removeAttr('checked');
                   });
                 });
-              })(jQuery);
+              });
             </script>
           </div>
         </div>        
