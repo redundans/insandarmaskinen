@@ -131,7 +131,7 @@
             }
           ?>
             <script>
-              $(document).ready( function() {
+              jQuery(document).ready( function($) {
                 $(".collapse").collapse();
 
                 $('.parent').change(function() {
