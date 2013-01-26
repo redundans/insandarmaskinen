@@ -285,22 +285,26 @@
 
 	<script type="text/javascript">
 		jQuery(document).ready( function() {
+
 			if ( jQuery('div#blog-details').length && !jQuery('div#blog-details').hasClass('show') )
 				jQuery('div#blog-details').toggle();
 
 			jQuery( 'input#signup_with_blog' ).click( function() {
 				jQuery('div#blog-details').fadeOut().toggle();
 			});
+			
 		});
 	</script>
 
 	<script type="text/javascript">
 		jQuery(document).ready( function($) {
+
 			$('#continueregistration').click( function() {
 				$(this).hide();
 				$('#profile-details-section').show();
 				$('#signup_submit').show();
 			});
+
 		});
 	</script>
 
