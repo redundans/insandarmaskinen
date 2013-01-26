@@ -295,7 +295,7 @@
 	</script>
 
 	<script type="text/javascript">
-		$(document).ready( function() {
+		jQuery(document).ready( function($) {
 			$('#continueregistration').click( function() {
 				$(this).hide();
 				$('#profile-details-section').show();
