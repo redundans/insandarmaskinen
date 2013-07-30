@@ -22,7 +22,7 @@
     	<script src="<?php echo get_bloginfo('stylesheet_directory'); ?>/js/bootstrap.min.js"></script>
     	<script type="text/javascript">
     	jQuery('document').ready( function($) {
-        	$('.paper-suggest').suggest("<?php echo get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=ajax_paper_search&tax=paper", {
+        	$('.paper-suggest').suggest("<?php echo get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=ajax-tag-search&tax=paper", {
         		multiple 	: true, 
         		multipleSep	: ",", 
         		resultsClass: 'paper-suggest-results',

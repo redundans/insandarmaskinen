@@ -258,10 +258,13 @@ add_action("wp_ajax_nopriv_report_paper", "report_paper");
 
 function report_paper() {
     global $wpdb;
+    global $bp;
     $post_id = $_REQUEST["post_id"];
     $papers = $_REQUEST["papers"];
     $papers = explode(',', $papers);
     $terms = array();
+    $current_user = wp_get_current_user();
+    $userlink = bp_core_get_userlink( $current_user->ID );
 
     foreach ($papers as $paper) {
         if( !empty($paper) ):
@@ -269,6 +272,20 @@ function report_paper() {
             $terms[] = $term->term_id;
         endif;
     }
+    if( $terms[0] != NULL ):
+        $activity_id = bp_activity_add( array( 
+            'user_id' => $bp->loggedin_user->id, 
+            'action'=> sprintf("%s har rapporterat en <a href='%s'>insändare</a> som publicerad.", bp_core_get_userlink( $bp->loggedin_user->id ), get_permalink( $post_id ) ),
+            'content' => false, 
+            'primary_link' => bp_core_get_userlink( $bp->loggedin_user->id ),
+            'component_name' => 'groups',
+            'component_action' =>"report_published",
+            'item_id' => $bp->groups->current_group->id,
+            'secondary_item_id' => false,
+            'recorded_time' => gmdate( "Y-m-d H:i:s" ),
+            'hide_sitewide' => false
+        ));
+    endif;
     wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
 
     $term_objects = wp_get_post_terms( $post_id, 'paper' );
@@ -276,6 +293,7 @@ function report_paper() {
     foreach ($term_objects as $term) {
         $terms[$term->term_id] = $term->name;
     }
+
     echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
     die();
 }
@@ -307,35 +325,7 @@ function delete_reported_paper() {
     foreach ($term_objects as $term) {
         $terms[$term->term_id] = $term->name;
     }
+
     echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
-    die();
-}
-
-
-add_action('wp_ajax_nopriv_ajax_paper_search', 'ajax_paper_search');
-add_action('wp_ajax_ajax_paper_search', 'ajax_paper_search');
- 
-function ajax_paper_search() {
-    global $wpdb;
-    if ( isset( $_GET['tax'] ) ) {
-        $taxonomy = sanitize_key( $_GET['tax'] );
-        $tax = get_taxonomy( $taxonomy );
-        if ( ! $tax )
-            die( '0' );
-    } else {
-        die('0');
-    }
- 
-    $s = stripslashes( $_GET['q'] );
- 
-    if ( false !== strpos( $s, ',' ) ) {
-        $s = explode( ',', $s );
-        $s = $s[count( $s ) - 1];
-    }
-    $s = trim( $s );
-    if ( strlen( $s ) < 2 )
-        die;
-    $results = $wpdb->get_col( $wpdb->prepare( "SELECT t.name FROM $wpdb->term_taxonomy AS tt INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE tt.taxonomy = %s AND t.name LIKE (%s)", $taxonomy, '%' . like_escape( $s ) . '%' ) );
-    echo join( $results, "n" );
     die();
 }
