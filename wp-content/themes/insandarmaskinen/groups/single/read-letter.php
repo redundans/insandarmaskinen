@@ -10,10 +10,17 @@ if($_GET['update']==1):
       $newterms[ $row->post_id ][] = $paper->term_id;
     endif;
   }
+  query_posts( array( 'posts_per_page' => -1, 'post_type'=> 'insandare' ) );
+  // The Loop
+  while ( have_posts() ) : the_post();
+      $post_id = get_the_ID();
+      wp_delete_object_term_relationships( $post_id, 'paper' );
+      wp_set_post_terms( $post_id, $newterms[$post_id], 'paper', TRUE );
+  endwhile;
+  // Reset Query
+  wp_reset_query();
   foreach ($newterms as $post_id => $terms) {
-    var_dump($terms);
-    wp_delete_object_term_relationships( $post_id, 'paper' );
-    wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
+    
   }
 endif;
 
