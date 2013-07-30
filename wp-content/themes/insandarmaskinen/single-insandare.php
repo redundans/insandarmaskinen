@@ -15,7 +15,7 @@
            	$papers = wp_get_post_terms( get_the_ID(), 'paper' ); ?>
 	        <div class="insandare row-fluid">
 				<div class="meta span3">
-		            <a href="<?php bp_group_member_domain(); ?>/profile/"><?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?></a>
+		            <a href="<?php echo bp_core_get_user_domain( get_the_author_meta('ID') ); ?>profile/"><?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?></a>
 
 		            <p>
 		              <strong>Publiceringar</strong> 
