@@ -1,4 +1,6 @@
 <?php 
+
+/*
 if($_GET['update']==1):
   $newterms = array();
   $myrows = $wpdb->get_results( "SELECT post_id, meta_key FROM $wpdb->postmeta WHERE meta_key LiKE 'published_%'" );
@@ -23,6 +25,7 @@ if($_GET['update']==1):
     
   }
 endif;
+*/
 
 if ( $_POST['action'] == 'add' ){
   require('../../../../../wp-config.php');
