@@ -28,14 +28,18 @@
 	          	</div>
 
 	          	<div class="mail span9">
-	            	<h4><?php the_title(); ?></h4>
+	            	<h3><?php the_title(); ?></h3>
 	            	<?php the_content(); ?>
+	            	<hr/>
 	            	<div class="paperlist">
 		              <ul data-postid="<?php echo $post->ID; ?>">
+		                <li class="label">Publiceringar:</li>
 		                <?php
 		                foreach ($terms as $term) {
 		                  echo ' <li data-term="'.$term->term_id.'"><a class="deleteterm">X</a>'.$term->name.'</li>';
 		                }
+		                if(count($terms) == 0)
+		                  echo ' <li>Inga ännu</li>';
 		                ?>
 		              </ul>
 		            </div>
