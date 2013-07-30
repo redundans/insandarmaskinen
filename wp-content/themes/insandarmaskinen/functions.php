@@ -272,7 +272,11 @@ function report_paper() {
             $terms[] = $term->term_id;
         endif;
     }
-    if( $terms[0] != NULL ):
+
+    if( $terms[0] == NULL ):
+        echo json_encode( array( 'error' => 1, 'message' => 'Ledsen, vi kunde inte hitta någon tidning med det namnet. Saknar du denna tidning på Insändarmaskinen™ så meddela en administratör i användarforumet så lägger hen till den.' ) );
+        die();
+    else:
         $activity_id = bp_activity_add( array( 
             'user_id' => $bp->loggedin_user->id, 
             'action'=> sprintf("%s har rapporterat en <a href='%s'>insändare</a> som publicerad.", bp_core_get_userlink( $bp->loggedin_user->id ), get_permalink( $post_id ) ),
@@ -285,17 +289,18 @@ function report_paper() {
             'recorded_time' => gmdate( "Y-m-d H:i:s" ),
             'hide_sitewide' => false
         ));
+
+        wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
+
+        $term_objects = wp_get_post_terms( $post_id, 'paper' );
+        $terms = array();
+        foreach ($term_objects as $term) {
+            $terms[$term->term_id] = $term->name;
+        }
+
+        echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
+        die();
     endif;
-    wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
-
-    $term_objects = wp_get_post_terms( $post_id, 'paper' );
-    $terms = array();
-    foreach ($term_objects as $term) {
-        $terms[$term->term_id] = $term->name;
-    }
-
-    echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
-    die();
 }
 
 add_action("wp_ajax_delete_reported_paper", "delete_reported_paper");

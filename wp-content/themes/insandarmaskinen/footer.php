@@ -40,6 +40,11 @@
 					url: ajaxurl,
 					data: {action: "report_paper", post_id : post_id, papers: papers },
 					success: function(data){
+						if( data.error == 1){
+							alert(data.message);
+							$(paper_suggest).val('');
+							return;
+						}
 						$(total).html(data.total);
 						$(paperlist).html('');
 						$.each( data.terms, function( key, value ){
