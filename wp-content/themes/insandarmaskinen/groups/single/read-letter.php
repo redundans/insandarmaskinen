@@ -45,15 +45,12 @@ if ( $_POST['action'] == 'add' ){
       <?php 
         $events_query = new WP_Query('post_type=insandare&paged='.$paged);
         while ($events_query->have_posts()) : $events_query->the_post();
-           $papers = wp_get_post_terms( get_the_ID(), 'paper' );
       ?>
         <div class="insandare row-fluid">
           <div class="meta span3">
             <a href="<?php global $bp; echo $bp->loggedin_user->domain; ?>profile/"><?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?></a>
 
             <p>
-              <strong>Tidningar</strong> <?php echo count($papers); ?> st
-              <br/>
               <strong>Publiceringar</strong> 
             <span class="total"><?php
               $terms = wp_get_post_terms( $post->ID, 'paper' );
