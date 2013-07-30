@@ -731,3 +731,64 @@ div.member h5 {
 div.member img.avatar {
 	margin-bottom: 0.5em;
 }
+
+.paperlist {
+	display: table;
+	margin-bottom: 1em;
+}
+
+.paperlist ul {
+	list-style: none;
+	margin: 0;
+}
+
+.paperlist li {
+	float: left;
+	color: #bbb;
+	margin-right: 1em;
+}
+
+.paperlist li a {
+	background: url(/wp-admin/images/xit.gif) no-repeat;
+	margin: 4px 4px 0 0;
+	cursor: pointer;
+	width: 10px;
+	height: 10px;
+	display: block;
+	float: left;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+.paper-suggest-results {
+	display: none;
+	list-style: none;
+	position: absolute;
+	background-color: white;
+	margin: 0;
+	padding: 0px 6px;
+	width: 206px;
+	color: #555555;
+	font-size: 14px;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.paper-suggest-results li {
+	cursor: pointer;
+	padding: 4px 0;
+}
+
+.paper-suggest-results li + li {
+	border-top: 1px solid #cccccc;
+}
+
+.paper-suggest-match {
+	font-weight: bold;
+}
+
+input[type="submit"].btn {
+	margin-bottom: 1.5em;
+}

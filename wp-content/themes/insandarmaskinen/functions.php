@@ -21,6 +21,8 @@ function my_scripts_method() {
     //wp_deregister_script( 'jquery' );
     //wp_register_script( 'jquery', 'http://code.jquery.com/jquery-latest.js');
     //wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'suggest' );
+    wp_enqueue_style( 'suggest' );
 }    
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');
@@ -251,3 +253,89 @@ function insandarmaskinen_ajax_messages_autocomplete_results() {
 }
 
 
+add_action("wp_ajax_report_paper", "report_paper");
+add_action("wp_ajax_nopriv_report_paper", "report_paper");
+
+function report_paper() {
+    global $wpdb;
+    $post_id = $_REQUEST["post_id"];
+    $papers = $_REQUEST["papers"];
+    $papers = explode(',', $papers);
+    $terms = array();
+
+    foreach ($papers as $paper) {
+        if( !empty($paper) ):
+            $term = get_term_by('name', $paper, 'paper');
+            $terms[] = $term->term_id;
+        endif;
+    }
+    wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
+
+    $term_objects = wp_get_post_terms( $post_id, 'paper' );
+    $terms = array();
+    foreach ($term_objects as $term) {
+        $terms[$term->term_id] = $term->name;
+    }
+    echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
+    die();
+}
+
+add_action("wp_ajax_delete_reported_paper", "delete_reported_paper");
+add_action("wp_ajax_nopriv_delete_reported_paper", "delete_reported_paper");
+
+function delete_reported_paper() {
+    global $wpdb;
+    $post_id = $_REQUEST["post_id"];
+    $term = $_REQUEST["term"];
+    $terms = array();
+
+    $term_objects = wp_get_post_terms( $post_id, 'paper' );
+    
+    wp_delete_object_term_relationships( $post_id, 'paper' );
+
+    foreach ($term_objects as $term_object) {
+        if( $term != $term_object->term_id):
+            $terms[] = $term_object->term_id;
+        endif;
+    }
+
+    wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
+
+    $term_objects = wp_get_post_terms( $post_id, 'paper' );
+
+    $terms = array();
+    foreach ($term_objects as $term) {
+        $terms[$term->term_id] = $term->name;
+    }
+    echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
+    die();
+}
+
+
+add_action('wp_ajax_nopriv_ajax_paper_search', 'ajax_paper_search');
+add_action('wp_ajax_ajax_paper_search', 'ajax_paper_search');
+ 
+function ajax_paper_search() {
+    global $wpdb;
+    if ( isset( $_GET['tax'] ) ) {
+        $taxonomy = sanitize_key( $_GET['tax'] );
+        $tax = get_taxonomy( $taxonomy );
+        if ( ! $tax )
+            die( '0' );
+    } else {
+        die('0');
+    }
+ 
+    $s = stripslashes( $_GET['q'] );
+ 
+    if ( false !== strpos( $s, ',' ) ) {
+        $s = explode( ',', $s );
+        $s = $s[count( $s ) - 1];
+    }
+    $s = trim( $s );
+    if ( strlen( $s ) < 2 )
+        die;
+    $results = $wpdb->get_col( $wpdb->prepare( "SELECT t.name FROM $wpdb->term_taxonomy AS tt INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE tt.taxonomy = %s AND t.name LIKE (%s)", $taxonomy, '%' . like_escape( $s ) . '%' ) );
+    echo join( $results, "n" );
+    die();
+}
