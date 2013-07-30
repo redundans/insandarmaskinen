@@ -1,4 +1,21 @@
 <?php 
+if($_GET['update']==1):
+  $newterms = array();
+  $myrows = $wpdb->get_results( "SELECT post_id, meta_key FROM $wpdb->postmeta WHERE meta_key LiKE 'published_%'" );
+  foreach ( $myrows as $row ) 
+  {
+    $paper = substr($row->meta_key, 10);
+    if($paper!=''):
+      $paper = get_term_by( 'slug', $paper, 'paper', OBJECT, raw );
+      $newterms[ $row->post_id ][] = $paper->term_id;
+    endif;
+  }
+  foreach ($newterms as $post_id => $terms) {
+    var_dump($terms);
+    wp_delete_object_term_relationships( $post_id, 'paper' );
+    wp_set_post_terms( $post_id, $terms, 'paper', TRUE );
+  }
+endif;
 
 if ( $_POST['action'] == 'add' ){
   require('../../../../../wp-config.php');
