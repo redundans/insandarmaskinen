@@ -19,10 +19,10 @@
 
 		            <p>
 		              <strong>Publiceringar</strong> 
-		            <?php
-		              $publish_count = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_key LIKE 'published_%' AND post_id = '".get_the_ID()."';" );
-		              echo $wpdb->num_rows ;
-		            ?> st
+		            <span class="total"><?php
+		              $terms = wp_get_post_terms( $post->ID, 'paper' );
+		              echo count($terms);
+		            ?></span> st 
 		            </p>
 
 	          	</div>
