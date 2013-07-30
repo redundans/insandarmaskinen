@@ -370,6 +370,15 @@ body#insandarmaskinen .pagination ul li.active  a {
  	border-left: 1px solid #eee;
  }
 
+ div.insandare h3 {
+ 	line-height: 1em;
+ }
+
+body#insandarmaskinen .addpaper, body#insandarmaskinen div.insandare .paper-suggest {
+ 	margin: 0;
+ }
+ 
+ 
  /**
   * MEMBER LIST
   **/
@@ -746,6 +755,19 @@ div.member img.avatar {
 	float: left;
 	color: #bbb;
 	margin-right: 1em;
+}
+
+.paperlist li.label {
+	background: none;
+	padding: 0;
+	margin: 0;
+	border:none;
+	float: left;
+	color: #333333;
+	margin-right: 1em;
+	text-shadow: none;
+	line-height: 1.3em;
+	font-size: 1em;
 }
 
 .paperlist li a {
