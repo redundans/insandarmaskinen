@@ -47,6 +47,7 @@
 						}
 						$(total).html(data.total);
 						$(paperlist).html('');
+						$(paperlist).append('<li class="label">Publiceringar:</li>');
 						$.each( data.terms, function( key, value ){
 							$(paperlist).append('<li data-term="'+key+'"><a class="deleteterm">X</a>'+value+'</li>');
 						});
@@ -67,6 +68,7 @@
 					success: function(data){
 						$(total).html(data.total);
 						$(paperlist).html('');
+						$(paperlist).append('<li class="label">Publiceringar:</li>');
 						$.each( data.terms, function( key, value ){
 							$(paperlist).append('<li data-term="'+key+'"><a class="deleteterm">X</a>'+value+'</li>');
 						});
