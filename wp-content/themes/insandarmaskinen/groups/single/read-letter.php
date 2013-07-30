@@ -96,7 +96,7 @@ if ( $_POST['action'] == 'add' ){
                 foreach ($terms as $term) {
                   echo ' <li data-term="'.$term->term_id.'"><a class="deleteterm">X</a>'.$term->name.'</li>';
                 }
-                if(count($terms))
+                if(count($terms) == 0)
                   echo ' <li>Inga ännu</li>';
                 ?>
               </ul>
