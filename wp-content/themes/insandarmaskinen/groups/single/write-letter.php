@@ -49,7 +49,7 @@
 
     $post_id = wp_insert_post( $post );
 
-    $out = wp_set_object_terms( $post_id, $papers, 'paper' );
+    //$out = wp_set_object_terms( $post_id, $papers, 'paper' );
 
     if( !empty( $post_id ) ):
       $activity_id = bp_activity_add( array( 
