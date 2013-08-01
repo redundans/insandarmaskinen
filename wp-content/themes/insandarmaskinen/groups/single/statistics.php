@@ -26,9 +26,11 @@
 					if( $i == 5 )
 						break;
 					$user = get_userdata( $userid );
-					echo '<li>'.get_avatar( $user->ID, 65 ).$user->user_nicename.' <span class="score">'.$posts.' st</span></li>';
+					echo '<li>'.get_avatar( $user->ID, 65 ).$user->first_name.' <span class="score">'.$posts.' st</span></li>';
 					$i++;
 				}
+				if( count($user_posts) == 0 )
+					echo '<li><center>Inga insändare ännu</center></li>';
 				wp_reset_postdata();
       		?>
       		</ul>
@@ -53,9 +55,11 @@
 					if( $i == 5 )
 						break;
 					$user = get_userdata( $userid );
-					echo '<li>'.get_avatar( $user->ID, 65 ).$user->user_nicename.' <span class="score">'.$posts.' st</span></li>';
+					echo '<li>'.get_avatar( $user->ID, 65 ).$user->first_name.' <span class="score">'.$posts.' st</span></li>';
 					$i++;
 				}
+				if( count($user_posts) == 0 )
+					echo '<li><center>Inga insändare ännu</center></li>';
 				wp_reset_postdata();
       		?>
       		</ul>
