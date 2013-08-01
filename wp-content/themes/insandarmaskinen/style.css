@@ -519,6 +519,27 @@ body#insandarmaskinen .addpaper, body#insandarmaskinen div.insandare .paper-sugg
     -ms-transform: rotate(-2deg);
  }
 
+ ul#menu-top-menu li:nth-child(6) a {
+ 	display: inline-block;
+ 	margin-left: 20px;
+
+ 	color: #333;
+ 	font-family: arial;
+ 	font-weight: bold;
+ 	font-style: italic;
+ 	text-transform: lowercase;
+
+ 	background-color: #fefdf8;
+ 	padding: 5px 10px;
+
+ 	-webkit-box-shadow: 1px 1px 4px 0px #f2f2f2;
+	box-shadow: 1px 1px 4px 0px #f2f2f2;
+
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+ }
+
  div.textwidget {
  	display: inline-block;
  	width: 80%;
