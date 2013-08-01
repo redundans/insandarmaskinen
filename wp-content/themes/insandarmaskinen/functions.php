@@ -19,8 +19,8 @@ endif;
 
 function my_scripts_method() {
     //wp_deregister_script( 'jquery' );
-    //wp_register_script( 'jquery', 'http://code.jquery.com/jquery-latest.js');
-    //wp_enqueue_script( 'jquery' );
+    wp_register_script( 'chart', get_stylesheet_directory_uri().'/js/Chart.min.js');
+    wp_enqueue_script( 'chart' );
     wp_enqueue_script( 'suggest' );
     wp_enqueue_style( 'suggest' );
 }    
@@ -80,6 +80,18 @@ if( ! function_exists( 'add_insandare_nav' ) ) {
         bp_core_remove_nav_item( 'blogs');
         bp_core_new_subnav_item( 
             array( 
+                'name' => 'Statistik', 
+                'slug' => 'statistik', 
+                'parent_slug' => $bp->groups->current_group->slug, 
+                'parent_url' => bp_get_group_permalink( $bp->groups->current_group ), 
+                'position' => 11, 
+                'item_css_id' => 'statistik',
+                'screen_function' => statistics_screen,
+                'user_has_access' => 1
+            ) 
+        );
+        bp_core_new_subnav_item( 
+            array( 
                 'name' => 'Skriv en insändare', 
                 'slug' => 'skriv-en-insandare', 
                 'parent_slug' => $bp->groups->current_group->slug, 
@@ -105,6 +117,19 @@ if( ! function_exists( 'add_insandare_nav' ) ) {
     }
 }
 add_action( 'bp_setup_nav', 'add_insandare_nav', 1000 );
+
+if( ! function_exists( 'statistics_screen' ) ) {
+    function statistics_screen() {
+        add_action( 'bp_template_content', 'statistics_screen_show' );
+            bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'groups/single/plugins' ) );
+    }
+}
+
+if( ! function_exists( 'statistics_screen_show' ) ) {
+    function statistics_screen_show() {
+        locate_template( array( 'groups/single/statistics.php' ), true );
+    }
+}
 
 if( ! function_exists( 'write_letter_screen' ) ) {
     function write_letter_screen() {
@@ -213,6 +238,7 @@ add_filter( 'bp_friends_autocomplete_list', 'ray_bp_autocomplete_list', 1, 3 );
 
 
 add_action( 'wp_ajax_messages_autocomplete_results', 'insandarmaskinen_ajax_messages_autocomplete_results' );
+add_action( 'wp_ajax_nopriv_messages_autocomplete_results', 'insandarmaskinen_ajax_messages_autocomplete_results' );
 
 function insandarmaskinen_ajax_messages_autocomplete_results() {
     global $bp;
@@ -333,4 +359,28 @@ function delete_reported_paper() {
 
     echo json_encode( array( 'total' => count($terms), 'terms' => $terms ) );
     die();
+}
+
+add_action('wp_ajax_tajax-tag-search', 'add_autosuggest_20links_callback');
+add_action('wp_ajax_nopriv_tajax-tag-search', 'add_autosuggest_20links_callback');
+function add_autosuggest_20links_callback(){
+    global $wpdb;
+    if ( isset( $_GET['tax'] ) ) {
+        $taxonomy = sanitize_key( $_GET['tax'] );
+        $tax = get_taxonomy( $taxonomy );
+        if ( ! $tax )
+            die();
+    } else {
+        die();
+    }
+    $s = stripslashes( $_GET['q'] );
+    if ( false !== strpos( $s, ',' ) ) {
+        $s = explode( ',', $s );
+        $s = $s[count( $s ) - 1];
+    }
+    $s = trim( $s );
+    if ( strlen( $s ) < 2 )
+        die; // require 2 chars for matching
+    $results = $wpdb->get_col( $wpdb->prepare( "SELECT t.name FROM $wpdb->term_taxonomy AS tt INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE tt.taxonomy = %s AND t.name LIKE (%s)", $taxonomy, '%' . like_escape( $s ) . '%' ) );
+    echo join( $results, "\n" );
 }

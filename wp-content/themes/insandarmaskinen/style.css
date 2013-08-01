@@ -820,3 +820,54 @@ div.member img.avatar {
 input[type="submit"].btn {
 	margin-bottom: 1.5em;
 }
+
+
+canvas {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 30px 10px 30px 0;
+}
+
+ul.toplist {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 0;
+	list-style: none;
+}
+	
+ul.toplist li {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #cccccc;
+}
+	
+ul.toplist li:last-child {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	border-bottom: 0;
+}
+	
+ul.toplist li img.avatar {
+	width: 30px;
+	margin-right: 20px;
+}
+	
+ul.toplist li:first-child img.avatar {
+	width: 65px;
+	margin-right: 20px;
+}
+	
+ul.toplist li:first-child {
+	font-size: 120%;
+}
+	
+ul.toplist li span.score {
+	background-color: #eee;
+	border-radius: 100px;
+	padding: 5px 10px;
+	margin-left: 10px;
+	opacity: 0.5;
+}
