@@ -383,4 +383,5 @@ function add_autosuggest_20links_callback(){
         die; // require 2 chars for matching
     $results = $wpdb->get_col( $wpdb->prepare( "SELECT t.name FROM $wpdb->term_taxonomy AS tt INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE tt.taxonomy = %s AND t.name LIKE (%s)", $taxonomy, '%' . like_escape( $s ) . '%' ) );
     echo join( $results, "\n" );
+    die;
 }
