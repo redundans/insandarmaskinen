@@ -6,7 +6,7 @@ if ( !function_exists( 'bp_dtheme_enqueue_styles' ) ) :
 function bp_dtheme_enqueue_styles() {
  
     // You should bump this version when changes are made to bust cache
-    $version = '20121109';
+    $version = '20130701';
  
         // Register stylesheet of bp-dusk child theme
     wp_register_style( 'insandarmaskinen', get_stylesheet_directory_uri() . '/style.css', array(), $version );
