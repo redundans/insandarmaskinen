@@ -26,7 +26,7 @@
 					if( $i == 5 )
 						break;
 					$user = get_userdata( $userid );
-					echo '<li>'.get_avatar( $user->ID, 65 ).$user->first_name.' <span class="score">'.$posts.' st</span></li>';
+					echo '<li>'.get_avatar( $user->ID, 65 ).bp_core_get_user_displayname($userid).' <span class="score">'.$posts.' st</span></li>';
 					$i++;
 				}
 				if( count($user_posts) == 0 )
