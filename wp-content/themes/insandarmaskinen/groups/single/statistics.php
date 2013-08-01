@@ -94,7 +94,7 @@
 						fillColor : "rgba(220,220,220,0.5)",
 						strokeColor : "#ed6b4e",
 						pointColor : "#ed6b4e",
-						pointStrokeColor : "#fafafa",
+						pointStrokeColor : "#fff",
 						data : [<?php echo implode(',', $month_posts); ?>]
 					}
 				]
