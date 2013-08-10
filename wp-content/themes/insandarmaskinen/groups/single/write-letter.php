@@ -1,5 +1,4 @@
 <?php
-  error_log( 'Laddar write-letter.php' );
   function sendMail( $post_id, $title, $content, $signature ) {
     global $bp;
     $user_email = $bp->loggedin_user->userdata->user_email;
@@ -11,6 +10,7 @@
     foreach ( $papers as $paper ) {
       $term    = get_term_by( 'slug', $paper, 'paper' );
       $to      = get_term_meta($term->term_id, 'email', true);
+      error_log( 'Mail till' . $to );
       $subject = $title;
       $message = $content . "\n\n" . $signature . "\n\n ----- \n\n" . $contact;
 
