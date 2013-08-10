@@ -1,5 +1,5 @@
 <?php
-
+  error_log( 'Laddar write-letter.php' );
   function sendMail( $post_id, $title, $content, $signature ) {
     global $bp;
     $user_email = $bp->loggedin_user->userdata->user_email;
