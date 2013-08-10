@@ -40,12 +40,6 @@ img.avatar {
 
 .navbar img.avatar {
 	margin: 0 0 0 0;
-
-	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
 }
 
 .navbar.navbar-static-top  .navbar-inner {
