@@ -1,16 +1,14 @@
 <?php
-  function sendMail( $post_id, $title, $content, $signature ) {
+  function sendMail( $post_id, $title, $content, $signature, $papers ) {
     global $bp;
     $user_email = $bp->loggedin_user->userdata->user_email;
     $user_name = $bp->loggedin_user->userdata->user_nicename;
-    $papers = wp_get_post_terms( $post_id, 'paper' );
     $contact = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>2 ));
     $user_nicename = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
 
     foreach ( $papers as $paper ) {
       $term    = get_term_by( 'slug', $paper, 'paper' );
       $to      = get_term_meta($term->term_id, 'email', true);
-      error_log( 'Mail till' . $to );
       $subject = $title;
       $message = $content . "\n\n" . $signature . "\n\n ----- \n\n" . $contact;
 
@@ -26,7 +24,9 @@
     }
 
     if( empty($contact) )
-        $error = 'Din kontaktinformation är tom. Många redaktioner publicerar inte insändare om ingen kontaktuppgift till avsändaren finns med.';
+      $error = 'Din kontaktinformation är tom. Många redaktioner publicerar inte insändare om ingen kontaktuppgift till avsändaren finns med.';
+    if( $error == '' || $error == null )
+      $error = 'Din insändare är skickad!';
     return $error;
   }
 
@@ -65,11 +65,11 @@
         'recorded_time' => gmdate( "Y-m-d H:i:s" ),
         'hide_sitewide' => false
       ) );
-      sendMail( $post_id, $title, $content, $signature, $papers );
+      $error = sendMail( $post_id, $title, $content, $signature, $papers );
     endif;
 ?>
       <div class="page-header">
-          <h1>Din insändare är skickad!</h1>
+          <h1><?php echo $error; ?></h1>
       </div>
       <a href="<?php echo get_permalink($post_id); ?>">Klicka för att komma till din insändare <i class="icon-arrow-right"></i></a>
 <?php
