@@ -9,7 +9,8 @@
     $user_nicename = bp_get_profile_field_data( array('user_id'=>$bp->loggedin_user->id,'field'=>1 ));
 
     foreach ( $papers as $paper ) {
-      $to      = get_term_meta($paper->term_id, 'email', true);
+      $term    = get_term_by( 'slug', $paper, 'paper' );
+      $to      = get_term_meta($term->term_id, 'email', true);
       $subject = $title;
       $message = $content . "\n\n" . $signature . "\n\n ----- \n\n" . $contact;
 
@@ -64,7 +65,7 @@
         'recorded_time' => gmdate( "Y-m-d H:i:s" ),
         'hide_sitewide' => false
       ) );
-      sendMail( $post_id, $title, $content, $signature );
+      sendMail( $post_id, $title, $content, $signature, $papers );
     endif;
 ?>
       <div class="page-header">
