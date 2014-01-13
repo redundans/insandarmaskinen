@@ -73,7 +73,7 @@
       		<p>I diagrammet nedan kan du se hur många publiceringar som vi användare på <strong>Insändarmaskinen™</strong> gemensamt är ansvariga för <?php echo date('Y') ?>. Ju fler vi är destå finare diagram kommer vi få. Så bjud gärna in era vänner och kamrater!</p>
       		<canvas id="monthChart" width="860" height="370"></canvas>
       		<?php
-      			$args = array( 'year' => '2013', 'post_type' => 'insandare', 'posts_per_page' => -1 );
+      			$args = array( 'year' => date('Y'), 'post_type' => 'insandare', 'posts_per_page' => -1 );
       			$query = new WP_Query( $args );
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
