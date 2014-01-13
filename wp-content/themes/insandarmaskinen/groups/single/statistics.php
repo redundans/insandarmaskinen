@@ -11,7 +11,7 @@
 			<h4>Topplistan <?php echo strtolower( $months[ intval(date('m'))-1 ] ); ?></h4>
 			<ul class="toplist">
 			<?php
-      			$args = array( 'year' => '2013', 'monthnum' => date('m'), 'post_type' => 'insandare', 'posts_per_page' => -1 );
+      			$args = array( 'year' => date('Y'), 'monthnum' => date('m'), 'post_type' => 'insandare', 'posts_per_page' => -1 );
       			$query = new WP_Query( $args );
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
