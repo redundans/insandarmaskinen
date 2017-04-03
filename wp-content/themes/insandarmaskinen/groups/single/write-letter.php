@@ -16,6 +16,8 @@
 
       $mail = wp_mail( $to, $subject, $message );
 
+      var_dump( $to.' : '.$subject.' : '.$message );
+
       var_dump( $mail );
 
       if($mail) {
