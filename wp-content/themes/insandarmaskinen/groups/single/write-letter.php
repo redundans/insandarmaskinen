@@ -14,7 +14,7 @@
 
       $headers[] = 'From: ' . $user_nicename . ' <'.$user_email.'>';
 
-      $mail = wp_mail( $to, $subject, $message, $headers );
+      $mail = wp_mail( $to, $subject, $message );
 
       if($mail) {
         error_log( 'Sent mail from insändarmaskinen to '. $to);

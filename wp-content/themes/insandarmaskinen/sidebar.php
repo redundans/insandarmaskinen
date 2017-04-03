@@ -1,7 +1,5 @@
 <?php do_action( 'bp_before_sidebar' ); ?>
 
-	<?php wp_nav_menu( ); ?>
-
 	<?php do_action( 'bp_inside_before_sidebar' ); ?>
 
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>

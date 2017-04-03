@@ -1,7 +1,7 @@
 <?php 
 if ( !is_user_logged_in() && !is_page('registrera') ) { 
 	header( 'Location: /registrera' ); 
-} elseif( is_page('grupper') && !bp_is_group_single() ) { 
+} elseif( is_page('grupper') ) { 
 	header( 'Location: /grupper/insandarmaskinen/' ); 
 } ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -46,7 +46,6 @@ if ( !is_user_logged_in() && !is_page('registrera') ) {
 						  </li>
 						</ul>
 					<?php endif; ?> 
-	        <!--    <?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'menu_class' => 'nav', 'theme_location' => 'primary', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?> -->
 	          </div><!--/.nav-collapse -->
 	        </div>
 	      </div>
