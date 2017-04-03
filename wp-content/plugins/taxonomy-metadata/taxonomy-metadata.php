@@ -2,7 +2,7 @@
 /*
 Plugin Name: Taxonomy Metadata
 Description: Infrastructure plugin which implements metadata functionality for taxonomy terms, including for tags and categories.
-Version: 0.3
+Version: 0.5
 Author: mitcho (Michael Yoshitaka Erlewine), sirzooro
 Author URI: http://mitcho.com/
 */
@@ -11,8 +11,7 @@ class Taxonomy_Metadata {
 	function __construct() {
 		add_action( 'init', array($this, 'wpdbfix') );
 		add_action( 'switch_blog', array($this, 'wpdbfix') );
-		
-		add_action('wpmu_new_blog', 'new_blog', 10, 6);
+		add_action('wpmu_new_blog', array($this, 'new_blog'), 10, 6);
 	}
 
 	/*
@@ -79,6 +78,7 @@ register_activation_hook( __FILE__, array($taxonomy_metadata, 'activate') );
 
 // THE REST OF THIS CODE IS FROM http://core.trac.wordpress.org/ticket/10142
 // BY sirzooro
+// Added function_exists wrappers as per https://make.wordpress.org/core/2015/09/22/preparing-your-plugins-and-your-client-sites-for-termmeta/
 
 //
 // Taxonomy meta functions
@@ -93,8 +93,10 @@ register_activation_hook( __FILE__, array($taxonomy_metadata, 'activate') );
  * @param bool $unique Optional, default is false. Whether the same key should not be added.
  * @return bool False for failure. True for success.
  */
+if ( !function_exists('add_term_meta') ) {
 function add_term_meta($term_id, $meta_key, $meta_value, $unique = false) {
 	return add_metadata('taxonomy', $term_id, $meta_key, $meta_value, $unique);
+}
 }
 
 /**
@@ -109,8 +111,10 @@ function add_term_meta($term_id, $meta_key, $meta_value, $unique = false) {
  * @param mixed $meta_value Optional. Metadata value.
  * @return bool False for failure. True for success.
  */
+if ( !function_exists('delete_term_meta') ) {
 function delete_term_meta($term_id, $meta_key, $meta_value = '') {
 	return delete_metadata('taxonomy', $term_id, $meta_key, $meta_value);
+}
 }
 
 /**
@@ -122,8 +126,10 @@ function delete_term_meta($term_id, $meta_key, $meta_value = '') {
  * @return mixed Will be an array if $single is false. Will be value of meta data field if $single
  *  is true.
  */
+if ( !function_exists('get_term_meta') ) {
 function get_term_meta($term_id, $key, $single = false) {
 	return get_metadata('taxonomy', $term_id, $key, $single);
+}
 }
 
 /**
@@ -140,6 +146,8 @@ function get_term_meta($term_id, $key, $single = false) {
  * @param mixed $prev_value Optional. Previous value to check before removing.
  * @return bool False on failure, true if success.
  */
+if ( !function_exists('update_term_meta') ) {
 function update_term_meta($term_id, $meta_key, $meta_value, $prev_value = '') {
 	return update_metadata('taxonomy', $term_id, $meta_key, $meta_value, $prev_value);
+}
 }

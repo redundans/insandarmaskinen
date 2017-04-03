@@ -3,20 +3,22 @@
 Plugin Name: WP-Members
 Plugin URI:  http://rocketgeek.com
 Description: WP access restriction and user registration.  For more information on plugin features, refer to <a href="http://rocketgeek.com/plugins/wp-members/users-guide/">the online Users Guide</a>. A <a href="http://rocketgeek.com/plugins/wp-members/quick-start-guide/">Quick Start Guide</a> is also available. WP-Members(tm) is a trademark of butlerblog.com.
-Version:     2.7.6
+Version:     3.1.6.3
 Author:      Chad Butler
 Author URI:  http://butlerblog.com/
+Text Domain: wp-members
+Domain Path: /lang
 License:     GPLv2
 */
 
 
 /*  
-	Copyright (c) 2006-2012  Chad Butler (email : plugins@butlerblog.com)
+	Copyright (c) 2006-2016  Chad Butler
 
 	The name WP-Members(tm) is a trademark of butlerblog.com
 
 	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License, version 2, as 
+	it under the terms of the GNU General Public License, version 2, as
 	published by the Free Software Foundation.
 
 	This program is distributed in the hope that it will be useful,
@@ -36,17 +38,20 @@ License:     GPLv2
 /*
 	A NOTE ABOUT LICENSE:
 
-	While this plugin is released as free and open-source under the GPL2
+	While this plugin is freely available and open-source under the GPL2
 	license, that does not mean it is "public domain." You are free to modify
 	and redistribute as long as you comply with the license. Any derivative 
 	work MUST be GPL licensed and available as open source.  You also MUST give 
 	proper attribution to the original author, copyright holder, and trademark
 	owner.  This means you cannot change two lines of code and claim copyright 
-	of the entire work as your own.  If you are unsure or have questions about 
-	how a derivative work you are developing complies with the license, 
-	copyright, trademark, or if you do not understand the difference between
+	of the entire work as your own.  The GPL2 license requires that if you
+	modify this code, you must clearly indicate what section(s) you have
+	modified and you may only claim copyright of your modifications and not
+	the body of work.  If you are unsure or have questions about how a 
+	derivative work you are developing complies with the license, copyright, 
+	trademark, or if you do not understand the difference between
 	open source and public domain, contact the original author at:
-	plugins@butlerblog.com.
+	http://rocketgeek.com/contact/.
 
 
 	INSTALLATION PROCEDURE:
@@ -56,126 +61,251 @@ License:     GPLv2
 */
 
 
-/**
- * CONSTANTS, ACTIONS, HOOKS, FILTERS & INCLUDES
- */
+// Initialize constants.
+define( 'WPMEM_VERSION', '3.1.6.3' );
+define( 'WPMEM_DEBUG', false );
+define( 'WPMEM_DIR',  plugin_dir_url ( __FILE__ ) );
+define( 'WPMEM_PATH', plugin_dir_path( __FILE__ ) );
+
+// Localization.
+add_action( 'init', 'wpmem_load_textdomain' ); //add_action( 'plugins_loaded', 'wpmem_load_textdomain' );
+
+// Initialize the plugin.
+add_action( 'after_setup_theme', 'wpmem_init', 10 );
+
+// Install the plugin.
+register_activation_hook( __FILE__, 'wpmem_install' );
+
+// Downgrade settings on deactivation.
+//register_deactivation_hook( __FILE__, 'wpmem_downgrade' );
 
 
 /**
- * start with any potential translation
+ * Initialize WP-Members.
+ *
+ * The initialization function contains much of what was previously just
+ * loaded in the main plugin file. It has been moved into this function
+ * in order to allow action hooks for loading the plugin and initializing
+ * its features and options.
+ *
+ * @since 2.9.0
+ * @since 3.1.6 Dependencies now loaded by object.
+ *
+ * @global object $wpmem The WP-Members object class.
  */
-load_plugin_textdomain( 'wp-members', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+function wpmem_init() {
 
+	// Set the object as global.
+	global $wpmem;
 
-/**
- * load options
- */
-$wpmem_settings = get_option( 'wpmembers_settings' );
+	/**
+	 * Fires before initialization of plugin options.
+	 *
+	 * @since 2.9.0
+	 */
+	do_action( 'wpmem_pre_init' );
 
+	/**
+	 * Load the WP_Members class.
+	 */
+	require_once( WPMEM_PATH . 'inc/class-wp-members.php' );
+	
+	// Invoke the WP_Members class.
+	$wpmem = new WP_Members();
 
-/**
- * define constants based on option settings
- */
-define( 'WPMEM_VERSION',      '2.7.6' );
-define( 'WPMEM_DEBUG',        false );
-
-// define('WPMEM_VERSION',    $wpmem_settings[0] );
-define( 'WPMEM_BLOCK_POSTS',  $wpmem_settings[1] );
-define( 'WPMEM_BLOCK_PAGES',  $wpmem_settings[2] );
-define( 'WPMEM_SHOW_EXCERPT', $wpmem_settings[3] );
-define( 'WPMEM_NOTIFY_ADMIN', $wpmem_settings[4] );
-define( 'WPMEM_MOD_REG',      $wpmem_settings[5] );
-define( 'WPMEM_CAPTCHA',      $wpmem_settings[6] );
-define( 'WPMEM_NO_REG',       $wpmem_settings[7] );
-define( 'WPMEM_OLD_FORMS',    $wpmem_settings[8] );
-define( 'WPMEM_USE_EXP',      $wpmem_settings[9] );
-define( 'WPMEM_USE_TRL',      $wpmem_settings[10] );
-define( 'WPMEM_IGNORE_WARN',  $wpmem_settings[11] );
-
-define( 'WPMEM_MSURL',  get_option( 'wpmembers_msurl', null ) );
-define( 'WPMEM_REGURL', get_option( 'wpmembers_regurl',null ) );
-define( 'WPMEM_CSSURL', get_option( 'wpmembers_cssurl',null ) );
-
-
-/**
- * preload any custom functions, if available
- */
-if( file_exists( WP_PLUGIN_DIR . '/wp-members-pluggable.php' ) ) {
-	include( WP_PLUGIN_DIR . '/wp-members-pluggable.php' );
+	/**
+	 * Fires after initialization of plugin options.
+	 *
+	 * @since 2.9.0
+	 */
+	do_action( 'wpmem_after_init' );
 }
 
 
 /**
- * preload the expiration module, if available
+ * Scripts for admin panels.
+ *
+ * Determines which scripts to load and actions to use based on the 
+ * current users capabilities.
+ *
+ * @since 2.5.2
+ * @since 3.1.0 Added admin api object.
+ *
+ * @global object $wpmem WP_Members object class.
  */
-if( in_array( 'wp-members-expiration/module.php' , get_option( 'active_plugins' ) ) ) { 
-	define( 'WPMEM_EXP_MODULE', true ); 
-} else {
-	define( 'WPMEM_EXP_MODULE', false ); 
+function wpmem_chk_admin() {
+
+	global $wpmem;
+
+	/**
+	 * Fires before initialization of admin options.
+	 *
+	 * @since 2.9.0
+	 */
+	do_action( 'wpmem_pre_admin_init' );
+
+	/**
+	 * Load the admin api class.
+	 *
+	 * @since 3.1
+	 */	
+	include_once( WPMEM_PATH . 'admin/includes/class-wp-members-admin-api.php' );
+	
+	// Initilize the admin api.
+	$wpmem->load_admin_api();
+
+	/**
+	 * Fires after initialization of admin options.
+	 *
+	 * @since 2.9.0
+	 */
+	do_action( 'wpmem_after_admin_init' );
 }
 
 
 /**
- * load the core
+ * Adds the plugin options page and JavaScript.
+ *
+ * @since 2.5.2
  */
-include_once( 'wp-members-core.php' );
-
-
-/**
- * actions and the content filter
- */
-add_action( 'init', 'wpmem' );                           // runs the wpmem() function right away, allows for setting cookies
-add_action( 'widgets_init', 'widget_wpmemwidget_init' ); // if you are using widgets, this initializes the widget
-add_action( 'wp_head', 'wpmem_head' );                   // runs functions for the head
-add_filter( 'allow_password_reset', 'wpmem_no_reset' );  // prevents non-activated users from resetting password via wp-login
-add_filter( 'the_content', 'wpmem_securify', 1, 1 );     // securifies the_content 
-
-
-/**
- * load the stylesheet if using the new forms
- */
-if( WPMEM_OLD_FORMS != 1 ) {
-	add_action( 'wp_print_styles', 'wpmem_enqueue_style' );
-}
-
-
-add_action( 'admin_init', 'wpmem_chk_admin' );
-/**
- * scripts for admin panels only load for admins - makes the front-end of the plugin lighter
- */
-function wpmem_chk_admin()
-{
-	// if user has a role that can edit users, load the admin functions
-	if( current_user_can('edit_users') ) { 
-		require_once( 'wp-members-admin.php' );
-	} else {
-		// user profile actions for non-admins
-		add_action( 'show_user_profile', 'wpmem_user_profile'   );
-		add_action( 'edit_user_profile', 'wpmem_user_profile'   );
-		add_action( 'profile_update',    'wpmem_profile_update' );
+function wpmem_admin_options() {
+	if ( ! is_multisite() || ( is_multisite() && current_user_can( 'edit_theme_options' ) ) ) {
+		$plugin_page = add_options_page ( 'WP-Members', 'WP-Members', 'manage_options', 'wpmem-settings', 'wpmem_admin' );
 	}
 }
 
 
-add_action( 'admin_menu', 'wpmem_admin_options' );
 /**
- * admin panel only loads if user has manage_options capabilities
+ * Install the plugin options.
+ *
+ * @since 2.5.2
+ * @since 3.1.1 Added rollback.
+ * @since 3.1.6 Removed rollback.
+ *
+ * @param 
  */
-function wpmem_admin_options()
-{
-	$plugin_page = add_options_page ( 'WP-Members', 'WP-Members', 'manage_options', 'wpmem-settings', 'wpmem_admin'    );
-	               add_users_page   ( 'WP-Members', 'WP-Members', 'create_users',   'wpmem-users', 'wpmem_admin_users' );
-	               add_action       ( 'load-'.$plugin_page, 'wpmem_load_admin_js' ); // enqueues javascript for admin
+function wpmem_install() {
+
+	/**
+	 * Load the install file.
+	 */
+	require_once( WPMEM_PATH . 'wp-members-install.php' );
+
+	// Multisite requires different install process.
+	if ( is_multisite() ) {
+
+		// If it is multisite, install options for each blog.
+		global $wpdb;
+		$blogs = $wpdb->get_results(
+			"SELECT blog_id
+			FROM {$wpdb->blogs}
+			WHERE site_id = '{$wpdb->siteid}'
+			AND spam = '0'
+			AND deleted = '0'
+			AND archived = '0'"
+		);
+		$original_blog_id = get_current_blog_id();   
+		foreach ( $blogs as $blog_id ) {
+			switch_to_blog( $blog_id->blog_id );
+			wpmem_do_install();
+		}
+		switch_to_blog( $original_blog_id );
+
+	} else {
+
+		// Single site install.
+		wpmem_do_install();
+	}
 }
 
 
-register_activation_hook( __FILE__, 'wpmem_install' );
 /**
- * install scripts only load if we are installing, makes the plugin lighter
+ * Runs downgrade steps in install function.
+ *
+ * @since 3.1.1
  */
-function wpmem_install()
-{
-	require_once( 'wp-members-install.php' );
+function wpmem_downgrade() {
+	//wpmem_install( 'downgrade' );
+}
+
+
+add_action( 'wpmu_new_blog', 'wpmem_mu_new_site', 10, 6 );
+/**
+ * Install default plugin options for a newly added blog in multisite.
+ *
+ * @since 2.9.3
+ *
+ * @param $blog_id
+ * @param $user_id
+ * @param $domain
+ * @param $path
+ * @param $site_id
+ * @param $meta
+ */
+function wpmem_mu_new_site( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+
+	/**
+	 * Load the install file.
+	 */
+	require_once( WPMEM_PATH . 'wp-members-install.php' );
+
+	// Switch to the new blog.
+	switch_to_blog( $blog_id );
+
+	// Run the WP-Members install.
 	wpmem_do_install();
+
+	// Switch back to the current blog.
+	restore_current_blog();
 }
-?>
+
+
+/**
+ * Loads translation files.
+ *
+ * @since 3.0.0
+ */
+function wpmem_load_textdomain() {
+	
+	// @see: https://ulrich.pogson.ch/load-theme-plugin-translations for notes on changes.
+	
+	// Plugin textdomain.
+	$domain = 'wp-members';
+	
+	// Wordpress locale.
+	/** This filter is documented in wp-includes/l10n.php */
+	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
+	/**
+	 * Filter translation file.
+	 *
+	 * If the translate.wordpress.org language pack is available, it will
+	 * be /wp-content/languages/plugins/wp-members-{locale}.mo by default.
+	 * You can filter this if you want to load a language pack from a
+	 * different location (or different file name).
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $file The translation file to load.
+	 */
+	$file = apply_filters( 'wpmem_localization_file', trailingslashit( WP_LANG_DIR ) . 'plugins/' . $domain . '-' . $locale . '.mo' );
+
+	$loaded = load_textdomain( $domain, $file );
+	if ( $loaded ) {
+		return $loaded;
+	} else {
+		
+		/**
+		 * Filter translation directory.
+		 *
+		 * @since 3.0.3
+		 *
+		 * @param string $dir The translation directory.
+		 */
+		$dir = apply_filters( 'wpmem_localization_dir', dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+		load_plugin_textdomain( $domain, FALSE, $dir );
+	}
+	return;
+}
+
+// End of file.

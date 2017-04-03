@@ -2,9 +2,10 @@
 Contributors: trepmal
 Tags: recent, recent posts, most recent, category posts, thumbnail, loop, widget, shortcode, template tag
 Donate link: http://kaileylampert.com/donate/
-Requires at least: 3.1
-Tested up to: 3.4
-Stable tag: 1.1.1
+Requires at least: 3.5
+Tested up to: 4.4
+Stable tag: 1.3.1
+License: GPLv2 or later
 
 Get recent posts, posts from categories, and more. Display as widget or with shortcodes and template tags.
 
@@ -33,7 +34,7 @@ Did you set the strip_tags attribute to false? (`[excerpt strip_tags=0]`). If ta
 = Why can't I add an ID to the element in 'Before Items'? =
 There are limitations on the tag or tag/attribute combiniations allowed by WordPress. However, these can be overcome with a few lines of code.
 
-To allow an additional tag, use this: 
+To allow an additional tag, use this:
 
 `add_filter( "admin_init", "allowed_tags" );
 function allowed_tags() {
@@ -67,81 +68,123 @@ See [this post](http://justintadlock.com/archives/2011/02/02/creating-a-custom-f
 
 Explanation of options:
 
-**Title:** Your recent posts widget's title on your sidebar.
-`title="Recent Posts"`
+= Widget Display =
 
-**Title URL:** The page the title should link to.
-`title_url="/blog/"`
+**Title:** Your recent posts widget's title on your sidebar. Default: Recent Posts
+`[miniloop title="Recent Posts"]
+get_miniloops( array('title' => 'Recent Posts' ) );`
 
-**Number of Posts:** Number of posts to be displayed
-`number_posts=3`
+**Title URL:** The page the title should link to. Default: none
+`[miniloop title_url="/blog/"]
+get_miniloops( array('title_url' => '/blog/'' ) );`
 
-**Post Offset:** Number of posts to skip before displaying the list
-`post_offset=0`
+= Building the Query =
 
-**Maximum Age:** Don't show posts more than X days old
-`maximum_age=0`
+**Number of Posts:** Number of posts to be displayed. Default: 3
+`[miniloop number_posts=3]
+get_miniloops( array('number_posts' => 3 ) );`
 
-**Post Author:** Get author's post. By ID.
-`post_author=0`
+**Post Offset:** Number of posts to skip before displaying the list. Default: 0
+`[miniloop post_offset=0]
+get_miniloops( array('post_offset' => 0 ) );`
 
-**Post Type:** Post type to display
-`post_type=post`
+**Maximum Age:** Don't show posts more than X days old Default: 0
+`[miniloop maximum_age=0]
+get_miniloops( array('maximum_age' => 0 ) );`
 
-**Post Status:** Post status to display. Primarily useful to show upcoming (future) posts. But be creative!
-`post_status=publish`
+**Post Author:** Get author's post. By ID. Default: none
+`[miniloop post_author=0]
+get_miniloops( array('post_author' => 0 ) );`
 
-**Order By:** What order the posts should be displayed in
-`orderby=date`
+**Post Type:** Post type to display. Default: post
+`[miniloop post_type=post]
+get_miniloops( array('post_type' => 'post' ) );`
 
-**Order:** Ascending (good for order by title) or Descending (good for order by date)
-`order=DESC`
+**Post Status:** Post status to display. Primarily useful to show upcoming (future) posts. But be creative! Default: publish
+`[miniloop post_status=publish]
+get_miniloops( array('post_status' => 'publish' ) );`
 
-**Meta Key for ordering:** If order by = meta value, specify a key
-`meta_value=some_key`
+**Order By:** What order the posts should be displayed in. Default: date
+`[miniloop order_by=date]
+get_miniloops( array('order_by' => 'date' ) );`
 
-**Show posts in reverse order?** Perhaps you want the 3 most recent posts, but you want the oldest of those to be displayed first. If so, check this.
-`reverse_order=0`
+**Order:** Ascending (good for order by title) or Descending (good for order by date) Default: DESC
+`[miniloop order=DESC]
+get_miniloops( array('order' => 'DESC' ) );`
 
-**Shuffle post order?** Shuffle the order of the posts matching your query. Perhaps showing the 5 most recent posts in randomized order.
-`shuffle_order=0`
+**Ordering by the values of `some_key`** (works well if the values of `some_key` are strings/words):
+`[miniloop order_by=meta_value order_meta_key=some_key]
+get_miniloops( array('order_by' => 'meta_value', 'order_meta_key' => 'some_key' ) );`
 
-**Ignore sticky posts?** Treat sticky posts as normal posts. I recommend ignoring, or the number of posts displayed may be inconsistent.
-`ignore_sticky=1`
+**Ordering by the numeric values of `some_key`** (works well if the values of `some_key` are numbers/integers):
+`[miniloop order_by=meta_value_num order_meta_key=some_key]
+get_miniloops( array('order_by' => 'meta_value_num', 'order_meta_key' => 'some_key' ) );`
 
-**Exclude sticky posts?** Don't show sticky posts at all.
-`exclude_sticky=0`
+**Show posts in reverse order?** Perhaps you want the 3 most recent posts, but you want the oldest of those to be displayed first. If so, check this. Default: 0
+`[miniloop reverse_order=0]
+get_miniloops( array('reverse_order' => 0 ) );`
 
-**Only sticky posts?** Show only sticky posts.
-`only_sticky=0`
+**Shuffle post order?** Shuffle the order of the posts matching your query. Perhaps showing the 5 most recent posts in randomized order. Default: 0
+`[miniloop shuffle_order=0]
+get_miniloops( array('shuffle_order' => 0 ) );`
 
-**If viewing a single post, exclude it?** If viewing a single post, remove it from the widget display.
-`exclude_current=1`
+**Ignore sticky posts?** Treat sticky posts as normal posts. I recommend ignoring, or the number of posts displayed may be inconsistent. Default: 1
+`[miniloop ignore_sticky=1]
+get_miniloops( array('ignore_sticky' => 1 ) );`
 
-**Get posts from current category (if archive)?** If viewing an archive, only show posts from the same category.
-`current_category=1`
+**Exclude sticky posts?** Don't show sticky posts at all. Default: 0
+`[miniloop exclude_sticky=0]
+get_miniloops( array('exclude_sticky' => 0 ) );`
 
-**Get posts from first category (if single)?** If viewing a single post, only show posts from the first category.
-`current_single_category=1`
+**Only sticky posts?** Show only sticky posts. Default: 0
+`[miniloop only_sticky=0]
+get_miniloops( array('only_sticky' => 0 ) );`
 
-**Get posts from current author (if single or archive)?** Show more posts from the current author.
-`current_author=1`
+**If viewing a single post, exclude it?** If viewing a single post, remove it from the widget display. Default: 1
+`[miniloop exclude_current=1]
+get_miniloops( array('exclude_current' => 1 ) );`
 
-**Categories:** Comma separated list of category IDs to pull from. Use negative ID numbers to exclude a category.
+**Get posts from current category (if archive)?** If viewing an archive, only show posts from the same category. Default: 0
+`[miniloop current_category=1]
+get_miniloops( array('current_category' => 1 ) );`
 
-**Tags:** Comma separated list of tag IDs to pull from. Use negative ID numbers to exclude a tag.
+**Get posts from first category (if single)?** If viewing a single post, only show posts from the first category. Default: none
+`[miniloop current_single_category=1]
+get_miniloops( array('current_single_category' => 1 ) );`
 
-**Custom Taxonomies:** A clunky way to support custom taxonomies. To include terms 5, 6, 9 from taxonomy "Genre" do this:
-`tax="genre=5,6,9"`
+**Get posts from current author (if single or archive)?** Show more posts from the current author. Default: none
+`[miniloop current_author=1]
+get_miniloops( array('current_author' => 1 ) );`
 
-**Custom Fields:** For listing posts that have certain meta data. To list posts that have a custom field 'favorite_color' with a value of 'blue' do this:
-`custom_fields="favorite_color=blue"`
+**Categories:** Comma separated list of category IDs to pull from. Use negative ID numbers to exclude a category. Default: none
+`[miniloop categories="1,8,13"]
+get_miniloops( array('categories' => '1,8,13' ) );`
 
-**Exclude Posts:** A comma separated list of post IDs to exclude.
+**Tags:** Comma separated list of tag IDs to pull from. Use negative ID numbers to exclude a tag. Default: none
+`[miniloop tags="15,40,88"]
+get_miniloops( array('tags' => '15,40,88' ) );`
 
-**Before Item:** Text/HTML to insert before the post list
+**Custom Taxonomies:** A clunky way to support custom taxonomies. Default: none. To include terms 5, 6, 9 from taxonomy "Genre" do this:
+`[miniloop tax="genre=5,6,9"]
+get_miniloops( array('tax' => 'genre=5,6,9' ) );`
 
-**After Item:** Text/HTML to insert after the post list
+**Custom Fields:** For listing posts that have certain meta data. Default: none. To list posts that have a custom field 'favorite_color' with a value of 'blue' do this:
+`[miniloop custom_fields="favorite_color=blue"]
+get_miniloops( array('custom_fields' => 'favorite_color=blue' ) );`
+
+**Exclude Posts:** A comma separated list of post IDs to exclude. Default: none
+`[miniloop exclude="15,200,1032"]
+get_miniloops( array('exclude' => '15,200,1032' ) );`
+
+= Display =
+
+**Before Items:** Text/HTML to insert before the post list. Default: `<ul>`
+`[miniloop before_items="<div>"]
+get_miniloops( array('before_items' => '<div>' ) );`
+
+**After Items:** Text/HTML to insert after the post list. Default: `</ul>`
+`[miniloop after_items="</div>"]
+get_miniloops( array('after_items' => '</div>' ) );`
 
 **Item Format:**
 HTML and shortcodes to format each item
@@ -164,6 +207,10 @@ HTML and shortcodes to format each item
 * [ml_comment_count]
 * [ml_author]
 * [ml_author_link]
+* [ml_author_avatar] Attributes: size (92), default (''), alt (false)
+  * size = avatar size, in pixels
+  * default = default if no gravatar. See Settings > Discussion
+  * alt = alt text
 * [ml_field] Attributes: name, single (1), separator (', '), reverse (0)
   * name = custom field name
   * single = 1 get single value, 0 get all values matching name
@@ -188,6 +235,7 @@ HTML and shortcodes to format each item
      * *from* 'attached' first attached image `[ml_image from=attached]`
      * *from* 'customfield' get from custom field `[ml_image from=customfield]`
      * *from* 'first' first image in post `[ml_image from=first]`
+  * since 1.1.3, you can pass a comma-separated list to use as fallbacks. `[ml_image from="thumb,first"]`
   * cfname = custom field to use if from=customfield `[ml_image from=customfield cfname=thumbnail]`
   * class = class for image
   * width = width of image
@@ -195,7 +243,7 @@ HTML and shortcodes to format each item
   * crop = 1 to crop, 0 to scale (not implemented yet)
   * fallback = URL of image to use if 'from' doesn't return anything
   * cache = set to 'clear' to generate new thumbnails. It is not recommended that you leave this option on. `[ml_image from=thumb cache=clear]`
-  
+
 Inside of Item Format, shortcodes can be used without the `ml_` prefix.
 
 = Sample Item Formats =
@@ -203,8 +251,8 @@ Inside of Item Format, shortcodes can be used without the `ml_` prefix.
 Format 1: http://s.wordpress.org/extend/plugins/mini-loops/screenshot-2.png
 
 (before: `<ul>` after: `</ul>`)
-`<li class="[class]"><p><a href="[url]">[image from=customfield 
-cfname=image width=50 height=50 class=alignright 
+`<li class="[class]"><p><a href="[url]">[image from=customfield
+cfname=image width=50 height=50 class=alignright
 fallback='http://dummyimage.com/50'][title]</a><br />
 [excerpt wlength=30 space_between=1 after="..." after_link=1]<br /><br />
 By [author] on [date format="n/j/y"]</p></li>`
@@ -214,7 +262,7 @@ Format 2: http://s.wordpress.org/extend/plugins/mini-loops/screenshot-3.png
 
 (before: `<ul>` after: `</ul>`)
 `<li class="[class]"><p>[date format="F j, Y"]<br /><a href="[url]">
-[image from=customfield cfname=image width=180 height=100 
+[image from=customfield cfname=image width=180 height=100
 class=aligncenter fallback='http://placekitten.com/180/100']</a>
 [excerpt length=90 space_between=1 after="..." after_link=1]</p></li>`
 
@@ -222,7 +270,7 @@ Format 3: http://s.wordpress.org/extend/plugins/mini-loops/screenshot-4.png
 
 (before: -- after: --)
 `<p class="[class]" style="text-align:center"><a href="[url]">[title]<br />
-[image from=customfield cfname=image width=140 height=140 
+[image from=customfield cfname=image width=140 height=140
 class=aligncenter fallback='http://placepuppy.it/200/300&text=++woof++']</a></p>`
 
 == Template Tag ==
@@ -261,22 +309,22 @@ get_miniloops( $args );`
 = Shortcode =
 `[miniloop]`
 
-Use with all args listed above  
+Use with all args listed above
 e.g. `[miniloop number_posts=10]`
 
 **Exception - 'item_format' must be handled differently**
 
 New way (since v0.9):
 
-Create a custom field named `ml_format` and save the item format there. Then adjust your `[miniloop]` shortcode  
+Create a custom field named `ml_format` and save the item format there. Then adjust your `[miniloop]` shortcode
 e.g. `[miniloop number_posts=10][ml_format][/miniloop]`
 
-If needed, you can change the custom field. Just pass the name of the new custom field to the `[ml_format]` shortcode  
+If needed, you can change the custom field. Just pass the name of the new custom field to the `[ml_format]` shortcode
 e.g. `[miniloop number_posts=10][ml_format name="new_field"][/miniloop]`
 
 Old way:
 
-'item_format' must go into the content of the shortcode, and square brackets must be replaced with curly brackets.  
+'item_format' must go into the content of the shortcode, and square brackets must be replaced with curly brackets.
 e.g. `[miniloop number_posts=10]{title}by {author}<br />[/miniloop]`
 
 Also, if you are using html inside the item_format, you must add this into the HTML editor, else your markup will be rendered, not parsed
@@ -292,10 +340,16 @@ Send your mo/po files to me at trepmal (at) gmail.com
 
 == Upgrade Notice ==
 
-= 1.1.1 =
-Really sorry guys! Apparently one file didn't make it into that last update.
+= 1.3 =
+New: Automatically clear thumbnail cache and more. See Changelog
 
-= 1.1 = 
+= 1.2 =
+New: [author_avatar], replaced deprecated function, Ajax! Multisite! (See Changelog)
+
+= 1.1.2 =
+Fix: imbalanced tags if zero posts match query
+
+= 1.1 =
 New: Lots! See the changelog for details.
 
 = 1.0 =
@@ -316,9 +370,32 @@ New: get posts from current category (if archive) option.
 = 0.5 =
 Real image croping for thumbnails and several other new features. See Changelog.
 
-= Version 0.5 =
-
 == Changelog ==
+
+= Version 1.3.1 =
+* Fix: Widget title links
+
+= Version 1.3 =
+* Fix: Widget warnings since 4.3
+* New: 'crop' parameter for the image tag
+* New: Allow any shortcodes in item format
+* New: Automatically clear thumbnail cache on image change. props @om4james
+* Fix: Use widget_title filter
+
+
+= Version 1.2 =
+* Fix: undefined index notice if zero posts match query
+* Fix: markup errors in widget. Corrects save issue regarding order
+* Fix: reset postdata instead of query
+* New: BETA - use `[ba_archive before='' after='']` shortcode to insert an author/taxonomy link. For use with before|after_items fields.
+* Fix: removed deprecated function for thumbnail creation
+* New: fallback 'from' options for [image]. [image from="thumb,first"] - If no post thumbnail (featured image), get first image from post
+* New: [author_avatar] with optional parameters [author_avatar size=92 default='' alt=0]
+* New: Multisite - Show posts from sister-sites (on same network). REQUIRES ADD ON: https://gist.github.com/trepmal/5073067
+* New: Ajax-paging - View prev/next set of posts in widget. REQUIRES ADD ON: https://gist.github.com/trepmal/5073756
+
+= Version 1.1.2 =
+* Fix: imbalanced tags if zero posts match query
 
 = Version 1.1 =
 * New: Changed Before/After Items inputs to textareas for easier modifying if there is a lot of markup.
@@ -339,11 +416,11 @@ Real image croping for thumbnails and several other new features. See Changelog.
 
 = Version 1.0.1 =
 * Fix: Multiple tag bug. Only first was being recognized, now correctly accepts all. Thanks Ozias.
- 
+
 = Version 1.0 =
 * New: Exclude sticky posts option.
 * New: Get posts from first current category (if single).
- 
+
 = Version 0.9 =
 * Fix: Prevents error from being displayed if image can't be resized.
 * New: Improved support for multisite use.

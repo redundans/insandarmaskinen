@@ -1,14 +1,16 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) die( '-1' );
 
 class miniloops extends WP_Widget {
 
 	function miniloops() {
-		$widget_ops = array('classname' => 'miniloops',
-							'description' => __( 'Query posts, display them.', 'mini-loops' )
-						);
+		$widget_ops = array(
+			'classname'   => 'miniloops',
+			'description' => __( 'Query posts, display them.', 'mini-loops' )
+		);
 		$control_ops = array( 'width' => 700 );
 
-		parent::WP_Widget( 'miniloops', __( 'Mini Loops', 'mini-loops' ), $widget_ops, $control_ops );
+		WP_Widget::__construct( 'miniloops', __( 'Mini Loops', 'mini-loops' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -16,8 +18,11 @@ class miniloops extends WP_Widget {
 		extract( $args, EXTR_SKIP );
 
 		echo $before_widget;
-		$instance['title'] = empty($instance['title_url']) ? $instance['title'] : '<a href="'. $instance['title_url'] .'">'. $instance['title'] .'</a>';
-		echo $instance['hide_title'] ? '' : $before_title . stripslashes( $instance['title'] ) . $after_title;
+		if ( ! $instance['hide_title'] ) {
+			$title = apply_filters( 'widget_title', stripslashes( $instance['title'] ) );
+			$title = empty( $instance['title_url'] ) ? $title : '<a href="'. esc_url( $instance['title_url'] ) .'">'. $title .'</a>';
+			echo $before_title . $title . $after_title;
+		}
 
 		unset($instance['title']);
 		echo get_miniloops( $instance );
@@ -30,35 +35,35 @@ class miniloops extends WP_Widget {
 
 		$instance = $old_instance;
 		//get old variables
-		$instance['title'] = wp_filter_post_kses( $new_instance['title'] );
-		$instance['hide_title'] = (bool) $new_instance['hide_title'] ? 1 : 0;
-		$instance['title_url'] = esc_url( $new_instance['title_url'] );
-		$instance['number_posts'] = (int) $new_instance['number_posts'];
-		$instance['post_offset'] = (int) $new_instance['post_offset'];
-		$instance['maximum_age'] = esc_attr( $new_instance['maximum_age'] );
-		$instance['post_type'] = esc_attr( $new_instance['post_type'] );
-		$instance['post_status'] = esc_attr( $new_instance['post_status'] );
-		$instance['order_by'] = esc_attr( $new_instance['order_by'] );
-		$instance['order'] = esc_attr( $new_instance['order'] );
-		$instance['order_meta_key'] = esc_attr( $new_instance['order_meta_key'] );
-		$instance['reverse_order'] = (bool) $new_instance['reverse_order'] ? 1 : 0;
-		$instance['shuffle_order'] = (bool) $new_instance['shuffle_order'] ? 1 : 0;
-		$instance['ignore_sticky'] = (bool) $new_instance['ignore_sticky'] ? 1 : 0;
-		$instance['only_sticky'] = (bool) $new_instance['only_sticky'] ? 1 : 0;
-		$instance['exclude_sticky'] = (bool) $new_instance['exclude_sticky'] ? 1 : 0;
-		$instance['exclude_current'] = (bool) $new_instance['exclude_current'] ? 1 : 0;
-		$instance['current_category'] = (bool) $new_instance['current_category'] ? 1 : 0;
+		$instance['title']                   = wp_filter_post_kses( $new_instance['title'] );
+		$instance['hide_title']              = (bool) $new_instance['hide_title'] ? 1 : 0;
+		$instance['title_url']               = esc_url( $new_instance['title_url'] );
+		$instance['number_posts']            = (int) $new_instance['number_posts'];
+		$instance['post_offset']             = (int) $new_instance['post_offset'];
+		$instance['maximum_age']             = esc_attr( $new_instance['maximum_age'] );
+		$instance['post_type']               = esc_attr( $new_instance['post_type'] );
+		$instance['post_status']             = esc_attr( $new_instance['post_status'] );
+		$instance['order_by']                = esc_attr( $new_instance['order_by'] );
+		$instance['order']                   = esc_attr( $new_instance['order'] );
+		$instance['order_meta_key']          = esc_attr( $new_instance['order_meta_key'] );
+		$instance['reverse_order']           = (bool) $new_instance['reverse_order'] ? 1 : 0;
+		$instance['shuffle_order']           = (bool) $new_instance['shuffle_order'] ? 1 : 0;
+		$instance['ignore_sticky']           = (bool) $new_instance['ignore_sticky'] ? 1 : 0;
+		$instance['only_sticky']             = (bool) $new_instance['only_sticky'] ? 1 : 0;
+		$instance['exclude_sticky']          = (bool) $new_instance['exclude_sticky'] ? 1 : 0;
+		$instance['exclude_current']         = (bool) $new_instance['exclude_current'] ? 1 : 0;
+		$instance['current_category']        = (bool) $new_instance['current_category'] ? 1 : 0;
 		$instance['current_single_category'] = (bool) $new_instance['current_single_category'] ? 1 : 0;
-		$instance['current_author'] = (bool) $new_instance['current_author'] ? 1 : 0;
-		$instance['categories'] = esc_attr( $new_instance['categories'] );
-		$instance['tags'] = esc_attr( $new_instance['tags'] );
-		$instance['post_author'] = esc_attr( $new_instance['post_author'] );
-		$instance['tax'] = esc_attr( $new_instance['tax'] );
-		$instance['custom_fields'] = esc_attr( $new_instance['custom_fields'] );
-		$instance['exclude'] = esc_attr( $new_instance['exclude'] );
-		$instance['before_items'] = wp_filter_post_kses( $new_instance['before_items'] );
-		$instance['item_format'] = wp_filter_post_kses( $new_instance['item_format'] );
-		$instance['after_items'] = wp_filter_post_kses( $new_instance['after_items'] );
+		$instance['current_author']          = (bool) $new_instance['current_author'] ? 1 : 0;
+		$instance['categories']              = esc_attr( $new_instance['categories'] );
+		$instance['tags']                    = esc_attr( $new_instance['tags'] );
+		$instance['post_author']             = esc_attr( $new_instance['post_author'] );
+		$instance['tax']                     = esc_attr( $new_instance['tax'] );
+		$instance['custom_fields']           = esc_attr( $new_instance['custom_fields'] );
+		$instance['exclude']                 = esc_attr( $new_instance['exclude'] );
+		$instance['before_items']            = wp_filter_post_kses( $new_instance['before_items'] );
+		$instance['item_format']             = wp_filter_post_kses( $new_instance['item_format'] );
+		$instance['after_items']             = wp_filter_post_kses( $new_instance['after_items'] );
 
 		return $instance;
 
@@ -68,7 +73,6 @@ class miniloops extends WP_Widget {
 
 		$instance = wp_parse_args( (array) $instance, get_miniloops_defaults() );
 		extract( $instance );
-
 		include( dirname( __FILE__) .'/form.php');
 
 	} //end form()
@@ -78,12 +82,12 @@ class miniloops extends WP_Widget {
 class miniminiloops extends miniloops {
 
 	function miniminiloops() {
-		$widget_ops = array('classname' => 'miniminiloops',
-							'description' => __( 'Query posts, display them.', 'mini-loops' )
-						);
-		$control_ops = array(  );
-
-		parent::WP_Widget( 'miniminiloops', __( 'Mini Mini Loops', 'mini-loops' ), $widget_ops, $control_ops );
+		$widget_ops = array(
+			'classname'   => 'miniminiloops',
+			'description' => __( 'Query posts, display them.', 'mini-loops' )
+		);
+		$control_ops = array( );
+		WP_Widget::__construct( 'miniminiloops', __( 'Mini Mini Loops', 'mini-loops' ), $widget_ops, $control_ops );
 	}
 
 	function form( $instance ) {

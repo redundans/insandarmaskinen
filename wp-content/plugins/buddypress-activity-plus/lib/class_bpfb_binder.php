@@ -11,7 +11,7 @@ class BpfbBinder {
 	 * @access public
 	 * @static
 	 */
-	function serve () {
+	public static function serve () {
 		$me = new BpfbBinder;
 		$me->add_hooks();
 	}
@@ -32,38 +32,79 @@ class BpfbBinder {
 		global $bp;
 		$ret = array();
 
-		$thumb_w = get_option('thumbnail_size_w');
-		$thumb_w = $thumb_w ? $thumb_w : 100;
-		$thumb_h = get_option('thumbnail_size_h');
-		$thumb_h = $thumb_h ? $thumb_h : 100;
-
-		// Override thumbnail image size in wp-config.php
-		if (defined('BPFB_THUMBNAIL_IMAGE_SIZE')) {
-			list($tw,$th) = explode('x', BPFB_THUMBNAIL_IMAGE_SIZE);
-			$thumb_w = (int)$tw ? (int)$tw : $thumb_w;
-			$thumb_h = (int)$th ? (int)$th : $thumb_h;
-		}
+		list($thumb_w,$thumb_h) = Bpfb_Data::get_thumbnail_size();
 		
 		$processed = 0;
 		foreach ($imgs as $img) {
 			$processed++;
 			if (BPFB_IMAGE_LIMIT && $processed > BPFB_IMAGE_LIMIT) break; // Do not even bother to process more.
 			if (preg_match('!^https?:\/\/!i', $img)) { // Just add remote images
-				$ret[] = $img;
+				$ret[] = esc_url($img);
 				continue;
 			}
 			
-			$pfx = $bp->loggedin_user->id . '_' . preg_replace('/ /', '', microtime());
+			$pfx = $bp->loggedin_user->id . '_' . preg_replace('/[^0-9]/', '-', microtime());
 			$tmp_img = realpath(BPFB_TEMP_IMAGE_DIR . $img);
 			$new_img = BPFB_BASE_IMAGE_DIR . "{$pfx}_{$img}";
 			if (@rename($tmp_img, $new_img)) {
-				image_resize($new_img, $thumb_w, $thumb_h, false, 'bpfbt');
+				if (function_exists('wp_get_image_editor')) { // New way of resizing the image
+					$image = wp_get_image_editor($new_img);
+					if (!is_wp_error($image)) {
+						$thumb_filename  = $image->generate_filename('bpfbt');
+						$image->resize($thumb_w, $thumb_h, false);
+						
+						// Alright, now let's rotate if we can
+						if (function_exists('exif_read_data')) {
+							$exif = exif_read_data($new_img); // Okay, we now have the data
+							if (!empty($exif['Orientation']) && 3 === (int)$exif['Orientation']) $image->rotate(180);
+							else if (!empty($exif['Orientation']) && 6 === (int)$exif['Orientation']) $image->rotate(-90);
+							else if (!empty($exif['Orientation']) && 8 === (int)$exif['Orientation']) $image->rotate(90);
+						}
+
+						$image->save($thumb_filename);
+					}
+				} else { // Old school fallback
+					image_resize($new_img, $thumb_w, $thumb_h, false, 'bpfbt');
+				}
 				$ret[] = pathinfo($new_img, PATHINFO_BASENAME);
-			}
-			else return false;
+			} else return false; // Rename failure
 		}
 
 		return $ret;
+	}
+
+	/**
+	 * Sanitizes the path and expands it into full form.
+	 *
+	 * @param string $file Relative file path
+	 *
+	 * @return mixed Sanitized path, or (bool)false on failure
+	 */
+	public static function resolve_temp_path ($file) {
+		$file = ltrim($file, '/');
+		
+		// No subdirs in path, so we can do this quick check too
+		if ($file !== basename($file)) return false;
+
+		$tmp_path = trailingslashit(wp_normalize_path(realpath(BPFB_TEMP_IMAGE_DIR)));
+		if (empty($tmp_path)) return false;
+
+		$full_path = wp_normalize_path(realpath($tmp_path . $file));
+		if (empty($full_path)) return false;
+
+		// Are we still within our defined TMP dir?
+		$rx = preg_quote($tmp_path, '/');
+		$full_path = preg_match("/^{$rx}/", $full_path)
+			? $full_path
+			: false
+		;
+		if (empty($full_path)) return false;
+
+		// Also, does this resolve to an actual file?
+		return file_exists($full_path)
+			? $full_path
+			: false
+		;
 	}
 
 	/**
@@ -83,16 +124,34 @@ class BpfbBinder {
 	 * Introduces `plugins_url()` and other significant URLs as root variables (global).
 	 */
 	function js_plugin_url () {
-		printf(
-			'<script type="text/javascript">' .
-				'var _bpfbRootUrl="%s";' .
-				'var _bpfbTempImageUrl="%s";' .
-				'var _bpfbBaseImageUrl="%s";' .
-			'</script>',
-			BPFB_PLUGIN_URL,
-			BPFB_TEMP_IMAGE_URL,
-			BPFB_BASE_IMAGE_URL
+		$data = apply_filters(
+			'bpfb_js_data_object',
+			array(
+				'root_url' => BPFB_PLUGIN_URL,
+				'temp_img_url' => BPFB_TEMP_IMAGE_URL,
+				'base_img_url' => BPFB_BASE_IMAGE_URL,
+				'theme' => Bpfb_Data::get('theme', 'default'),
+				'alignment' => Bpfb_Data::get('alignment', 'left'),
+			)
 		);
+		printf('<script type="text/javascript">var _bpfb_data=%s;</script>', json_encode($data));
+		if ('default' != $data['theme'] && !current_theme_supports('bpfb_toolbar_icons')) {
+			$url = BPFB_PLUGIN_URL;
+			echo <<<EOFontIconCSS
+<style type="text/css">
+@font-face {
+	font-family: 'bpfb';
+	src:url('{$url}/css/external/font/bpfb.eot');
+	src:url('{$url}/css/external/font/bpfb.eot?#iefix') format('embedded-opentype'),
+		url('{$url}/css/external/font/bpfb.woff') format('woff'),
+		url('{$url}/css/external/font/bpfb.ttf') format('truetype'),
+		url('{$url}/css/external/font/bpfb.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+</style>
+EOFontIconCSS;
+		}
 	}
 
 	/**
@@ -146,7 +205,8 @@ class BpfbBinder {
 	 * Handles video preview requests.
 	 */
 	function ajax_preview_video () {
-		$url = $_POST['data'];
+		$url = !empty($_POST['data']) ? esc_url($_POST['data']) : false;
+		$url = preg_match('/^https?:\/\//i', $url) ? $url : BPFB_PROTOCOL . $url;
 		$warning = __('There has been an error processing your request', 'bpfb');
 		$response = $url ? __('Processing...', 'bpfb') : $warning;
 		$ret = wp_oembed_get($url);
@@ -158,8 +218,7 @@ class BpfbBinder {
 	 * Handles link preview requests.
 	 */
 	function ajax_preview_link () {
-		$url = $_POST['data'];
-		error_log($url);
+		$url = !empty($_POST['data']) ? esc_url($_POST['data']) : false;
 		$scheme = parse_url($url, PHP_URL_SCHEME);
 		if (!$scheme || !preg_match('/^https?$/', $scheme)) {
 			$url = "http://{$url}";
@@ -170,32 +229,33 @@ class BpfbBinder {
 		$images = array();
 		$title = $warning;
 		$text = $warning;
-		error_log($url);
+
 		$page = $this->get_page_contents($url);
-		require_once(BPFB_PLUGIN_BASE_DIR . '/lib/external/simple_html_dom.php');
+		if (!function_exists('str_get_html')) require_once(BPFB_PLUGIN_BASE_DIR . '/lib/external/simple_html_dom.php');
 		$html = str_get_html($page);
 		$str = $html->find('text');
 
 		if ($str) {
 			$image_els = $html->find('img');
 			foreach ($image_els as $el) {
-				$img_path = parse_url($el->src);
-				$host = parse_url($url);
-				$img = $el->src;
-				if( $img_path['host'] == '')
-					$img = $host['scheme'] . '://' . $host['host'] . $el->src;
-				if( preg_match('/^.*\.(jpg|jpeg|png)$/i', $img) >= 1 ){
-					$images[] = $img;
-				}
+				if ($el->width > 100 && $el->height > 1) // Disregard spacers
+					$images[] = esc_url($el->src);
 			}
 			$og_image = $html->find('meta[property=og:image]', 0);
-			if ($og_image) array_unshift($images, $og_image->content);
+			if ($og_image) array_unshift($images, esc_url($og_image->content));
 
 			$title = $html->find('title', 0);
 			$title = $title ? $title->plaintext: $url;
 
-			$text = $html->find('p', 0);
-			$text = $text->plaintext ? $text->plaintext : $title;
+			$meta_description = $html->find('meta[name=description]', 0);
+			$og_description = $html->find('meta[property=og:description]', 0);
+			$first_paragraph = $html->find('p', 0);
+			if ($og_description && $og_description->content) $text = $og_description->content;
+			else if ($meta_description && $meta_description->content) $text = $meta_description->content;
+			else if ($first_paragraph && $first_paragraph->plaintext) $text = $first_paragraph->plaintext;
+			else $text = $title;
+			
+			$images = array_filter($images);
 		} else {
 			$url = '';
 		}
@@ -204,8 +264,8 @@ class BpfbBinder {
 		echo json_encode(array(
 			"url" => $url,
 			"images" => $images,
-			"title" => $title,
-			"text" => $text,
+			"title" => esc_attr($title),
+			"text" => esc_attr($text),
 		));
 		exit();
 	}
@@ -218,7 +278,7 @@ class BpfbBinder {
 	function ajax_preview_photo () {
 		$dir = BPFB_PLUGIN_BASE_DIR . '/img/';
 		if (!class_exists('qqFileUploader')) require_once(BPFB_PLUGIN_BASE_DIR . '/lib/external/file_uploader.php');
-		$uploader = new qqFileUploader(array('jpg', 'jpeg', 'png', 'gif'));
+		$uploader = new qqFileUploader(self::_get_supported_image_extensions());
 		$result = $uploader->handleUpload(BPFB_TEMP_IMAGE_DIR);
 		//header('Content-type: application/json'); // For some reason, IE doesn't like this. Skip.
 		echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
@@ -230,7 +290,11 @@ class BpfbBinder {
 	 */
 	function ajax_preview_remote_image () {
 		header('Content-type: application/json');
-		echo json_encode($_POST['data']);
+		$data = !empty($_POST['data']) ?
+			(is_array($_POST['data']) ? array_map('esc_url', $_POST['data']) : esc_url($_POST['data']))
+			: false
+		;
+		echo json_encode($data);
 		exit();
 	}
 
@@ -242,7 +306,8 @@ class BpfbBinder {
 		parse_str($_POST['data'], $data);
 		$data = is_array($data) ? $data : array('bpfb_photos'=>array());
 		foreach ($data['bpfb_photos'] as $file) {
-			@unlink (BPFB_TEMP_IMAGE_DIR . $file);
+			$path = self::resolve_temp_path($file);
+			if (!empty($path)) @unlink($path);
 		}
 		echo json_encode(array('status'=>'ok'));
 		exit();
@@ -255,28 +320,35 @@ class BpfbBinder {
 		$bpfb_code = $activity = '';
 		$aid = 0;
 		$codec = new BpfbCodec;
-		if (@$_POST['data']['bpfb_video_url']) {
-			$bpfb_code = $codec->create_video_tag($_POST['data']['bpfb_video_url']);
-		}
-		if (@$_POST['data']['bpfb_link_url']) {
-			$bpfb_code = $codec->create_link_tag(
-				$_POST['data']['bpfb_link_url'],
-				$_POST['data']['bpfb_link_title'],
-				$_POST['data']['bpfb_link_body'],
-				$_POST['data']['bpfb_link_image']
-			);
-		}
-		if (@$_POST['data']['bpfb_photos']) {
-			$images = $this->move_images($_POST['data']['bpfb_photos']);
-			$bpfb_code = $codec->create_images_tag($images);
+
+		if (!empty($_POST['data'])) {
+			if (!empty($_POST['data']['bpfb_video_url'])) {
+				$bpfb_code = $codec->create_video_tag($_POST['data']['bpfb_video_url']);
+			}
+			if (!empty($_POST['data']['bpfb_link_url'])) {
+				$bpfb_code = $codec->create_link_tag(
+					$_POST['data']['bpfb_link_url'],
+					$_POST['data']['bpfb_link_title'],
+					$_POST['data']['bpfb_link_body'],
+					$_POST['data']['bpfb_link_image']
+				);
+			}
+			if (!empty($_POST['data']['bpfb_photos'])) {
+				$images = $this->move_images($_POST['data']['bpfb_photos']);
+				$bpfb_code = $codec->create_images_tag($images);
+			}
 		}
 
 		$bpfb_code = apply_filters('bpfb_code_before_save', $bpfb_code);
 
 		// All done creating tags. Now, save the code
-		$gid = (int)@$_POST['group_id'];
+		$gid = !empty($_POST['group_id']) && is_numeric($_POST['group_id']) 
+			? (int)$_POST['group_id'] 
+			: false
+		;
 		if ($bpfb_code) {
-			$content = @$_POST['content'] . "\n" . $bpfb_code;
+			$content = !empty($_POST['content']) ? $_POST['content'] : '';
+			$content .= "\n{$bpfb_code}";
 			$content = apply_filters('bp_activity_post_update_content', $content);
 			$aid = $gid ?
 				groups_post_update(array('content' => $content, 'group_id' => $gid))
@@ -291,7 +363,8 @@ class BpfbBinder {
 			if ( bp_has_activities ( 'include=' . $aid ) ) {
 				while ( bp_activities() ) {
 					bp_the_activity();
-					locate_template( array( 'activity/entry.php' ), true );
+					if (function_exists('bp_locate_template')) bp_locate_template( array( 'activity/entry.php' ), true );
+					else locate_template( array( 'activity/entry.php' ), true );
 				}
 			}
 			$activity = ob_get_clean();
@@ -306,9 +379,11 @@ class BpfbBinder {
 	}
 
 	function _add_js_css_hooks () {
+		if (!is_user_logged_in()) return false;
+
 		global $bp;
 
-		if (
+		$show_condition = (bool)(
 			// Load the scripts on Activity pages
 			(defined('BP_ACTIVITY_SLUG') && bp_is_activity_component())
 			||
@@ -317,10 +392,14 @@ class BpfbBinder {
 			||
 			// Load the script on Group home page
 			(defined('BP_GROUPS_SLUG') && bp_is_groups_component() && 'home' == $bp->current_action)
-		) {
+			||
+			apply_filters('bpfb_injection_additional_condition', false)
+		);
+
+		if (apply_filters('bpfb_inject_dependencies', $show_condition)) {
 			// Step1: Load JS/CSS requirements
+			add_action('wp_enqueue_scripts', array($this, 'js_load_scripts'));
 			add_action('wp_print_scripts', array($this, 'js_plugin_url'));
-			add_action('wp_print_scripts', array($this, 'js_load_scripts'));
 			add_action('wp_print_styles', array($this, 'css_load_styles'));
 
 			do_action('bpfb_add_cssjs_hooks');
@@ -328,10 +407,76 @@ class BpfbBinder {
 	}
 
 	/**
+	 * Trigger handler when BuddyPress activity is removed.
+	 * @param  array $args BuddyPress activity arguments
+	 * @return bool Insignificant
+	 */
+	function remove_activity_images ($args) {
+		if (!is_user_logged_in()) return false;
+		if (empty($args['id'])) return false;
+
+		$activity = new BP_Activity_Activity($args['id']);
+		if (!is_object($activity) || empty($activity->content)) return false;
+
+		if (!bp_activity_user_can_delete($activity)) return false;
+		if (!BpfbCodec::has_images($activity->content)) return false;
+
+		$matches = array();
+		preg_match('/\[bpfb_images\](.*?)\[\/bpfb_images\]/s', $activity->content, $matches);
+		if (empty($matches[1])) return false;
+
+		$this->_clean_up_content_images($matches[1], $activity);
+
+		return true;
+	}
+
+	/**
+	 * Callback for activity images removal
+	 * @param  string $content Shortcode content parsed for images
+	 * @param  BP_Activity_Activity Activity which contains the shortcode - used for privilege check 
+	 * @return bool
+	 */
+	private function _clean_up_content_images ($content, $activity) {
+		if (!Bpfb_Data::get('cleanup_images')) return false;
+		if (!bp_activity_user_can_delete($activity)) return false;
+
+		$images = BpfbCodec::extract_images($content);
+		if (empty($images)) return false;
+
+		foreach ($images as $image) {
+			$info = pathinfo(trim($image));
+			
+			// Make sure we have the info we need
+			if (empty($info['filename']) || empty($info['extension'])) continue;
+			
+			// Make sure we're dealing with the image
+			$ext = strtolower($info['extension']);
+			if (!in_array($ext, self::_get_supported_image_extensions())) continue;
+
+			// Construct the filenames
+			$thumbnail = bpfb_get_image_dir($activity_blog_id) . $info['filename'] . '-bpfbt.' . $ext;
+			$full = bpfb_get_image_dir($activity_blog_id) . trim($image);
+
+			// Actually remove the images
+			if (file_exists($thumbnail) && is_writable($thumbnail)) @unlink($thumbnail);
+			if (file_exists($full) && is_writable($full)) @unlink($full);
+		}
+		return true;
+	}
+
+	/**
+	 * Lists supported image extensions
+	 * @return array Supported image extensions
+	 */
+	private static function _get_supported_image_extensions () {
+		return array('jpg', 'jpeg', 'png', 'gif');
+	}
+
+	/**
 	 * This is where the plugin registers itself.
 	 */
 	function add_hooks () {
-		
+
 		add_action('init', array($this, '_add_js_css_hooks'));
 
 		// Step2: Add AJAX request handlers
@@ -346,5 +491,9 @@ class BpfbBinder {
 		
 		// Step 3: Register and process shortcodes
 		BpfbCodec::register();
+
+		if (Bpfb_Data::get('cleanup_images')) {
+			add_action('bp_before_activity_delete', array($this, 'remove_activity_images'));
+		}
 	}
 }

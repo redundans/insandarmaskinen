@@ -6,13 +6,12 @@
  * 
  * This file is part of the WP-Members plugin by Chad Butler
  * You can find out more about this plugin at http://rocketgeek.com
- * Copyright (c) 2006-2012  Chad Butler (email : plugins@butlerblog.com)
+ * Copyright (c) 2006-2016  Chad Butler
  * WP-Members(tm) is a trademark of butlerblog.com
  *
- * @package WordPress
- * @subpackage WP-Members
+ * @package WP-Members
  * @author Chad Butler
- * @copyright 2006-2012
+ * @copyright 2006-2016
  */
 
 define ( 'WP_USE_THEMES', false );
@@ -30,7 +29,7 @@ require( '../../../wp-blog-header.php' );
 
 $wpmem_tos = get_option( 'wpmembers_tos' );
 
-echo $wpmem_tos;
+echo stripslashes( $wpmem_tos );
 
 print ( '<br /><br />' );
 printf( __('%sclose%s', 'wp-members'), '[<a href="javascript:self.close()">', '</a>]' );
