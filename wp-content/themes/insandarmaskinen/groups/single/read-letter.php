@@ -75,7 +75,10 @@ if ( $_POST['action'] == 'add' ){
       ?>
         <div class="insandare row-fluid">
           <div class="meta span3">
-            <a href="<?php echo bp_core_get_user_domain( get_the_author_meta('ID') ); ?>profile/"><?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?></a>
+            <a href="<?php echo bp_core_get_user_domain( get_the_author_meta('ID') ); ?>profile/">
+              <?php echo get_avatar( get_the_author_meta('ID'), 65 ); ?>
+              <p><?php echo bp_core_get_userlink( $post->post_author ); ?></p> 
+            </a>
             <p>
               <strong>Publiceringar</strong> 
             <span class="total"><?php

@@ -64,8 +64,6 @@
 
 				</div>
 
-			<?php comments_template(); ?>
-
 			<?php endwhile; else: ?>
 
 				<p><?php _e( 'Sorry, no posts matched your criteria.', 'buddypress' ); ?></p>

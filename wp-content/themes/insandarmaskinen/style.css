@@ -202,18 +202,18 @@ body#insandarmaskinen #whats-new-content {
 	padding-bottom: 1.5em;
 }
 
-.single-group ul#activity-stream {
+ul#activity-stream {
 	margin: 0;
 	padding: 0;
 }
 
-.single-group ul#activity-stream li.activity-item {
+ul#activity-stream li.activity-item {
 	margin: 0 ;
 	padding: 0;
 	list-style: none;
 }
 
-.single-group ul#activity-stream li.activity-item + li.activity-item {
+ul#activity-stream li.activity-item + li.activity-item {
 	margin-top: 1.5em;
 }
 
