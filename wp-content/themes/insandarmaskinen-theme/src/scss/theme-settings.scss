@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,400,400i,500,500i,700,700i,900,900i');
+
+$font-size-base: .9rem !default; // Assumes the browser default, typically `16px`
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 960px
+) !default;
+
+$primary: #ed6b4e !default;
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$headings-font-weight: 800;
