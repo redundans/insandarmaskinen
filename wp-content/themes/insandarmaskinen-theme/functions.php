@@ -588,7 +588,7 @@ function insandarmaskinen_remove_rich_text( $field_id = null ) {
 add_filter( 'bp_xprofile_is_richtext_enabled_for_field', 'insandarmaskinen_remove_rich_text' );
 
 function insandarmaskinen_force_login() {
-	if ( ! is_user_logged_in() && ( ! is_page( 'login' ) &&  ! is_page( 'registrera' ) ) ) {
+	if ( ! is_user_logged_in() && ( ! is_page( 'login' ) ||  ! is_page( 'registrera' ) ) ) {
 		wp_redirect( home_url( '/login/' ) );
 		exit;
 	}
