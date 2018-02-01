@@ -249,7 +249,6 @@ function send_scheduled_mail( $post_id ) {
 
 	$error = false;
 	foreach ( $papers as $paper ) {
-		error_log( print_r( $paper, 1 ) );
 		$term = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
 		$to = get_term_meta( $term->term_id, 'email', true );
 		$contact = xprofile_get_field_data( 2, $post->post_author );
@@ -261,7 +260,7 @@ function send_scheduled_mail( $post_id ) {
 		$headers[] = 'From: ' . $user->display_name . ' <' . $user->user_email . '>';
 		$message = apply_filters( 'the_content', $post->post_content ) . '<p>' . $from . '</p><p>' . nl2br( $contact ) . '</p>';
 
-		//$result = wp_mail( $to, $subject, $message, $headers );
+		$result = wp_mail( $to, $subject, $message, $headers );
 		if ( false === $result ) {
 			$error = true;
 		}
