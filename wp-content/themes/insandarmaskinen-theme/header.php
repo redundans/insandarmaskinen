@@ -7,6 +7,10 @@
  * @package understrap
  */
 
+if ( ! is_user_logged_in() && ! is_page( 'registrera' ) && ! is_page( 'login' ) ) {
+	header( 'Location: /login' );
+}
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
