@@ -587,10 +587,6 @@ function insandarmaskinen_remove_rich_text( $field_id = null ) {
 }
 add_filter( 'bp_xprofile_is_richtext_enabled_for_field', 'insandarmaskinen_remove_rich_text' );
 
-function insandarmaskinen_force_login() {
-	if ( $GLOBALS['pagenow'] !== 'wp-login.php' && !is_user_logged_in() && !is_page( 'login' ) &&  !is_page( 'registrera' ) ) {
-		wp_redirect( home_url( '/login/' ) );
-		exit;
-	}
+if ( ! current_user_can( 'manage_options' ) ) {
+	show_admin_bar( false );
 }
-//add_action( 'wp', 'insandarmaskinen_force_login' );
