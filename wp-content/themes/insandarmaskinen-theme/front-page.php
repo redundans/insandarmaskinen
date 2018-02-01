@@ -36,7 +36,7 @@ get_header();
 				<table class="table scores">
 					<thead>
 						<tr>
-							<th scope="col" colspan="4">Flest publiceringar i <?php echo  date_i18n( 'F', strtotime( '-1 month -1 day' ) ); ?></th>
+							<th scope="col" colspan="4">Flest publiceringar i <?php echo  date_i18n( 'F', strtotime( '-1 month' ) ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
