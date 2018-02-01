@@ -6763,6 +6763,12 @@ html, body {
 #wrapper-navbar .navbar-brand {
   color: #343a40;
   font-weight: 800; }
+  #wrapper-navbar .navbar-brand a {
+    color: #343a40; }
+    #wrapper-navbar .navbar-brand a:hover, #wrapper-navbar .navbar-brand a:active, #wrapper-navbar .navbar-brand a:focus {
+      text-decoration: none;
+      font-weight: 800;
+      opacity: .5; }
   @media (max-width: 767.98px) {
     #wrapper-navbar .navbar-brand {
       display: none; } }

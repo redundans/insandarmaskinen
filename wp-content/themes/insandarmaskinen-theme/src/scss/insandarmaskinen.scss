@@ -40,6 +40,16 @@ html, body {
 	.navbar-brand {
 		color: $dark;
 		font-weight: 800;
+
+		a {
+			color: $dark;
+
+			&:hover, &:active, &:focus {
+				text-decoration: none;
+				font-weight: 800;
+				opacity: .5;
+			}
+		}
 		
 		@include media-breakpoint-down(sm) {
 			display: none;
