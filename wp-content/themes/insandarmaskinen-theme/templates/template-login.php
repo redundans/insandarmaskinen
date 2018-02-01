@@ -38,8 +38,6 @@
 							<input type="password" name="pwd" id="user_pass" class="form-control" placeholder="Lösenord">
 						</div>
 						<input type="submit" name="wp-submit" id="wp-submit" class="btn btn-block btn-primary" value="Logga in" />
-						<input type="hidden" name="redirect_to" value="<?php echo esc_url( get_home_url() ); ?>" />
-						<input type="hidden" name="testcookie" value="1" />
 					</form>
 					<a href="/registrera" class="btn btn-block btn-link">Registrera dig</a>
 				</div>
