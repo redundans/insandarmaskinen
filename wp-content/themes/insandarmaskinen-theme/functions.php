@@ -172,8 +172,9 @@ function set_publication() {
 		wp_send_json_error();
 	} else {
 		$user = wp_get_current_user();
+		$name = xprofile_get_field( 1, $user->ID );
 		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $user->display_name . '</a> har rapporterat en insändare som publicerad.',
+			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har rapporterat en insändare som publicerad.',
 			'component' => 'insandarmaskinen',
 			'type' => 'insandare_published',
 			'primary_link' => get_permalink( $post_id ),
@@ -246,6 +247,7 @@ function send_scheduled_mail( $post_id ) {
 	$from = get_post_meta( $post_id, 'insandare_from', true );
 	$papers = array_shift( get_post_meta( $post_id, 'insandare_papers' ) );
 	$user = get_userdata( $post->post_author );
+	$name = xprofile_get_field( 1, $user->ID );
 
 	$error = false;
 	foreach ( $papers as $paper ) {
@@ -257,7 +259,7 @@ function send_scheduled_mail( $post_id ) {
 			'Content-Type: text/html; charset=UTF-8',
 		);
 		$subject = $post->post_title;
-		$headers[] = 'From: ' . $user->display_name . ' <' . $user->user_email . '>';
+		$headers[] = 'From: ' . $name . ' <' . $user->user_email . '>';
 		$message = apply_filters( 'the_content', $post->post_content ) . '<p>' . $from . '</p><p>' . nl2br( $contact ) . '</p>';
 
 		$result = wp_mail( $to, $subject, $message, $headers );
@@ -271,7 +273,7 @@ function send_scheduled_mail( $post_id ) {
 			'post_status' => 'publish',
 		) );
 		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $user->display_name . '</a> har skrivit en ny <a href="' . get_permalink( $post->ID ) . '">insändare</a>.',
+			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har skrivit en ny <a href="' . get_permalink( $post->ID ) . '">insändare</a>.',
 			'component' => 'insandarmaskinen',
 			'type' => 'new_insandare',
 			'primary_link' => get_permalink( $post->ID ),
@@ -474,8 +476,9 @@ function update_user_publications( $user ) {
 	}
 
 	if ( count( $user_publications_medal ) === 0 && $publications >= 10 ) {
+		$name = xprofile_get_field( 1, $user->ID );
 		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $user->display_name . '</a> har blivit Superskribent då hen skickat över 10 insändare det senaste halvåret.',
+			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superskribent då hen skickat över 10 insändare det senaste halvåret.',
 			'component' => 'insandarmaskinen',
 			'type' => 'user_publications_medal',
 			'user_id' => $user->ID,
@@ -524,8 +527,9 @@ function update_post_reported_publications( $user ) {
 					'medal' => true,
 				) );
 				if ( count( $reported_post_publications_medal ) === 0 ) {
+					$name = xprofile_get_field( 1, $user->ID );
 					bp_activity_add( array(
-						'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $user->display_name . '</a> har blivit Superpublicist denna månad.',
+						'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superpublicist denna månad.',
 						'component' => 'insandarmaskinen',
 						'type' => 'reported_post_publications_medal',
 						'user_id' => $user->ID,
@@ -547,8 +551,9 @@ function update_user_reported_publications( $user ) {
 	$reported_publications_medal = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'reported_publications_medal' && date_recorded > '$date'", ARRAY_A );
 
 	if( count( $reported_publications_medal ) === 0 && count( $insandare_published ) >= 10 ) {
+		$name = xprofile_get_field( 1, $user->ID );
 		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $user->display_name . '</a> har blivit Superrapportör denna månad.',
+			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superrapportör denna månad.',
 			'component' => 'insandarmaskinen',
 			'type' => 'reported_publications_medal',
 			'user_id' => $user->ID,

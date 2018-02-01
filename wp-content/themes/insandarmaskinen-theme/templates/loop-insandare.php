@@ -91,7 +91,7 @@ if ( $the_query->have_posts() ) {
 					<?php if ( ! bp_is_page() && ! bp_is_user() ) { ?>
 					<h5 class="mb-0">
 						<a href="<?php echo bp_core_get_user_domain( $the_query->post->post_author ) ?>">
-							<?php the_author_meta( 'display_name' ); ?>
+							<?php echo xprofile_get_field( 1 ); ?>
 						</a>
 					</h5>
 					<small>Skriven av</small>
