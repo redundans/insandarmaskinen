@@ -247,10 +247,9 @@ function send_scheduled_mail( $post_id ) {
 	$papers = array_shift( get_post_meta( $post_id, 'insandare_papers' ) );
 	$user = get_userdata( $post->post_author );
 
-	error_log( print_r( $papers, 1 ) );
-
 	$error = false;
 	foreach ( $papers as $paper ) {
+		error_log( print_r( $paper, 1 ) );
 		$term = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
 		$to = get_term_meta( $term->term_id, 'email', true );
 		$contact = xprofile_get_field_data( 2, $post->post_author );
