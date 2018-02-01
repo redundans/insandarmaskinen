@@ -7013,12 +7013,10 @@ img {
   max-height: 80px; }
 
 #main table .paper {
-  max-height: 42px;
-  width: 42px; }
+  max-height: 42px; }
 
 #main table .trophy {
-  max-height: 50px;
-  width: 42px; }
+  max-height: 50px; }
 
 #main .published {
   height: 47px;
@@ -7168,7 +7166,8 @@ img {
       #page-wrapper .entry-header h1, #single-wrapper .entry-header h1 {
         font-size: 4rem; } }
   #page-wrapper .entry-header img.medal, #single-wrapper .entry-header img.medal {
-    height: 4rem; }
+    height: 4rem;
+    width: 4rem; }
   #page-wrapper .entry-header .header-content, #single-wrapper .entry-header .header-content {
     display: block;
     margin: 1rem 0 2rem; }
