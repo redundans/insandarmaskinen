@@ -362,7 +362,7 @@ function insandarmaskinen_insandare_screen() {
 }
 
 function insandarmaskinen_insandare_logout() {
-	wp_redirect( str_replace( '&amp;', '&', wp_logout_url( home_url( '/login/' ) ) ) );
+	wp_redirect( wp_logout_url( home_url( '/login/' ) ) );
 }
 function insandarmaskinen_insandare_screen_content() {
 	get_template_part( 'templates/loop', 'insandare' );
