@@ -6997,7 +6997,8 @@ img {
     color: #222;
     opacity: .25; }
   #main table tbody td.medals img.medal {
-    height: 50px; }
+    height: 50px;
+    width: auto; }
 
 #main table tbody th {
   text-align: center;
