@@ -6900,7 +6900,8 @@ img {
   #main #buddypress .activity-list {
     border-top: 0; }
     #main #buddypress .activity-list .avatar {
-      border-radius: 0.25rem; }
+      border-radius: 0.25rem;
+      height: auto; }
     #main #buddypress .activity-list .activity-time-since {
       display: none; }
   #main #buddypress .item-list-tabs {
