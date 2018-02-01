@@ -172,7 +172,7 @@ function set_publication() {
 		wp_send_json_error();
 	} else {
 		$user = wp_get_current_user();
-		$name = xprofile_get_field( 1, $user->ID );
+		$name = xprofile_get_field_data( 1, $user->ID );
 		bp_activity_add( array(
 			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har rapporterat en insändare som publicerad.',
 			'component' => 'insandarmaskinen',
@@ -247,7 +247,7 @@ function send_scheduled_mail( $post_id ) {
 	$from = get_post_meta( $post_id, 'insandare_from', true );
 	$papers = array_shift( get_post_meta( $post_id, 'insandare_papers' ) );
 	$user = get_userdata( $post->post_author );
-	$name = xprofile_get_field( 1, $user->ID );
+	$name = xprofile_get_field_data( 1, $user->ID );
 
 	$error = false;
 	foreach ( $papers as $paper ) {
@@ -312,7 +312,7 @@ function most_published_author() {
 			$result[ $the_query->post->post_author ]['posted']++;
 			$result[ $the_query->post->post_author ]['published'] = $result[ $the_query->post->post_author ]['published'] + count( $published );
 			$result[ $the_query->post->post_author ]['post_author'] = $the_query->post->post_author;
-			$result[ $the_query->post->post_author ]['post_author_name'] = get_the_author_meta( 'display_name', $the_query->post->post_author );
+			$result[ $the_query->post->post_author ]['post_author_name'] = xprofile_get_field_data( 1, $the_query->post->post_author );
 			$result[ $the_query->post->post_author ]['post_author_link'] = bp_core_get_user_domain( $the_query->post->post_author );
 			$result[ $the_query->post->post_author ]['last_action'] = 'Senast aktiv för ' . human_time_diff( strtotime( bp_get_user_last_activity( $the_query->post->post_author ) ), current_time('timestamp') ) . ' sedan';
 		}
@@ -476,7 +476,7 @@ function update_user_publications( $user ) {
 	}
 
 	if ( count( $user_publications_medal ) === 0 && $publications >= 10 ) {
-		$name = xprofile_get_field( 1, $user->ID );
+		$name = xprofile_get_field_data( 1, $user->ID );
 		bp_activity_add( array(
 			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superskribent då hen skickat över 10 insändare det senaste halvåret.',
 			'component' => 'insandarmaskinen',
@@ -527,7 +527,7 @@ function update_post_reported_publications( $user ) {
 					'medal' => true,
 				) );
 				if ( count( $reported_post_publications_medal ) === 0 ) {
-					$name = xprofile_get_field( 1, $user->ID );
+					$name = xprofile_get_field_data( 1, $user->ID );
 					bp_activity_add( array(
 						'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superpublicist denna månad.',
 						'component' => 'insandarmaskinen',
@@ -551,7 +551,7 @@ function update_user_reported_publications( $user ) {
 	$reported_publications_medal = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'reported_publications_medal' && date_recorded > '$date'", ARRAY_A );
 
 	if( count( $reported_publications_medal ) === 0 && count( $insandare_published ) >= 10 ) {
-		$name = xprofile_get_field( 1, $user->ID );
+		$name = xprofile_get_field_data( 1, $user->ID );
 		bp_activity_add( array(
 			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superrapportör denna månad.',
 			'component' => 'insandarmaskinen',
