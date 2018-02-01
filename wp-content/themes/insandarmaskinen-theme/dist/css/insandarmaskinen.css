@@ -7009,7 +7009,8 @@ img {
   font-weight: 400; }
   #main table tbody th .avatar {
     border-radius: 0.25rem;
-    margin: .5rem 0; }
+    margin: .5rem 0;
+    height: auto; }
 
 #main table .medal {
   max-height: 80px; }
