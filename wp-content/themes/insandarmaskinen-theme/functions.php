@@ -413,7 +413,7 @@ function clean_users() {
 			}
 		}
 	}}
-//add_action( 'init', 'clean_users', 100 );
+add_action( 'init', 'clean_users', 100 );
 
 function the_medals( $user_id ) {
 	$reported_publications = get_user_meta( $user_id, 'reported_publications', true );
