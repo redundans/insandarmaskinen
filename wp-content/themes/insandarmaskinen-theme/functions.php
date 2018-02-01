@@ -590,3 +590,6 @@ add_filter( 'bp_xprofile_is_richtext_enabled_for_field', 'insandarmaskinen_remov
 if ( ! current_user_can( 'manage_options' ) ) {
 	show_admin_bar( false );
 }
+
+setcookie(TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN);
+if ( SITECOOKIEPATH != COOKIEPATH ) setcookie(TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN);
