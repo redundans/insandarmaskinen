@@ -247,6 +247,8 @@ function send_scheduled_mail( $post_id ) {
 	$papers = array_shift( get_post_meta( $post_id, 'insandare_papers' ) );
 	$user = get_userdata( $post->post_author );
 
+	error_log( print_r( $papers, 1 ) );
+
 	$error = false;
 	foreach ( $papers as $paper ) {
 		$term = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
@@ -260,7 +262,7 @@ function send_scheduled_mail( $post_id ) {
 		$headers[] = 'From: ' . $user->display_name . ' <' . $user->user_email . '>';
 		$message = apply_filters( 'the_content', $post->post_content ) . '<p>' . $from . '</p><p>' . nl2br( $contact ) . '</p>';
 
-		$result = wp_mail( $to, $subject, $message, $headers );
+		//$result = wp_mail( $to, $subject, $message, $headers );
 		if ( false === $result ) {
 			$error = true;
 		}
