@@ -594,3 +594,6 @@ function insandarmaskinen_force_login() {
 	}
 }
 add_action( 'wp', 'insandarmaskinen_force_login' );
+
+update_option( 'siteurl', 'http://insandarmaskinen.se' );
+update_option( 'home', 'http://insandarmaskinen.se' );
