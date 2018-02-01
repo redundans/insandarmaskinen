@@ -6747,6 +6747,9 @@ a.text-dark:hover, a.text-dark:focus {
 html, body {
   height: 100%; }
 
+img {
+  width: 100%; }
+
 .ui-helper-hidden-accessible {
   display: none; }
 
