@@ -37,7 +37,7 @@ if ( ! is_user_logged_in() && ! is_page( 'registrera' ) && ! is_page( 'login' ) 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'understrap' ); ?></a>
 
-		<nav class="navbar navbar-expand-md justify-content-end">
+		<nav class="navbar navbar-expand-md">
 
 			<div class="container">
 
