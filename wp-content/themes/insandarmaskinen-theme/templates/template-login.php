@@ -31,13 +31,15 @@
 					</p>
 					<p class="card-text">Välkommen till <strong>Insändarmaskinen™</strong>. Logga in eller registrera dig för att komma åt plattformen.</p>
 					<form name="login-form" id="sidebar-login-form" class="standard-form" action="<?php echo site_url( 'wp-login.php', 'login_post' ); ?>" method="post">
-					<h2>Logga in</h2>
-					<input type="text" name="log" id="sidebar-user-login" placeholder="<?php _e( 'Username', 'buddypress' ); ?>" class="input" value="<?php if ( isset( $user_login) ) echo esc_attr(stripslashes($user_login)); ?>" tabindex="97" />
-					<input type="password" name="pwd" id="sidebar-user-pass" placeholder="<?php _e( 'Password', 'buddypress' ); ?>" class="input" value="" tabindex="98" />
-					<label class="checkbox"><input name="rememberme" type="checkbox" id="sidebar-rememberme" value="forever" tabindex="99" /> <?php _e( 'Remember Me', 'buddypress' ); ?></label>
-
-					<?php do_action( 'bp_sidebar_login_form' ); ?>
-					<input type="submit" class="btn" name="wp-submit" id="sidebar-wp-submit" value="<?php _e( 'Log In', 'buddypress' ); ?>" tabindex="100" />
+						<input type="hidden" name="redirect_to" value="<?php echo home_url(); ?>" />
+					
+						<div class="form-group">
+							<input type="text" name="log" id="user_login" class="form-control" placeholder="Användarnamn">
+						</div>
+						<div class="form-group">
+							<input type="password" name="pwd" id="user_pass" class="form-control" placeholder="Lösenord">
+						</div>
+						<input type="submit" name="wp-submit" id="wp-submit" class="btn btn-block btn-primary" value="Logga in" />
 					<input type="hidden" name="testcookie" value="1" />
 				</form>
 					<a href="/registrera" class="btn btn-block btn-link">Registrera dig</a>
