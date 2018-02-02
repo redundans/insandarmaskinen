@@ -34,7 +34,7 @@
 						<input type="hidden" name="redirect_to" value="<?php echo home_url(); ?>" />
 					
 						<div class="form-group">
-							<input type="text" name="log" id="user_login" class="form-control" placeholder="Användarnamn">
+							<input type="text" name="log" id="user_login" class="form-control" placeholder="Användarnamn / E-post">
 						</div>
 						<div class="form-group">
 							<input type="password" name="pwd" id="user_pass" class="form-control" placeholder="Lösenord">
