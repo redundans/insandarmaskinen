@@ -121,7 +121,7 @@ function insandarmaskinen_taxonomy_custom_fields( $tag ) {
 	?>  
 	<tr class="form-field">
 		<th scope="row" valign="top">  
-			<label for="presenter_id"><?php echo esc_html( __( 'E-post', 'insandarmaskinen' ) ); ?></label>  
+			<label for="term_meta"><?php echo esc_html( __( 'E-post', 'insandarmaskinen' ) ); ?></label>  
 		</th>  
 		<td>  
 			<input type="text" name="term_meta" id="term_meta" size="40" value="<?php echo esc_html( $term_meta ? $term_meta : '' ); ?>"><br />  
@@ -130,11 +130,10 @@ function insandarmaskinen_taxonomy_custom_fields( $tag ) {
 <?php
 }
 add_action( 'tidningar_edit_form_fields', 'insandarmaskinen_taxonomy_custom_fields', 10, 2 );
-
 function insandarmaskinen_save_taxonomy_custom_fields( $term_id ) {
 	if ( isset( $_POST['term_meta'] ) ) {
 		$term_meta = esc_html( $_POST['term_meta'] );
-		update_term_meta( $term_id, 'email', $term_meta, true );
+		update_term_meta( $term_id, 'email', $term_meta );
 	}
 }
 add_action( 'edited_tidningar', 'insandarmaskinen_save_taxonomy_custom_fields', 10, 2 );
