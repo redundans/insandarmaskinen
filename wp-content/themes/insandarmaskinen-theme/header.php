@@ -7,10 +7,6 @@
  * @package understrap
  */
 
-if ( ! is_user_logged_in() && ! is_page( 'registrera' ) && ! is_page( 'login' ) ) {
-	header( 'Location: /login' );
-}
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -37,13 +33,9 @@ if ( ! is_user_logged_in() && ! is_page( 'registrera' ) && ! is_page( 'login' ) 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'understrap' ); ?></a>
 
-		<nav class="navbar navbar-expand-md">
+		<nav class="navbar navbar-expand-lg justify-content-end">
 
 			<div class="container">
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="oi oi-menu"></span>
-				</button>
 
 					<!-- Your site title as branding in the menu -->
 					<?php if ( ! has_custom_logo() ) { ?>
@@ -59,6 +51,10 @@ if ( ! is_user_logged_in() && ! is_page( 'registrera' ) && ! is_page( 'login' ) 
 						<?php endif; ?>
 
 				<div style="width: 44px;"></div>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="oi oi-menu"></span>
+				</button>
 						
 					
 					<?php } else {
@@ -76,7 +72,6 @@ if ( ! is_user_logged_in() && ! is_page( 'registrera' ) && ! is_page( 'login' ) 
 						'menu_id' => 'top-menu',
 					)
 				); ?>
-				<div class="overlay" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"></div>
 			</div><!-- .container -->
 
 		</nav><!-- .site-navigation -->

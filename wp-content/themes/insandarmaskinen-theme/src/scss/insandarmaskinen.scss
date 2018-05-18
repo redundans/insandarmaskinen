@@ -16,17 +16,20 @@ html, body {
     height: 100%;
 }
 
-img {
-	width: 100%;
-}
-
 .ui-helper-hidden-accessible {
 	display: none;
 }
 
+h3, h4, h5 {
+	margin-top: 1.5rem;
+}
+
 #wrapper-navbar {
 	.menu-item {
-		margin-left: 2.5rem;
+		margin: .25rem 0;
+		@include media-breakpoint-up(lg) {
+			margin-left: 2.5rem;
+		}
 
 		&.current-menu-item {
 			font-weight: 600;
@@ -44,19 +47,13 @@ img {
 	.navbar-brand {
 		color: $dark;
 		font-weight: 800;
+		padding: 0 0.75rem;
+		@include media-breakpoint-down(xs) {
+			padding: 0;
+		}
 
 		a {
-			color: $dark;
-
-			&:hover, &:active, &:focus {
-				text-decoration: none;
-				font-weight: 800;
-				opacity: .5;
-			}
-		}
-		
-		@include media-breakpoint-down(sm) {
-			display: none;
+			color: $dark !important;
 		}
 	}
 
@@ -244,7 +241,6 @@ img {
 
 			.avatar {
 				border-radius: $border-radius;
-				height: auto;
 			}
 
 			.activity-time-since {
@@ -410,7 +406,6 @@ img {
 				&.medals {
 					img.medal {
 						height: 50px;
-						width: auto;
 					}
 				}
 			}
@@ -427,7 +422,6 @@ img {
 				.avatar {
 					border-radius: $border-radius;
 					margin: .5rem 0;
-					height: auto;
 				}
 			}
 		}
@@ -437,19 +431,23 @@ img {
 
 		.paper {
 			max-height: 42px;
+			width: 42px;
 		}
 
 		.trophy {
 			max-height: 50px;
+			width: 42px;
 		}
 	}
 
 	.published {
 		height: 47px;
+		width: 47px;
 	}
 
 	.paper {
 		height: 40px;
+		width: 40px;
 	}
 
 	.like {
@@ -652,7 +650,6 @@ img {
 
 		img.medal {
 			height: 4rem;
-			width: 4rem;
 		}
 
 		.header-content {
@@ -799,6 +796,10 @@ img {
 			font-size: 1.5rem;
 			@include media-breakpoint-up(md) {
 				font-size: 2rem;
+			}
+
+			&:not(:first-child) {
+				margin-top: 3rem;
 			}
 		}
 	}
