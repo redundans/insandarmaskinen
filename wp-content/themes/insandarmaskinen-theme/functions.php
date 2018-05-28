@@ -592,3 +592,9 @@ if ( ! current_user_can( 'manage_options' ) ) {
 
 setcookie(TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN);
 if ( SITECOOKIEPATH != COOKIEPATH ) setcookie(TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN);
+
+add_filter( 'wp_dropdown_users_args', 'add_subscribers_to_dropdown', 10, 2 );
+function add_subscribers_to_dropdown( $query_args, $r ) {
+    $query_args['who'] = '';
+    return $query_args;
+}
