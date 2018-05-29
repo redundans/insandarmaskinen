@@ -393,7 +393,6 @@ function get_publications_count() {
 	}
 }
 
-
 function clean_users() {
 	$args = [
 		'date_query' => [
@@ -598,3 +597,10 @@ function add_subscribers_to_dropdown( $query_args, $r ) {
     $query_args['who'] = '';
     return $query_args;
 }
+function insandarmaskinen_force_login() {
+	if ( ! is_user_logged_in() && ( ! is_page( 'login' ) &&  ! is_page( 'registrera' ) ) ) {
+		wp_redirect( home_url( '/login/' ) );
+		exit;
+	}
+}
+add_action( 'wp', 'insandarmaskinen_force_login' );
