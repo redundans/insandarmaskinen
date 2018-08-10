@@ -598,7 +598,7 @@ function add_subscribers_to_dropdown( $query_args, $r ) {
     return $query_args;
 }
 function insandarmaskinen_force_login() {
-	if ( ! is_user_logged_in() && ( ! is_page( 'login' ) &&  ! is_page( 'registrera' ) ) ) {
+	if ( ! is_user_logged_in() && ( ! is_page( 'login' ) &&  ! is_page( 'registrera' ) && ! is_page( 'aktivera-konto' ) ) ) {
 		wp_redirect( home_url( '/login/' ) );
 		exit;
 	}
