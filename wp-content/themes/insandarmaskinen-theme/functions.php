@@ -597,10 +597,14 @@ function add_subscribers_to_dropdown( $query_args, $r ) {
     $query_args['who'] = '';
     return $query_args;
 }
+
 function insandarmaskinen_force_login() {
+	global $bp;
+	if ( bp_is_activity_component() || bp_is_groups_component() || bp_is_blogs_component() || bp_is_page( BP_MEMBERS_SLUG ) || is_page( 'skriv-insandare' ) || is_archive() || is_page( 'integritetspolicy' ) || is_home() || is_single() ) {
 	if ( ! is_user_logged_in() && ( ! is_page( 'login' ) &&  ! is_page( 'registrera' ) && ! is_page( 'aktivera-konto' ) ) ) {
 		wp_redirect( home_url( '/login/' ) );
 		exit;
 	}
 }
-add_action( 'wp', 'insandarmaskinen_force_login' );
+}
+add_action( 'get_header', 'insandarmaskinen_force_login', 1 );
