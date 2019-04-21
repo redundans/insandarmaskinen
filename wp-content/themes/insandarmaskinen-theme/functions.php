@@ -14,10 +14,10 @@ function insandarmaskinen_scripts() {
 	wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/dist/js/bootstrap.min.js', array( 'jquery' ), '20141010', true );
 	wp_enqueue_script( 'insandarmaskinen-script', get_template_directory_uri() . '/dist/js/insandarmaskinen.js', array(), '20141010', true );
 
-	$tidningar = [
+	$tidningar = $terms = get_terms([
 		'taxonomy'   => 'tidningar',
 		'hide_empty' => false,
-	];
+	]);
 
 	$translation_array = [
 		'ajax_url' => admin_url( 'admin-ajax.php' ),

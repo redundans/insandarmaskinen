@@ -80,7 +80,6 @@
 		$("#tags").on("focus", ".taggle_input", function() {
 			$("#tags").addClass("open");
 		});
-
 		var publications = $("#tags").data("publications");
 		var post_id = $("#tags").data("post");
 		var tags = new Taggle("tags", {
