@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /medlemmar/
+Disallow: /insandare/
+Disallow: /integritetspolicy/
+Disallow: /skriv-insandare/
