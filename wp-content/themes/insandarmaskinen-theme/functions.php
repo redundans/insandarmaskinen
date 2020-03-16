@@ -669,3 +669,19 @@ add_action(
 		wp_add_dashboard_widget('custom_dashboard_widget', 'Statistik', 'insandarmaskinen_dashboard_widget');
 	}
 );
+
+
+/**
+ * Removes angle brackets (characters < and >) arounds URLs in a given string
+ *
+ * @param string $string    The string to remove potential angle brackets from.
+ * @return string    $string where any angle brackets surrounding an URL have been removed.
+ */
+add_filter(
+	'retrieve_password_message',
+	function( $string ) {
+		return preg_replace( '/<(' . preg_quote( network_site_url(), '/' ) . '[^>]*)>/', '\1', $string );
+	},
+	99,
+	1
+);
