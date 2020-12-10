@@ -3,86 +3,137 @@
 /**
  * Insändarmaskinen™ scripts and styles.
  */
-function insandarmaskinen_scripts() {
-	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'insandarmaskinen-style', get_template_directory_uri() . '/dist/css/insandarmaskinen.css', array(), filemtime(get_template_directory() . '/dist/css/insandarmaskinen.css' ) );
 
-	wp_enqueue_script( 'jquery-ui-autocomplete' );
-	wp_enqueue_script( 'chartjs-script', get_template_directory_uri() . '/dist/js/Chart.min.js', array( 'jquery' ), '20141010', true );
-	wp_enqueue_script( 'popperjs-script', get_template_directory_uri() . '/dist/js/popper.min.js', array(), '20141010', true );
-	wp_enqueue_script( 'tagglejs-script', get_template_directory_uri() . '/dist/js/taggle.min.js', array(), '20141010', true );
-	wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/dist/js/bootstrap.min.js', array( 'jquery' ), '20141010', true );
-	wp_enqueue_script( 'insandarmaskinen-script', get_template_directory_uri() . '/dist/js/insandarmaskinen.js', array(), '20141010', true );
+add_action(
+	'wp_enqueue_scripts',
+	function() {
+		// Add custom fonts, used in the main stylesheet.
+		wp_enqueue_style(
+			'insandarmaskinen-style',
+			get_template_directory_uri() . '/dist/css/insandarmaskinen.css',
+			array(),
+			filemtime( get_template_directory() . '/dist/css/insandarmaskinen.css' )
+		);
 
-	$tidningar = $terms = get_terms([
-		'taxonomy'   => 'tidningar',
-		'hide_empty' => false,
-	]);
+		wp_enqueue_script( 'jquery-ui-autocomplete' );
 
-	$translation_array = [
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'papers'   => array_map( create_function( '$o', 'return $o->name;'), $tidningar ),
-	];
+		wp_enqueue_script(
+			'chartjs-script',
+			get_template_directory_uri() . '/dist/js/Chart.min.js',
+			array( 'jquery' ),
+			filemtime( get_template_directory() . '/dist/js/Chart.min.js' ),
+			true
+		);
 
-	wp_localize_script( 'tagglejs-script', 'insandarmaskinen', $translation_array );
-}
-add_action( 'wp_enqueue_scripts', 'insandarmaskinen_scripts' );
+		wp_enqueue_script(
+			'popperjs-script',
+			get_template_directory_uri() . '/dist/js/popper.min.js',
+			array(),
+			filemtime( get_template_directory() . '/dist/js/popper.min.js' ),
+			true
+		);
 
-function insandarmaskinen_register_menus() {
-	register_nav_menus( array(
-		'top_menu' => 'Huvudmeny',
-	) );
-}
-add_action( 'init', 'insandarmaskinen_register_menus' );
+		wp_enqueue_script(
+			'tagglejs-script',
+			get_template_directory_uri() . '/dist/js/taggle.min.js',
+			array(),
+			filemtime( get_template_directory() . '/dist/js/taggle.min.js' ),
+			true
+		);
 
-function insandarmaskinen_register_post_types() {
-	$labels = array(
-		'name'                  => _x( 'Insändare', 'Post type general name', 'insandarmaskinen' ),
-		'singular_name'         => _x( 'Insändare', 'Post type singular name', 'insandarmaskinen' ),
-		'menu_name'             => _x( 'Insändare', 'Admin Menu text', 'insandarmaskinen' ),
-		'name_admin_bar'        => _x( 'Insändare', 'Add New on Toolbar', 'insandarmaskinen' ),
-		'add_new'               => __( 'Lägg till', 'insandarmaskinen' ),
-		'add_new_item'          => __( 'Lägg till Insändare', 'insandarmaskinen' ),
-		'new_item'              => __( 'Ny Insändare', 'insandarmaskinen' ),
-		'edit_item'             => __( 'Ändra Insändare', 'insandarmaskinen' ),
-		'view_item'             => __( 'Visa Insändare', 'insandarmaskinen' ),
-		'all_items'             => __( 'Alla Insändare', 'insandarmaskinen' ),
-		'search_items'          => __( 'Sök Insändare', 'insandarmaskinen' ),
-		'parent_item_colon'     => __( 'Förälder', 'insandarmaskinen' ),
-		'not_found'             => __( 'Inga Insändare hittades.', 'insandarmaskinen' ),
-		'not_found_in_trash'    => __( 'Inga Insändare hittades i soporna.', 'insandarmaskinen' ),
-		'featured_image'        => _x( 'Ingen omslagsbild', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
-		'set_featured_image'    => _x( 'Sätt omslagsbild', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
-		'remove_featured_image' => _x( 'Ta bort omslagsbild', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
-		'use_featured_image'    => _x( 'Använd som omslagsbild', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
-		'archives'              => _x( 'Insändararkiv', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'insandarmaskinen' ),
-		'insert_into_item'      => _x( 'Lägg till i Insändare', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'insandarmaskinen' ),
-		'uploaded_to_this_item' => _x( 'Ladda upp till Insändare', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'insandarmaskinen' ),
-		'filter_items_list'     => _x( 'Filtrera Insändare', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'insandarmaskinen' ),
-		'items_list_navigation' => _x( 'Insändarnavigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'insandarmaskinen' ),
-		'items_list'            => _x( 'Insändare', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'insandarmaskinen' ),
-	);
+		wp_enqueue_script(
+			'bootstrap-script',
+			get_template_directory_uri() . '/dist/js/bootstrap.min.js',
+			array( 'jquery' ),
+			filemtime( get_template_directory() . '/dist/js/bootstrap.min.js' ),
+			true
+		);
 
-	$args = array(
-		'labels'             => $labels,
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array(
-			'slug' => 'insandare',
-		),
-		'capability_type'    => 'post',
-		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author' ),
-	);
+		wp_enqueue_script(
+			'insandarmaskinen-script',
+			get_template_directory_uri() . '/dist/js/insandarmaskinen.js',
+			array(),
+			filemtime( get_template_directory() . '/dist/js/insandarmaskinen.js' ),
+			true
+		);
 
-	register_post_type( 'insandare', $args );
-}
-add_action( 'init', 'insandarmaskinen_register_post_types' );
+		$tidningar = get_terms(
+			array(
+				'taxonomy'   => 'tidningar',
+				'hide_empty' => false,
+			)
+		);
+
+		$translation_array = array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'papers'   => array_map( create_function( '$o', 'return $o->name;'), $tidningar ),
+		);
+
+		wp_localize_script( 'tagglejs-script', 'insandarmaskinen', $translation_array );
+	}
+);
+
+add_action(
+	'init',
+	function() {
+		register_nav_menus(
+			array(
+				'top_menu' => 'Huvudmeny',
+			)
+		);
+	}
+);
+
+add_action(
+	'init',
+	function() {
+		$labels = array(
+			'name'                  => _x( 'Insändare', 'Post type general name', 'insandarmaskinen' ),
+			'singular_name'         => _x( 'Insändare', 'Post type singular name', 'insandarmaskinen' ),
+			'menu_name'             => _x( 'Insändare', 'Admin Menu text', 'insandarmaskinen' ),
+			'name_admin_bar'        => _x( 'Insändare', 'Add New on Toolbar', 'insandarmaskinen' ),
+			'add_new'               => __( 'Lägg till', 'insandarmaskinen' ),
+			'add_new_item'          => __( 'Lägg till Insändare', 'insandarmaskinen' ),
+			'new_item'              => __( 'Ny Insändare', 'insandarmaskinen' ),
+			'edit_item'             => __( 'Ändra Insändare', 'insandarmaskinen' ),
+			'view_item'             => __( 'Visa Insändare', 'insandarmaskinen' ),
+			'all_items'             => __( 'Alla Insändare', 'insandarmaskinen' ),
+			'search_items'          => __( 'Sök Insändare', 'insandarmaskinen' ),
+			'parent_item_colon'     => __( 'Förälder', 'insandarmaskinen' ),
+			'not_found'             => __( 'Inga Insändare hittades.', 'insandarmaskinen' ),
+			'not_found_in_trash'    => __( 'Inga Insändare hittades i soporna.', 'insandarmaskinen' ),
+			'featured_image'        => _x( 'Ingen omslagsbild', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
+			'set_featured_image'    => _x( 'Sätt omslagsbild', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
+			'remove_featured_image' => _x( 'Ta bort omslagsbild', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
+			'use_featured_image'    => _x( 'Använd som omslagsbild', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'insandarmaskinen' ),
+			'archives'              => _x( 'Insändararkiv', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'insandarmaskinen' ),
+			'insert_into_item'      => _x( 'Lägg till i Insändare', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'insandarmaskinen' ),
+			'uploaded_to_this_item' => _x( 'Ladda upp till Insändare', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'insandarmaskinen' ),
+			'filter_items_list'     => _x( 'Filtrera Insändare', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'insandarmaskinen' ),
+			'items_list_navigation' => _x( 'Insändarnavigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'insandarmaskinen' ),
+			'items_list'            => _x( 'Insändare', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'insandarmaskinen' ),
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array(
+				'slug' => 'insandare',
+			),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'supports'           => array( 'title', 'editor', 'author' ),
+		);
+
+		register_post_type( 'insandare', $args );
+	}
+);
 
 
 function insandarmaskinen_register_taxonomies() {
@@ -133,7 +184,7 @@ function insandarmaskinen_taxonomy_custom_fields( $tag ) {
 			<input type="text" name="term_meta" id="term_meta" size="40" value="<?php echo esc_html( $term_meta ? $term_meta : '' ); ?>"><br />  
 		</td>  
 	</tr>  
-<?php
+	<?php
 }
 add_action( 'tidningar_edit_form_fields', 'insandarmaskinen_taxonomy_custom_fields', 10, 2 );
 
@@ -191,18 +242,22 @@ function set_publication() {
 		} else {
 			$user = wp_get_current_user();
 			$name = xprofile_get_field_data( 1, $user->ID );
-			bp_activity_add( [
-				'action'       => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har rapporterat en insändare som publicerad.',
-				'component'    => 'insandarmaskinen',
-				'type'         => 'insandare_published',
-				'primary_link' => get_permalink( $post_id ),
-				'user_id'      => $user->ID,
-				'item_id'      => $post_id,
-			] );
+			bp_activity_add(
+				array(
+					'action'       => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har rapporterat en insändare som publicerad.',
+					'component'    => 'insandarmaskinen',
+					'type'         => 'insandare_published',
+					'primary_link' => get_permalink( $post_id ),
+					'user_id'      => $user->ID,
+					'item_id'      => $post_id,
+				)
+			);
 
-			wp_send_json( [
-				'result' => $result,
-			] );
+			wp_send_json(
+				array(
+					'result' => $result,
+				)
+			);
 		}
 	}
 	wp_die();
@@ -223,9 +278,11 @@ function delete_publication() {
 		if ( is_wp_error( $result ) ) {
 			wp_send_json_error();
 		} else {
-			wp_send_json( array(
-				'result' => $result,
-			) );
+			wp_send_json(
+				array(
+					'result' => $result,
+				)
+			);
 		}
 	}
 	wp_die();
@@ -240,108 +297,123 @@ function schedule_mails() {
 	parse_str( $_POST['form_data'], $form_data );
 
 	$post_data = array(
-		'post_title' => $form_data['subject'],
+		'post_title'   => $form_data['subject'],
 		'post_content' => $form_data['content'],
-		'post_type' => 'insandare',
-		'post_author' => get_current_user_id(),
+		'post_type'    => 'insandare',
+		'post_author'  => get_current_user_id(),
 	);
-	$result = wp_insert_post( $post_data, true );
+	$result    = wp_insert_post( $post_data, true );
 
 	if ( ! is_wp_error( $result ) ) {
 		update_post_meta( $result, 'insandare_from', $form_data['from'] );
 		update_post_meta( $result, 'insandare_papers', $form_data['papers'] );
 
-		$args = array();
+		$args   = array();
 		$result = wp_schedule_single_event( time() + 360, 'send_scheduled_mail', array( $result ) );
 
 		if ( $result ) {
-			wp_send_json( array(
-				'error' => false,
-			) );
+			wp_send_json(
+				array(
+					'error' => false,
+				)
+			);
 			wp_die();
 		}
 	}
-	wp_send_json( array(
-		'error' => true,
-	) );
+	wp_send_json(
+		array(
+			'error' => true,
+		)
+	);
 	wp_die();
 }
 add_action( 'wp_ajax_schedule_mails', 'schedule_mails' );
 add_action( 'wp_ajax_nopriv_schedule_mails', 'schedule_mails' );
 
 function send_scheduled_mail( $post_id ) {
-	$post = get_post( $post_id );
-	$from = get_post_meta( $post_id, 'insandare_from', true );
+	$post   = get_post( $post_id );
+	$from   = get_post_meta( $post_id, 'insandare_from', true );
 	$papers = array_shift( get_post_meta( $post_id, 'insandare_papers' ) );
-	$user = get_userdata( $post->post_author );
-	$name = xprofile_get_field_data( 1, $user->ID );
+	$user   = get_userdata( $post->post_author );
+	$name   = xprofile_get_field_data( 1, $user->ID );
 
-	$error = false;
 	foreach ( $papers as $paper ) {
-		$term = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
-		$to = get_term_meta( $term->term_id, 'email', true );
+		$term    = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
+		$to      = get_term_meta( $term->term_id, 'email', true );
 		$contact = xprofile_get_field_data( 2, $post->post_author );
 
-		$headers = array(
+		$headers   = array(
 			'Content-Type: text/html; charset=UTF-8',
 		);
-		$subject = $post->post_title;
+		$subject   = $post->post_title;
 		$headers[] = 'From: ' . $name . ' <' . $user->user_email . '>';
-		$message = apply_filters( 'the_content', $post->post_content ) . '<p>' . $from . '</p><p>' . nl2br( $contact ) . '</p>';
+		$message   = apply_filters( 'the_content', $post->post_content ) . '<p>' . $from . '</p><p>' . nl2br( $contact ) . '</p>';
 
 		$result = wp_mail( $to, $subject, $message, $headers );
 		if ( false === $result ) {
-			$error = true;
+			$message            = "Insändarmaskinen failed to send subject: $subject, to: $to. This message:\n\n $message";
+			$subject            = "Mail fail: $to";
+			$to                 = 'christian.tengblad@gmail.com';
+			$result_adm_warning = wp_mail( $to, $subject, $message, $headers );
 		}
 	}
-	if ( false === $error ) {
-		wp_update_post( array(
-			'ID' => $post->ID,
-			'post_status' => 'publish',
-		) );
-		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har skrivit en ny <a href="' . get_permalink( $post->ID ) . '">insändare</a>.',
-			'component' => 'insandarmaskinen',
-			'type' => 'new_insandare',
-			'primary_link' => get_permalink( $post->ID ),
-			'user_id' => $user->ID,
-			'item_id' => $post->ID,
-		) );
-	}
-}
-add_action( 'send_scheduled_mail','send_scheduled_mail' );
 
-add_filter('wp_mail_content_type', function( $content_type ) {
-	return 'text/html';
-});
+	wp_update_post(
+		array(
+			'ID'          => $post->ID,
+			'post_status' => 'publish',
+		)
+	);
+
+	bp_activity_add(
+		array(
+			'action'       => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har skrivit en ny <a href="' . get_permalink( $post->ID ) . '">insändare</a>.',
+			'component'    => 'insandarmaskinen',
+			'type'         => 'new_insandare',
+			'primary_link' => get_permalink( $post->ID ),
+			'user_id'      => $user->ID,
+			'item_id'      => $post->ID,
+		)
+	);
+}
+add_action( 'send_scheduled_mail', 'send_scheduled_mail' );
+
+add_filter(
+	'wp_mail_content_type',
+	function( $content_type ) {
+		return 'text/html';
+	},
+	10,
+	1
+);
 
 function most_published_author() {
 	$args = array(
 		'posts_per_page' => -1,
-		'offset' => 0,
-		'orderby' => 'date',
-		'order' => 'ASC',
-		'post_type' => 'insandare',
-		'post_status' => 'publish',
-		'date_query' => array(
+		'offset'         => 0,
+		'orderby'        => 'date',
+		'order'          => 'ASC',
+		'post_type'      => 'insandare',
+		'post_status'    => 'publish',
+		'date_query'     => array(
 			'column' => 'post_date_gmt',
-			'after'  => date( 'Y-n-j', strtotime( 'first day of previous month' ) ),
-			'before'  => date( 'Y-n-j', strtotime( 'first day of this month' ) ),
+			'after'  => gmdate( 'Y-n-j', strtotime( 'first day of previous month' ) ),
+			'before' => gmdate( 'Y-n-j', strtotime( 'first day of this month' ) ),
 		),
 	);
 
 	$the_query = new WP_Query( $args );
-	// The Loop
+	// The Loop.
 	if ( $the_query->have_posts() ) {
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			$published = wp_get_post_terms( $the_query->post->ID, 'tidningar' );
 			$result[ $the_query->post->post_author ]['posted']++;
-			$result[ $the_query->post->post_author ]['published'] = $result[ $the_query->post->post_author ]['published'] + count( $published );
-			$result[ $the_query->post->post_author ]['post_author'] = $the_query->post->post_author;
+			$result[ $the_query->post->post_author ]['published']        = $result[ $the_query->post->post_author ]['published'] + count( $published );
+			$result[ $the_query->post->post_author ]['post_author']      = $the_query->post->post_author;
 			$result[ $the_query->post->post_author ]['post_author_name'] = xprofile_get_field_data( 1, $the_query->post->post_author );
 			$result[ $the_query->post->post_author ]['post_author_link'] = bp_core_get_user_domain( $the_query->post->post_author );
-			$result[ $the_query->post->post_author ]['last_action'] = 'Senast aktiv för ' . human_time_diff( strtotime( bp_get_user_last_activity( $the_query->post->post_author ) ), current_time('timestamp') ) . ' sedan';
+			$result[ $the_query->post->post_author ]['last_action']      = 'Senast aktiv för ' . human_time_diff( strtotime( bp_get_user_last_activity( $the_query->post->post_author ) ), current_time( 'timestamp' ) ) . ' sedan';
 		}
 		wp_reset_postdata();
 	}
@@ -356,30 +428,34 @@ function sort_by_published( $a, $b ) {
 
 function get_activity_type( $activity_id ) {
 	global $wpdb;
-	$type = $wpdb->get_row( $wpdb->prepare( "SELECT type FROM wp_bp_activity WHERE id = %d",  $activity_id ));
+	$type = $wpdb->get_row( $wpdb->prepare( 'SELECT type FROM wp_bp_activity WHERE id = %d', $activity_id ) );
 	return $type->type;
 }
 
 function insandarmaskinen_add_tabs() {
 	global $bp;
-	bp_core_new_nav_item( array(
-		'name'                  => 'Insändare',
-		'slug'                  => 'insandare',
-		'parent_url'            => $bp->displayed_user->domain,
-		'parent_slug'           => $bp->profile->slug,
-		'default_subnav_slug'   => 'insandare',
-		'screen_function'       => 'insandarmaskinen_insandare_screen',
-		'position'              => 19,
-	));
-	bp_core_new_nav_item( array(
-		'name'                  => 'Logga ut',
-		'slug'                  => 'logout',
-		'parent_url'            => $bp->displayed_user->domain,
-		'parent_slug'           => $bp->profile->slug,
-		'default_subnav_slug'   => 'insandare',
-		'screen_function'       => 'insandarmaskinen_insandare_logout',
-		'position'              => 99,
-	));
+	bp_core_new_nav_item(
+		array(
+			'name'                => 'Insändare',
+			'slug'                => 'insandare',
+			'parent_url'          => $bp->displayed_user->domain,
+			'parent_slug'         => $bp->profile->slug,
+			'default_subnav_slug' => 'insandare',
+			'screen_function'     => 'insandarmaskinen_insandare_screen',
+			'position'            => 19,
+		)
+	);
+	bp_core_new_nav_item(
+		array(
+			'name'                => 'Logga ut',
+			'slug'                => 'logout',
+			'parent_url'          => $bp->displayed_user->domain,
+			'parent_slug'         => $bp->profile->slug,
+			'default_subnav_slug' => 'insandare',
+			'screen_function'     => 'insandarmaskinen_insandare_logout',
+			'position'            => 99,
+		)
+	);
 }
 add_action( 'bp_setup_nav', 'insandarmaskinen_add_tabs', 100 );
 
@@ -396,9 +472,9 @@ function insandarmaskinen_insandare_screen_content() {
 }
 
 function custom_rewrite_basic() {
-	add_rewrite_rule('medlemmar/ingela/insandare/page/([0-9]{1,})/?', 'index.php?pagename=insandarguide&paged=$matches[2]', 'top');
+	add_rewrite_rule( 'medlemmar/ingela/insandare/page/([0-9]{1,})/?', 'index.php?pagename=insandarguide&paged=$matches[2]', 'top' );
 }
-add_action('init', 'custom_rewrite_basic');
+add_action( 'init', 'custom_rewrite_basic' );
 
 function the_publications() {
 	$terms = get_the_terms( get_the_id(), 'tidningar' );
@@ -421,26 +497,6 @@ function get_publications_count() {
 	}
 }
 
-function clean_users() {
-	$args = [
-		'date_query' => [
-			[ 'before'  => '2017-06-01', 'inclusive' => true ],
-		],
-	];
-
-	$user_query = new WP_User_Query( $args );
-	if ( ! empty( $user_query->get_results() ) ) {
-		foreach ( $user_query->get_results() as $user ) {
-			if( strtotime('-6 month') >= strtotime( bp_get_user_last_activity( $user->ID ) ) ) {
-				wp_update_user( array(
-					'ID' => $user->ID,
-					'role' => 'inactive',
-				));
-			}
-		}
-	}}
-//add_action( 'init', 'clean_users', 100 );
-
 function the_medals( $user_id ) {
 	$reported_publications = get_user_meta( $user_id, 'reported_publications', true );
 	if ( $reported_publications && $reported_publications['medal'] ) {
@@ -457,39 +513,44 @@ function the_medals( $user_id ) {
 }
 
 if ( ! wp_next_scheduled( 'insandarmaskinen_daily_updates' ) ) {
-  wp_schedule_event( time(), 'daily', 'insandarmaskinen_daily_updates' );
+	wp_schedule_event( time(), 'daily', 'insandarmaskinen_daily_updates' );
 }
-add_action( 'insandarmaskinen_daily_updates', 'insandarmaskinen_update_medals' );
+
 function insandarmaskinen_update_medals() {
-	$users = get_users( array(
-		'role__in' => array( 'subscriber', 'administrator' ),
-	) );
+	$users = get_users(
+		array(
+			'role__in' => array( 'subscriber', 'administrator' ),
+		)
+	);
 	foreach ( $users as $user ) {
 		update_user_reported_publications( $user );
 		update_user_publications( $user );
 		update_post_reported_publications( $user );
 	}
 }
+add_action( 'insandarmaskinen_daily_updates', 'insandarmaskinen_update_medals' );
 
 function update_user_publications( $user ) {
 	global $wpdb;
 	$user_publications = get_user_meta( $user->ID, 'user_publications', true );
-	$date = date( 'Y-m-d', strtotime( '-6 months' ) );
-	$publications = 0;
+	$date              = gmdate( 'Y-m-d', strtotime( '-6 months' ) );
+	$publications      = 0;
 
-	$the_query = new WP_Query( array(
-		'author' => $user->ID,
-		'posts_per_page' => -1,
-		'offset' => 0,
-		'orderby' => 'date',
-		'order' => 'ASC',
-		'post_type' => 'insandare',
-		'post_status' => 'publish',
-		'date_query' => array(
-			'column' => 'post_date_gmt',
-			'after'  => '180 days ago',
-		),
-	) );
+	$the_query = new WP_Query(
+		array(
+			'author'         => $user->ID,
+			'posts_per_page' => -1,
+			'offset'         => 0,
+			'orderby'        => 'date',
+			'order'          => 'ASC',
+			'post_type'      => 'insandare',
+			'post_status'    => 'publish',
+			'date_query'     => array(
+				'column' => 'post_date_gmt',
+				'after'  => '180 days ago',
+			),
+		)
+	);
 
 	$user_publications_medal = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'user_publications_medal' && date_recorded > '$date'", ARRAY_A );
 
@@ -503,18 +564,24 @@ function update_user_publications( $user ) {
 
 	if ( count( $user_publications_medal ) === 0 && $publications >= 10 ) {
 		$name = xprofile_get_field_data( 1, $user->ID );
-		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superskribent då hen skickat över 10 insändare det senaste halvåret.',
-			'component' => 'insandarmaskinen',
-			'type' => 'user_publications_medal',
-			'user_id' => $user->ID,
-		) );
+		bp_activity_add(
+			array(
+				'action'    => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superskribent då hen skickat över 10 insändare det senaste halvåret.',
+				'component' => 'insandarmaskinen',
+				'type'      => 'user_publications_medal',
+				'user_id'   => $user->ID,
+			)
+		);
 	}
 
-	update_user_meta( $user->ID, 'user_publications', array(
-		'count' => $publications,
-		'medal' => ( $publications >= 10 ? true : false ),
-	) );
+	update_user_meta(
+		$user->ID,
+		'user_publications',
+		array(
+			'count' => $publications,
+			'medal' => ( $publications >= 10 ? true : false ),
+		)
+	);
 }
 
 function update_post_reported_publications( $user ) {
@@ -522,23 +589,29 @@ function update_post_reported_publications( $user ) {
 
 	$reported_publications = get_user_meta( $user->ID, 'reported_post_publications', true );
 
-	$the_query = new WP_Query( array(
-		'author' => $user->ID,
-		'posts_per_page' => -1,
-		'offset' => 0,
-		'orderby' => 'date',
-		'order' => 'ASC',
-		'post_type' => 'insandare',
-		'post_status' => 'publish',
-		'date_query' => array(
-			'column' => 'post_date_gmt',
-			'after'  => '30 days ago',
-		),
-	) );
-	update_user_meta( $user->ID, 'reported_post_publications', array(
-		'count' => 0,
-		'medal' => false,
-	) );
+	$the_query = new WP_Query(
+		array(
+			'author'         => $user->ID,
+			'posts_per_page' => -1,
+			'offset'         => 0,
+			'orderby'        => 'date',
+			'order'          => 'ASC',
+			'post_type'      => 'insandare',
+			'post_status'    => 'publish',
+			'date_query'     => array(
+				'column' => 'post_date_gmt',
+				'after'  => '30 days ago',
+			),
+		)
+	);
+	update_user_meta(
+		$user->ID,
+		'reported_post_publications',
+		array(
+			'count' => 0,
+			'medal' => false,
+		)
+	);
 	$reported_post_publications_medal = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'reported_post_publications_medal' && date_recorded > '$date'", ARRAY_A );
 
 	if ( $the_query->have_posts() ) {
@@ -548,18 +621,22 @@ function update_post_reported_publications( $user ) {
 
 			if ( $count >= 10 ) {
 				update_post_meta( get_the_id(), 'reported_post_publications', $count, true );
-				update_user_meta( $user->ID, 'reported_post_publications', array(
-					'count' => $count,
-					'medal' => true,
-				) );
+				update_user_meta( $user->ID, 'reported_post_publications',
+					array(
+						'count' => $count,
+						'medal' => true,
+					)
+				);
 				if ( count( $reported_post_publications_medal ) === 0 ) {
 					$name = xprofile_get_field_data( 1, $user->ID );
-					bp_activity_add( array(
-						'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superpublicist denna månad.',
-						'component' => 'insandarmaskinen',
-						'type' => 'reported_post_publications_medal',
-						'user_id' => $user->ID,
-					) );
+					bp_activity_add(
+						array(
+							'action'    => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superpublicist denna månad.',
+							'component' => 'insandarmaskinen',
+							'type'      => 'reported_post_publications_medal',
+							'user_id'   => $user->ID,
+						)
+					);
 				}
 			}
 		}
@@ -570,26 +647,31 @@ function update_post_reported_publications( $user ) {
 function update_user_reported_publications( $user ) {
 	global $wpdb;
 
-	$reported_publications = get_user_meta( $user->ID, 'reported_publications', true );
-	$date = date( 'Y-m-d', strtotime( '-1 months' ) );
-
-	$insandare_published = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'insandare_published' && date_recorded > '$date'", ARRAY_A );
+	$reported_publications       = get_user_meta( $user->ID, 'reported_publications', true );
+	$date                        = gmdate( 'Y-m-d', strtotime( '-1 months' ) );
+	$insandare_published         = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'insandare_published' && date_recorded > '$date'", ARRAY_A );
 	$reported_publications_medal = $wpdb->get_results( "SELECT * FROM wp_bp_activity WHERE user_id = $user->ID && component = 'insandarmaskinen' && type = 'reported_publications_medal' && date_recorded > '$date'", ARRAY_A );
 
-	if( count( $reported_publications_medal ) === 0 && count( $insandare_published ) >= 10 ) {
+	if ( 10 <= count( $reported_publications_medal ) === 0 && count( $insandare_published ) ) {
 		$name = xprofile_get_field_data( 1, $user->ID );
-		bp_activity_add( array(
-			'action' => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superrapportör denna månad.',
-			'component' => 'insandarmaskinen',
-			'type' => 'reported_publications_medal',
-			'user_id' => $user->ID,
-		) );
+		bp_activity_add(
+			array(
+				'action'    => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har blivit Superrapportör denna månad.',
+				'component' => 'insandarmaskinen',
+				'type'      => 'reported_publications_medal',
+				'user_id'   => $user->ID,
+			)
+		);
 	}
 
-	update_user_meta( $user->ID, 'reported_publications', array(
-		'count' => count( $insandare_published ),
-		'medal' => ( count( $insandare_published ) >= 10 ? true : false ),
-	) );
+	update_user_meta(
+		$user->ID,
+		'reported_publications',
+		array(
+			'count' => count( $insandare_published ),
+			'medal' => ( count( $insandare_published ) >= 10 ? true : false ),
+		)
+	);
 }
 
 function insandarmaskinen_template_include( $original_template ) {
@@ -617,13 +699,15 @@ if ( ! current_user_can( 'manage_options' ) ) {
 	show_admin_bar( false );
 }
 
-setcookie(TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN);
-if ( SITECOOKIEPATH != COOKIEPATH ) setcookie(TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN);
+setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN );
+if ( COOKIEPATH !== SITECOOKIEPATH ) {
+	setcookie( TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN );
+}
 
 add_filter( 'wp_dropdown_users_args', 'add_subscribers_to_dropdown', 10, 2 );
 function add_subscribers_to_dropdown( $query_args, $r ) {
-    $query_args['who'] = '';
-    return $query_args;
+	$query_args['who'] = '';
+	return $query_args;
 }
 
 function insandarmaskinen_force_login() {
@@ -639,34 +723,36 @@ add_action( 'get_header', 'insandarmaskinen_force_login', 1 );
 
 // example custom dashboard widget
 function insandarmaskinen_dashboard_widget() {
-	$papers = 0;
+	$papers       = 0;
 	$publications = 0;
 
-	$the_query = new WP_Query( [
-		'post_type'      => 'insandare',
-		'year'           => '2018',
-		'posts_per_page' => -1
-	] );
+	$the_query = new WP_Query(
+		array(
+			'post_type'      => 'insandare',
+			'year'           => '2018',
+			'posts_per_page' => -1,
+		)
+	);
 
 	// The Loop
 	if ( $the_query->have_posts() ) {
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			$post_publications = wp_get_post_terms( get_the_ID(), 'tidningar' );
-			$publications = (int) $publications + count( $post_publications );
+			$publications      = (int) $publications + count( $post_publications );
 			$papers++;
 		}
 		wp_reset_postdata();
 	}
 	$total = $publications / $papers;
-	echo "<p>Dearest Client, Here&rsquo;s how to do that thing I told you about yesterday...</p>";
+	echo '<p>Dearest Client, Here&rsquo;s how to do that thing I told you about yesterday...</p>';
 	echo "$papers antal insändare genererade $publications publiceringar. En insändare blir alltså publicerad i snitt $total gånger.";
 }
 
 add_action(
 	'wp_dashboard_setup',
-	function(){
-		wp_add_dashboard_widget('custom_dashboard_widget', 'Statistik', 'insandarmaskinen_dashboard_widget');
+	function() {
+		wp_add_dashboard_widget( 'custom_dashboard_widget', 'Statistik', 'insandarmaskinen_dashboard_widget' );
 	}
 );
 
