@@ -175,15 +175,15 @@ add_action( 'init', 'insandarmaskinen_register_taxonomies' );
 function insandarmaskinen_taxonomy_custom_fields( $tag ) {
 	$term_id   = $tag->term_id;
 	$term_meta = get_term_meta( $term_id, 'email', true );
-	?>  
+	?>
 	<tr class="form-field">
-		<th scope="row" valign="top">  
-			<label for="term_meta"><?php echo esc_html( __( 'E-post', 'insandarmaskinen' ) ); ?></label>  
-		</th>  
-		<td>  
-			<input type="text" name="term_meta" id="term_meta" size="40" value="<?php echo esc_html( $term_meta ? $term_meta : '' ); ?>"><br />  
-		</td>  
-	</tr>  
+		<th scope="row" valign="top">
+			<label for="term_meta"><?php echo esc_html( __( 'E-post', 'insandarmaskinen' ) ); ?></label>
+		</th>
+		<td>
+			<input type="text" name="term_meta" id="term_meta" size="40" value="<?php echo esc_html( $term_meta ? $term_meta : '' ); ?>"><br />
+		</td>
+	</tr>
 	<?php
 }
 add_action( 'tidningar_edit_form_fields', 'insandarmaskinen_taxonomy_custom_fields', 10, 2 );
@@ -207,17 +207,17 @@ add_action( 'edited_tidningar', 'insandarmaskinen_save_taxonomy_custom_fields', 
 function last_month_stats() {
 	global $wpdb;
 	$month_array = $wpdb->get_results(
-		"SELECT 
+		"SELECT
 			YEAR(post_date) AS `year`,
-			MONTH(post_date) AS `month`, 
+			MONTH(post_date) AS `month`,
 	    	count(ID) as posts
-		FROM 
-	    	wp_posts 
-		WHERE 
-	    	post_type = 'insandare' AND post_status = 'publish' 
-		GROUP BY 
-		    YEAR(post_date), MONTH(post_date) 
-		ORDER BY 
+		FROM
+	    	wp_posts
+		WHERE
+	    	post_type = 'insandare' AND post_status = 'publish'
+		GROUP BY
+		    YEAR(post_date), MONTH(post_date)
+		ORDER BY
 		    post_date DESC"
 	);
 	foreach ( $month_array as $key => $value ) {
@@ -337,6 +337,24 @@ function send_scheduled_mail( $post_id ) {
 	$user   = get_userdata( $post->post_author );
 	$name   = xprofile_get_field_data( 1, $user->ID );
 
+	wp_update_post(
+		array(
+			'ID'          => $post->ID,
+			'post_status' => 'publish',
+		)
+	);
+
+	bp_activity_add(
+		array(
+			'action'       => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har skrivit en ny <a href="' . get_permalink( $post->ID ) . '">insändare</a>.',
+			'component'    => 'insandarmaskinen',
+			'type'         => 'new_insandare',
+			'primary_link' => get_permalink( $post->ID ),
+			'user_id'      => $user->ID,
+			'item_id'      => $post->ID,
+		)
+	);
+
 	foreach ( $papers as $paper ) {
 		$term    = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
 		$to      = get_term_meta( $term->term_id, 'email', true );
@@ -357,24 +375,6 @@ function send_scheduled_mail( $post_id ) {
 			$result_adm_warning = wp_mail( $to, $subject, $message, $headers );
 		}
 	}
-
-	wp_update_post(
-		array(
-			'ID'          => $post->ID,
-			'post_status' => 'publish',
-		)
-	);
-
-	bp_activity_add(
-		array(
-			'action'       => '<a href="' . bp_core_get_user_domain( $user->ID ) . '">' . $name . '</a> har skrivit en ny <a href="' . get_permalink( $post->ID ) . '">insändare</a>.',
-			'component'    => 'insandarmaskinen',
-			'type'         => 'new_insandare',
-			'primary_link' => get_permalink( $post->ID ),
-			'user_id'      => $user->ID,
-			'item_id'      => $post->ID,
-		)
-	);
 }
 add_action( 'send_scheduled_mail', 'send_scheduled_mail' );
 
