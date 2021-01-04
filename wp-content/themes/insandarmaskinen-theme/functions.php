@@ -354,8 +354,16 @@ function send_scheduled_mail( $post_id ) {
 			'item_id'      => $post->ID,
 		)
 	);
-
+	
+	$maillogtext = "";
+	$countdummy  = 0;
+	$countempty  = 0;
+	$countok     = 0;
+	$countfail   = 0;
+	$loopcount   = 0;
+	$starttime   = date("Y-m-d H:i:s");
 	foreach ( $papers as $paper ) {
+		$loopcount++;
 		$term    = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
 		$to      = get_term_meta( $term->term_id, 'email', true );
 		$contact = xprofile_get_field_data( 2, $post->post_author );
@@ -367,14 +375,34 @@ function send_scheduled_mail( $post_id ) {
 		$headers[] = 'From: ' . $name . ' <' . $user->user_email . '>';
 		$message   = apply_filters( 'the_content', $post->post_content ) . '<p>' . $from . '</p><p>' . nl2br( $contact ) . '</p>';
 
-		$result = wp_mail( $to, $subject, $message, $headers );
-		if ( false === $result ) {
-			$message            = "Insändarmaskinen failed to send subject: $subject, to: $to. This message:\n\n $message";
-			$subject            = "Mail fail: $to";
-			$to                 = 'christian.tengblad@gmail.com';
-			$result_adm_warning = wp_mail( $to, $subject, $message, $headers );
+		if($to == "")//empty address
+			$countempty++;
+		elseif($to == "rationellaproven@gmail.com")//dummy-address
+			$countdummy++;
+		else
+		{
+			$result = wp_mail( $to, $subject, $message, $headers );
+			if ( false === $result ) {
+				$countfail++;
+				$maillogtext .= "FAIL - subject: $subject, to: $to\n"; 
+				$message            = "Insändarmaskinen failed to send subject: $subject, to: $to. This message:\n\n $message";
+				$subject            = "Mail fail: $to";
+				$to                 = 'christian.tengblad@gmail.com';
+				$result_adm_warning = wp_mail( $to, $subject, $message, $headers );
+			}
+			else
+			{
+				$countok++;
+				$maillogtext .= "OK - subject: $subject, to: $to\n"; 
+			}
 		}
 	}
+	$endtime = date("Y-m-d H:i:s");
+	$seconds = strtotime($endtime) - strtotime($starttime);
+	$message = "Insändarmaskinen\n\n starttime: $starttime\n\n endtime: $endtime\n\n  seconds: $seconds\n\n  subject: $subject\n\n loopcount: $loopcount\n countok: $countok\n countfail: $countfail\n countempty: $countempty\n countdummy: $countdummy\n maillogtext: $maillogtext";
+	$subject            = "Maillog Insändarmaskinen";
+	$to                 = 'jens.rundberg@gmail.com';
+	$result_adm2 = wp_mail( $to, $subject, $message, $headers );
 }
 add_action( 'send_scheduled_mail', 'send_scheduled_mail' );
 
