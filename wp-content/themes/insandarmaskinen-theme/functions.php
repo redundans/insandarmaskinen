@@ -402,7 +402,9 @@ function send_scheduled_mail( $post_id ) {
 	$message = "Insändarmaskinen\n\n starttime: $starttime\n\n endtime: $endtime\n\n  seconds: $seconds\n\n  subject: $subject\n\n loopcount: $loopcount\n countok: $countok\n countfail: $countfail\n countempty: $countempty\n countdummy: $countdummy\n maillogtext: $maillogtext";
 	$subject            = "Maillog Insändarmaskinen";
 	$to                 = 'jens.rundberg@gmail.com';
-	$result_adm2 = wp_mail( $to, $subject, $message, $headers );
+	$headers            = array('Content-Type: text/html; charset=UTF-8',);
+	$headers[]          = 'From: Jens Rundberg <jens.rundberg@gmail.com>';
+	$result_adm2        = wp_mail( $to, $subject, $message, $headers );
 }
 add_action( 'send_scheduled_mail', 'send_scheduled_mail' );
 
