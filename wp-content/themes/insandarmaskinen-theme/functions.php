@@ -362,6 +362,17 @@ function send_scheduled_mail( $post_id ) {
 	$countfail   = 0;
 	$loopcount   = 0;
 	$starttime   = date("Y-m-d H:i:s");
+	
+	// Added by Jens.
+	$num_tosend         = count($papers);
+	$mailsubject        = $post->post_title;
+	$message            = "Insändarmaskinen\n\n starttime: $starttime\n\n Mail Subject: $mailsubject\n\nNumber of mails to send: $num_tosend";
+	$subject            = "Sending $num_tosend mails, starting - Insändarmaskinen";
+	$to                 = 'jens.rundberg@gmail.com';
+	$headers            = array('Content-Type: text/html; charset=UTF-8',);
+	$headers[]          = 'From: Jens Rundberg <jens.rundberg@gmail.com>';
+	$result_adm_mstart  = wp_mail( $to, $subject, $message, $headers );
+	
 	foreach ( $papers as $paper ) {
 		$loopcount++;
 		$term    = get_term_by( 'slug', $paper, 'tidningar', OBJECT );
